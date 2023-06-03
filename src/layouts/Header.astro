@@ -1,0 +1,22 @@
+---
+import LogoIcon from '../components/Icons/LogoIcon.astro';
+---
+
+<div class="mt-5 flex justify-center md:px-20">
+  <div class="flex w-full max-w-5xl items-center justify-between border-b-2 border-black/90 text-black/90 max-md:px-8">
+    <LogoIcon classes="md:w-[150px] w-[100px] py-10" />
+    <div class="flex gap-10 max-md:hidden">
+      <a href="/a-propos" class="hover:text-orange">À PROPOS</a>
+      <a href="/services" class="hover:text-orange">SERVICES</a>
+      <a href="/realisations" class="hover:text-orange">RÉALISATIONS</a>
+      <a href="/contact" class="hover:text-orange">CONTACT</a>
+    </div>
+    <div class="cursor-pointer hover:text-orange md:hidden">
+      <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 18L20 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        <path d="M4 12L20 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        <path d="M4 6L20 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+      </svg>
+    </div>
+  </div>
+</div>

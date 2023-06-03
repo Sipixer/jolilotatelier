@@ -1,0 +1,66 @@
+---
+import { Image } from '@astrojs/image/components';
+import Photo from '../assets/Photo.webp';
+---
+
+<div class="relative flex h-[500px] items-center justify-center overflow-x-hidden text-background">
+  <Image src={Photo} alt="Photo de fond(un pot de fleur avec de la decoration)" class="h-full w-full object-cover" />
+  <div class="absolute h-full w-full bg-black/70" id="progress-number-trigger"></div>
+  <div class="absolute top-1/2 w-full translate-y-1/2 md:left-[15%]">
+    <div class="flex items-end gap-14">
+      <p class="sm:whitespace-nowrap">
+        <span class="font-larken text-3xl text-orange">+30 ACTEURS</span> accompagnés depuis 2022
+      </p>
+      <div class="flex w-full justify-end pb-3">
+        <div class="progress-number relative bg-white">
+          <div
+            class="absolute bottom-0 left-0 h-4 w-4 -translate-x-full translate-y-1/2 overflow-hidden rounded-full border border-white"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .progress-number {
+    width: 0%;
+    height: 1px;
+  }
+  .progress-number.animate {
+    animation: progress-number 2s ease-in-out forwards;
+  }
+  @keyframes progress-number {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Fonction de rappel pour l'intersection
+  function handleIntersection(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const progressNumber = document.querySelector('.progress-number');
+        if (progressNumber) progressNumber.classList.add('animate');
+        observer.unobserve(entry.target);
+      }
+    });
+  }
+
+  // Créer l'instance de l'observateur
+  const observer = new IntersectionObserver(handleIntersection);
+
+  // Sélectionner l'élément cible
+  const element = document.querySelector('#progress-number-trigger');
+
+  // Observer l'élément cible
+  if (element) {
+    observer.observe(element);
+  }
+</script>

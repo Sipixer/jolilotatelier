@@ -1,0 +1,27 @@
+---
+import { Image } from '@astrojs/image/components';
+import Photo from '../assets/Photo.webp';
+import LogoWithProgressBar from './subcomponents/LogoWithProgressBar.astro';
+---
+
+<div class="grid grid-cols-1 gap-y-20 md:grid-cols-12">
+  <Image
+    src={Photo}
+    alt="Photo de presentation du site (un pot de fleur avec de la decoration)"
+    class="col-span-5 h-[500px] object-cover"
+  />
+  <div class="col-span-7 flex w-full flex-col gap-12 self-end pl-20 md:pl-32">
+    <LogoWithProgressBar />
+    <div class="mr-20 flex flex-col gap-6 text-justify md:max-w-lg">
+      <p>
+        Située à Alvignac, l’atelier jolilot est une agence de communication qui vous accompagne et vous propose des
+        services adaptés à vos besoins.
+      </p>
+      <p>
+        Grâce à des supports de communication professionnels, l’agence saura vous aider à transmettre vos valeurs et
+        mettre en avant vos produits et services.
+      </p>
+      <p>Donnons à votre activité, la meilleure visibilité qu’il soit !</p>
+    </div>
+  </div>
+</div>

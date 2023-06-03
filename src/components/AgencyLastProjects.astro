@@ -1,0 +1,49 @@
+---
+import SubTitle from './subcomponents/SubTitle.astro';
+
+import Photo from '../assets/Photo.webp';
+import LastProject from './subcomponents/LastProject.astro';
+import Button from './subcomponents/Button.astro';
+
+const projects = [
+  {
+    title: 'Une nouvelle identité pour JAAK photographie',
+    description:
+      'JAAK photographie est un photographe professionnel qui a fait appel à mes services pour la création de son identité visuelle. Il souhaitait un logo qui lui ressemble et qui soit en accord avec son univers. Il souhaitait également un site internet pour présenter son travail et ses services.',
+    image: Photo,
+  },
+  {
+    title: 'L’ accompagnement sur-mesure du Parc Animalier de Gramat',
+    description:
+      'Le Parc Animalier de Gramat est un parc zoologique situé dans le Lot. Il a fait appel à mes services pour la création de son identité visuelle. Il souhaitait un logo qui lui ressemble et qui soit en accord avec son univers. Il souhaitait également un site internet pour présenter son travail et ses services.',
+    image: Photo,
+  },
+  {
+    title: 'Un tout nouveau site pour l’artiste Walter Dolphyn',
+    description:
+      'Walter Dolphyn est un artiste peintre qui a fait appel à mes services pour la création de son identité visuelle. Il souhaitait un logo qui lui ressemble et qui soit en accord avec son univers. Il souhaitait également un site internet pour présenter son travail et ses services.',
+    image: Photo,
+  },
+];
+---
+
+<div class="mb-32">
+  <SubTitle title="les dernières réalisations chez jolilot" />
+  <div class="relative flex w-full flex-col items-center">
+    <div class="mb-20 grid max-w-[1800px] grid-cols-1 gap-x-36 gap-y-24 px-20 min-[900px]:grid-cols-3">
+      <div class="mt-12">
+        <LastProject title={projects[0].title} description={projects[0].description} image={projects[0].image} />
+      </div>
+      <div class="mt-24">
+        <LastProject title={projects[1].title} description={projects[1].description} image={projects[1].image} />
+      </div>
+
+      <div>
+        <LastProject title={projects[2].title} description={projects[2].description} image={projects[2].image} />
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <Button text="découvrir plus de réalisations" url="" />
+  </div>
+</div>

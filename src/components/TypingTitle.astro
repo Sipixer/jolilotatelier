@@ -1,0 +1,80 @@
+<div class="flex h-72 w-full items-center justify-center">
+  <p class="larken text-4xl">
+    <span class="typed-text"></span><span class="cursor blink">&nbsp;</span>
+  </p>
+</div>
+
+<script>
+  const typedText = document.querySelector('.typed-text');
+  const cursor = document.querySelector('.cursor');
+
+  const textArray = ['votre agence créative'];
+
+  let textArrayIndex = 0;
+  let charIndex = 0;
+
+  const erase = () => {
+    if (!(cursor && typedText)) return;
+    if (charIndex > 0) {
+      cursor.classList.remove('blink');
+      typedText.textContent = textArray[textArrayIndex].slice(0, charIndex - 1);
+      charIndex--;
+      setTimeout(erase, 80);
+    } else {
+      cursor.classList.add('blink');
+      textArrayIndex++;
+      if (textArrayIndex > textArray.length - 1) {
+        textArrayIndex = 0;
+      }
+      setTimeout(type, 1000);
+    }
+  };
+
+  const type = () => {
+    if (!(cursor && typedText)) return;
+    if (charIndex <= textArray[textArrayIndex].length - 1) {
+      cursor.classList.remove('blink');
+      typedText.textContent += textArray[textArrayIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, 120);
+    } else {
+      cursor.classList.add('blink');
+      setTimeout(erase, 1000);
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    type();
+  });
+</script>
+
+<style>
+  .cursor {
+    display: inline-block;
+    width: 3px;
+    margin-left: 2px;
+    background: currentColor;
+  }
+
+  .cursor.blink {
+    animation: blink 0.8s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      background: currentColor;
+    }
+    40%,
+    50% {
+      background: transparent;
+    }
+  }
+  .larken {
+    font-family: 'larken', sans-serif;
+
+    font-weight: 400;
+
+    font-style: normal;
+  }
+</style>

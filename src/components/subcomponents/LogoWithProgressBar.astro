@@ -1,0 +1,56 @@
+---
+import LogoIcon from '../Icons/LogoIcon.astro';
+---
+
+<div class="flex items-end gap-12">
+  <LogoIcon classes="w-[150px] min-w-[150px] " />
+  <div class="flex w-full justify-end pb-3">
+    <div class="progress relative bg-black/90">
+      <div
+        class="absolute left-0 top-1/2 h-4 w-4 -translate-x-full -translate-y-1/2 overflow-hidden rounded-full border border-black"
+      >
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .progress {
+    width: 0%;
+    height: 1px;
+  }
+  .progress.animate {
+    animation: progress 2s ease-in-out forwards;
+  }
+  @keyframes progress {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Fonction de rappel pour l'intersection
+  function handleIntersection(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target);
+      }
+    });
+  }
+
+  // Créer l'instance de l'observateur
+  const observer = new IntersectionObserver(handleIntersection);
+
+  // Sélectionner l'élément cible
+  const element = document.querySelector('.progress');
+
+  // Observer l'élément cible
+  if (element) {
+    observer.observe(element);
+  }
+</script>
