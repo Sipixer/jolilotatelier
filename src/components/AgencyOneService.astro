@@ -25,7 +25,7 @@ const { oneService } = Astro.props;
     <SubTitle title="des services, rien que pour vous !" />
     <div class="relative flex w-full flex-col items-center">
         <div class="mb-20 grid w-full max-w-[1800px] grid-cols-1 gap-y-24 px-20 md:grid-cols-2 xl:grid-cols-3">
-            <div class="flex gap-6 text-black/90 md:border-r-2 border-black md:pr-12">
+            <div class="flex gap-6 text-black/90 md:border-r border-black md:pr-12">
                 <div class="flex flex-col gap-3 font-larken">
                     <p class="text-6xl" style={`color: ${oneService.color};`}>{oneService.number}</p>
                     <p class="text-xl" style={`color: ${oneService.color};`}>{oneService.title}</p>
@@ -56,21 +56,27 @@ const { oneService } = Astro.props;
 </div>
 
 <style>
-    @media (min-width: 1280px) {
-        .benefits-item:nth-child(3n + 1) {
-            padding-left: 0rem;
-        }
+    .benefits-item {
+        padding-right: 3rem;
+        padding-left: 3rem;
     }
-    @media (min-width: 768px) {
-        .benefits-item:nth-child(2n + 1) {
-            padding-left: 0rem;
-        }
+
+    @media (max-width: 768px) {
         .benefits-item {
-            padding-left: 3rem;
+            padding-right: 1rem;
+            padding-left: 0;
         }
     }
 
-    .benefits-item {
-        padding-right: 3rem;
+    @media (max-width: 1280px) {
+        .benefits-item:nth-child(2n + 1) {
+            padding-left: 0;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .benefits-item:nth-child(3n + 1) {
+            padding-left: 0;
+        }
     }
 </style>

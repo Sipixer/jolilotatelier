@@ -91,6 +91,7 @@ const services: Service[] = [
   //color first text in orange and then the others in white then after 1s, color the first in white and the second in orange and so on
   let i = 0;
   setInterval(() => {
+    if (!textOrange[i]) return;
     textOrange[i].classList.remove('text-orange');
     i++;
     if (i === textOrange.length) {
