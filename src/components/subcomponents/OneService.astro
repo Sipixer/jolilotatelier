@@ -5,13 +5,15 @@ export type Service = {
   number: string;
   title: string;
   subtitle: string;
-  description: string;
+  description: string[];
   buttonText?: string;
   buttonLink: string;
   color?: string;
+  textColor?: string;
+  isButton?: boolean;
 };
 export type Props = Service;
-const { number, title, subtitle, description, buttonText, buttonLink, color } = Astro.props;
+const { number, title, subtitle, description, buttonText, buttonLink, color, textColor, isButton } = Astro.props;
 ---
 
 <div class="flex gap-6 text-black/90">
@@ -25,11 +27,11 @@ const { number, title, subtitle, description, buttonText, buttonLink, color } = 
   <div class="flex flex-col gap-3 font-larken">
     <p class="text-6xl" style={`color: ${color};`}>{number}</p>
     <p style={`color: ${color};`}>{title}</p>
-    <p class="font-poppins text-xs font-normal italic text-subtitlecard">{subtitle}</p>
-    <p class="font-poppins text-sm">
-      {description}
-    </p>
-    <Button url={buttonLink} color={color} text={buttonText ? buttonText : "c'est ce qu'il me faut"} />
+    <p class="font-poppins text-xs font-normal italic text-subtitlecard" style={`color: ${textColor};`}>{subtitle}</p>
+    <div class="flex flex-col gap-3" style={`color: ${textColor};`}>
+      {description.map((item) => <p class="font-poppins text-sm">{item}</p>)}
+    </div>
+    {isButton && <Button url={buttonLink} color={color} text={buttonText ? buttonText : "c'est ce qu'il me faut"} />}
   </div>
 </div>
 

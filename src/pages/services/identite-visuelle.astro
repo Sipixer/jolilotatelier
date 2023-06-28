@@ -1,0 +1,63 @@
+---
+import AgencyPresentation, { PresentationProps } from '../../components/AgencyPresentation.astro';
+
+import TypingTitle from '../../components/TypingTitle.astro';
+import Layout from '../../layouts/Layout.astro';
+import Photo from '../../assets/Photo.webp';
+import AgencySteps from '../../components/AgencySteps.astro';
+import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
+import AgencyContactForm from '../../components/AgencyContactForm.astro';
+
+const color = '#97ada0';
+const presentation: PresentationProps = {
+    photo: Photo,
+    color: color,
+    title: 'IDENTITÉ DE MARQUE',
+    alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
+    description: [
+        'L’identité de marque sera l’assise de votre stratégie de communication.',
+        'Elle aura pour objectif de transmettre à travers l’esthetisme et la cohérence des éléments créés, vos valeurs et votre identité.',
+        'Une identité visuelle alignée vous permettra de de créer un impact auprès de votre cible.',
+    ],
+};
+
+const oneService: OneService = {
+    color: color,
+    number: '03',
+    title: 'IDENTITÉ DE MARQUE',
+    subtitle: 'une idéntité qui vous ressemble...',
+    description: ['logo vectoriel | charte graphique refonte identité visuelle'],
+    benefits: [
+        {
+            title: 'CRÉATION IDENTITÉ VISUELLE',
+            description: [
+                'Étant l’assise de votre communication, une identité visuelle se doit d’étre construire et rechercher. Pour refléter votre savoir-faire et vos valeurs, il est important que cet outil soit créatif, et unique. C’est par cette démarche que la différenciation se fera.',
+            ],
+        },
+        {
+            title: 'REFONTE IDENTITÉ VISUELLE',
+            description: [
+                'Vous possédez déjà une identité visuelle, mais vous souhiatez vous démarquer par de la nouveauté pour atteindre vos nouveaux objectifs ?',
+                'Jolilot réalisé la refonte de votre identité visuelle dans un axe créatif et statégique.',
+            ],
+        },
+        {
+            title: 'CRÉATION & REFONTE LOGOTYPE',
+            description: [
+                'Vous souhaitez réaliser un logotype pour représenter votre domaine d’activité et l’utiliser sur des outils de communication bien précis.',
+                'L’Agence vous accompagne dans la création de celui-ci ou la refonte si vous en possédez dejà un.',
+            ],
+        },
+    ],
+};
+---
+
+<Layout>
+    <main>
+        <TypingTitle />
+        <AgencyPresentation {...presentation} />
+        <AgencyOneService oneService={oneService} />
+        <AgencySteps bgColor={color} textColor="#4a4a49" lastItemColor="#fff" />
+        <AgencyContactForm />
+    </main>
+</Layout>

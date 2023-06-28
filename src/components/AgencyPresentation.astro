@@ -1,27 +1,36 @@
 ---
 import { Image } from '@astrojs/image/components';
-import Photo from '../assets/Photo.webp';
+
 import LogoWithProgressBar from './subcomponents/LogoWithProgressBar.astro';
+import Button from './subcomponents/Button.astro';
+
+export type Props = PresentationProps;
+
+export type PresentationProps = {
+  photo: ImageMetadata;
+  alt: string;
+  description: string[];
+  title?: string;
+  color?: string;
+  buttons?: {
+    text: string;
+    url: string;
+    variant: 'orange' | 'dark' | 'light';
+  }[];
+};
+const presentation = Astro.props;
 ---
 
 <div class="grid grid-cols-1 gap-y-20 md:grid-cols-12">
-  <Image
-    src={Photo}
-    alt="Photo de presentation du site (un pot de fleur avec de la decoration)"
-    class="col-span-5 h-[500px] object-cover"
-  />
+  <Image src={presentation.photo} alt={presentation.alt} class="col-span-5 h-[500px] object-cover" />
   <div class="col-span-7 flex w-full flex-col gap-12 self-end pl-20 md:pl-32">
-    <LogoWithProgressBar />
+    <LogoWithProgressBar color={presentation.color} />
+    {presentation.title && <p class="font-larken text-3xl">{presentation.title}</p>}
     <div class="mr-20 flex flex-col gap-6 text-justify md:max-w-lg">
-      <p>
-        Située à Alvignac, l’atelier jolilot est une agence de communication qui vous accompagne et vous propose des
-        services adaptés à vos besoins.
-      </p>
-      <p>
-        Grâce à des supports de communication professionnels, l’agence saura vous aider à transmettre vos valeurs et
-        mettre en avant vos produits et services.
-      </p>
-      <p>Donnons à votre activité, la meilleure visibilité qu’il soit !</p>
+      {presentation.description.map((paragraph) => <p>{paragraph}</p>)}
+      <div class="flex gap-10 flex-wrap">
+        {presentation.buttons?.map((button) => <Button text={button.text} url={button.url} variant={button.variant} />)}
+      </div>
     </div>
   </div>
 </div>

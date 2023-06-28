@@ -1,0 +1,72 @@
+---
+import AgencyPresentation, { PresentationProps } from '../../components/AgencyPresentation.astro';
+
+import TypingTitle from '../../components/TypingTitle.astro';
+import Layout from '../../layouts/Layout.astro';
+import Photo from '../../assets/Photo.webp';
+import AgencySteps from '../../components/AgencySteps.astro';
+import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
+import AgencyContactForm from '../../components/AgencyContactForm.astro';
+
+const color = '#9cb6be';
+const presentation: PresentationProps = {
+    photo: Photo,
+    color: color,
+    title: 'SUPPORTS IMPRIMÉS',
+    alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
+    description: [
+        'Les supports imprimés ont pour rôle d’attirer l’attention des personnes ciblées.',
+        'En fonction de votre activité, de vos besoins, et de vos objectifs, les supports print sont à choisir avec intéret et stratégie.',
+        'En passant par l’univers de la papeterie, de la signalétique, du packaging mais aussi tout type de marquage, Jolilot vous accompagnera dans le choix et la conception de ces outils.',
+    ],
+};
+
+const oneService: OneService = {
+    color: color,
+    number: '01',
+    title: 'SUPPORTS IMPRIMÉS',
+    subtitle: 'des supports imprimés...',
+    description: [
+        'papeterie | étiquettes | packaging | enseigne | signalétique | marquage vehicule & vitrine | documents professionnels | goodies',
+    ],
+    benefits: [
+        {
+            title: 'UNIVERS PAPETERIE',
+            description: [
+                'En passant par les cartes de visite, les dépliants, les brochures, les affiches, les cartes de vœux ou autre, l’Agence vous accompagnera pour donner vie à vos idées, vos produits et services, à travers ces différents outils de communication.',
+            ],
+        },
+        {
+            title: 'SIGNALÉTIQUE / ENSEIGNE',
+            description: [
+                'En fonction de vos besoins, Jolilot vous aidera à donner de la nouveauté à votre signalétique ou votre enseigne.',
+            ],
+        },
+        {
+            title: 'MARQUAGE VITRINE / VEHICULE',
+            description: [
+                'Suivant la nature de votre activité, le marquage de votre vitrine ou celui de votre véhicule peutêtre indispensable dans votre communication.',
+                'C’est pourquoi Jolilot vous propose ce service afin d’adapté au mieux votre projet',
+            ],
+        },
+        {
+            title: 'ETIQUETTE / PACKAGING',
+            description: [
+                'Un bon packaging se doit d’être travaillé et attrayant.',
+
+                'Il doit refléter votre identité, vos valeurs, et vous aider à mettre en avant vos produits.',
+            ],
+        },
+    ],
+};
+---
+
+<Layout>
+    <main>
+        <TypingTitle />
+        <AgencyPresentation {...presentation} />
+        <AgencyOneService oneService={oneService} />
+        <AgencySteps bgColor={color} textColor="#4a4a49" lastItemColor="#fff" />
+        <AgencyContactForm />
+    </main>
+</Layout>

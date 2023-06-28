@@ -1,0 +1,71 @@
+---
+import AgencyPresentation, { PresentationProps } from '../../components/AgencyPresentation.astro';
+
+import TypingTitle from '../../components/TypingTitle.astro';
+import Layout from '../../layouts/Layout.astro';
+import Photo from '../../assets/Photo.webp';
+import AgencySteps from '../../components/AgencySteps.astro';
+import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
+import AgencyContactForm from '../../components/AgencyContactForm.astro';
+
+const color = '#b4b585';
+const presentation: PresentationProps = {
+    photo: Photo,
+    color: color,
+    title: 'SUPPORT WEB',
+    alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
+    description: [
+        'Besoin de donner de la visibilité à votre activité, maintenir le lien avec vos clients, mais égelement vous faire connaître auprès d’un public plus large ?',
+        'La digitalisation de votre communication sera essentielle pour atteindre ces différents objectifs.',
+        'Un site internet vitrine permettra à vos clients ou futurs propects d’en découvrir un peu plus sur vos produits et services à travers un outil dynamique et ergonomique.',
+    ],
+};
+
+const oneService: OneService = {
+    color: color,
+    number: '02',
+    title: 'SUPPORT WEB',
+    subtitle: 'des sites internets vitrine...',
+    description: ['site internet vitrine | refonte site internet | mise à jour | maintenance'],
+    benefits: [
+        {
+            title: 'CRÉATION DE SITE VITRINE',
+            description: [
+                'L’agence vous accompagne dans la création de votre site internet vitrine.',
+                'Tous les sites réalisés chez Jolilot sont entièrement responsive, ergonomiques et sauront répondre au meilleur référencement naturel SEO.',
+            ],
+        },
+        {
+            title: 'REFONTE DE SITE VITRINE',
+            description: [
+                'Vous possédez déjà un site internet et vous souhaitez le faire évoluer pour le rendre plus attractif ?',
+                'Jolilot vous accompagne dans sa refonte.',
+                'Les meilleurs solutions pour rendre votre site le plus efficace, performant et sécurisé, vous seront proposées',
+            ],
+        },
+        {
+            title: 'MAINTENANCE SITE VITRINE',
+            description: [
+                'La maintenance d’un site internet n’est pas à négliger',
+                'Une fois votre site réalisé, L’Agence vous proposera une maintenance de plusieurs mois pour maintenir votre site à jour.',
+            ],
+        },
+        {
+            title: 'MISE À JOUR DE SITE VITRINE',
+            description: [
+                'En fonction de vos besoins , l’Agence réalise les mises à jours de site internet vitrine, graphiquement et/ou techniquement.',
+            ],
+        },
+    ],
+};
+---
+
+<Layout>
+    <main>
+        <TypingTitle />
+        <AgencyPresentation {...presentation} />
+        <AgencyOneService oneService={oneService} />
+        <AgencySteps bgColor={color} textColor="#4a4a49" lastItemColor="#fff" />
+        <AgencyContactForm />
+    </main>
+</Layout>

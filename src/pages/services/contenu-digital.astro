@@ -1,0 +1,57 @@
+---
+import AgencyPresentation, { PresentationProps } from '../../components/AgencyPresentation.astro';
+
+import TypingTitle from '../../components/TypingTitle.astro';
+import Layout from '../../layouts/Layout.astro';
+import Photo from '../../assets/Photo.webp';
+import AgencySteps from '../../components/AgencySteps.astro';
+import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
+import AgencyContactForm from '../../components/AgencyContactForm.astro';
+
+const color = '#9b97a9';
+const presentation: PresentationProps = {
+    photo: Photo,
+    color: color,
+    title: 'CONTENU DIGITAL',
+    alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
+    description: [
+        'En fonction de vos besoins et de votre projet, l’Agence adaptera au mieux son accompagnement.',
+        'Il est très important de posséder des élements qualitatifs pour ces outils de communication.',
+        'C’est pourquoi Jolilot vous propose la réalisation de photos ou vidéos afin de dynamiser au mieux vos supports imprimés et/ou numériques.',
+    ],
+};
+
+const oneService: OneService = {
+    color: color,
+    number: '04',
+    title: 'CONTENU DIGITAL',
+    subtitle: 'des photos, vidéos, visuels...',
+    description: ['shooting photos | montage vidéo création de visuels réseaux sociaux'],
+    benefits: [
+        {
+            title: 'SHOOTING PHOTO',
+            description: [
+                'Afin d’optimiser au mieux les contenus de vos outils de communication, Jolilot vous propose d’intervenir sur place pour la réalisation de shooting photo de vos produits et/ou services.',
+                'Une sélection de photos sera réalisée et sera préparée en cohérence avec votre projet.',
+            ],
+        },
+        {
+            title: 'MONTAGE VIDEO',
+            description: [
+                'La vidéo est aujourd’hui un outil exigé et reconnu dans une stratégie de communication pour dynamiser vos supports.',
+                'L’Agence réalise également vos montages vidéo.',
+            ],
+        },
+    ],
+};
+---
+
+<Layout>
+    <main>
+        <TypingTitle />
+        <AgencyPresentation {...presentation} />
+        <AgencyOneService oneService={oneService} />
+        <AgencySteps bgColor={color} textColor="#4a4a49" lastItemColor="#fff" />
+        <AgencyContactForm />
+    </main>
+</Layout>

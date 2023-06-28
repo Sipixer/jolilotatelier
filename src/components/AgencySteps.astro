@@ -1,0 +1,101 @@
+---
+import OneService, { Service } from './subcomponents/OneService.astro';
+import SubTitle from './subcomponents/SubTitle.astro';
+
+export type Props = {
+  bgColor?: string;
+  textColor?: string;
+  lastItemColor?: string;
+};
+const { bgColor, textColor, lastItemColor } = Astro.props;
+const services: Service[] = [
+  {
+    title: 'ÉCHANGE / DEVIS',
+    buttonLink: '/services/supports-imprimes',
+    description: [
+      `Suite à un premier échange par téléphone, 
+      à l’agence ou sur le lieu de votre activité, 
+      pour en connaître un peu plus sur vos besoins,
+       vos intentions et/ou vos idées, 
+       Jolilot s’engace à vous retourner
+        sous 48H une proposition entièrement adaptée et personnalisée.`,
+    ],
+    number: '01',
+    subtitle: 'nous nous rencontrons...',
+    textColor: textColor || '#fff',
+    color: textColor || '#fff',
+  },
+  {
+    title: 'AXE DE CRÉATION',
+    buttonLink: '/services/supports-imprimes',
+    description: [
+      'Nous débuterons par approfondir les objectifs de votre projet afin d’obtenir d’un axe pertinent et concret',
+      'En découlera, notre échange sur l’axe de création : sur lequel l’agence devra s’appuyer pour la suite des étapes créatives.',
+    ],
+    number: '02',
+    subtitle: 'nous analysons vos besoins...',
+    textColor: textColor || '#fff',
+    color: textColor || '#fff',
+  },
+  {
+    title: 'CRÉATION / PRÉSENTATION',
+    buttonLink: '/services/supports-imprimes',
+    description: [
+      'La ou les propositions retenues sur toutes les recherches effectuées par l’Agence vous sera/ont présentés(s)',
+      'En fonction de votre retour, la proposition que vous aurez choisie pourra être affinée.',
+    ],
+    number: '03',
+    subtitle: 'nous affinons les créations...',
+    textColor: textColor || '#fff',
+    color: textColor || '#fff',
+  },
+  {
+    title: 'LANCEMENT / SUIVI',
+    buttonLink: '/services/supports-imprimes',
+    description: [
+      'Une fois le projet de création validé et clôturé, nous procéderons à son lancement.',
+      'En fonction de votre projet, Jolilot vous propose une formation personnalisée vous permettant d’être en confiance avec vos nouveaux outils de communication',
+    ],
+    number: '04',
+    subtitle: 'et hop ! nous lançons...',
+    color: lastItemColor || '#cc9f5c',
+    textColor: lastItemColor || '#cc9f5c',
+  },
+];
+---
+
+<div
+  class="bg-marron_fonce text-white py-10"
+  style={{
+    backgroundColor: bgColor,
+    color: textColor,
+  }}
+>
+  <SubTitle title="jolilot c’est aussi simple que ça !" />
+  <div class="relative flex w-full flex-col items-center">
+    <div class="mb-20 grid w-full max-w-[1800px] grid-cols-1 gap-x-16 gap-y-24 px-20 md:grid-cols-2 xl:grid-cols-4">
+      {services.map((service) => <OneService {...service} />)}
+    </div>
+  </div>
+</div>
+
+<style>
+  .text-orange {
+    color: #cc9f5c;
+  }
+</style>
+
+<script>
+  const textOrange = document.querySelectorAll('#text-orange');
+
+  //color first text in orange and then the others in white then after 1s, color the first in white and the second in orange and so on
+  let i = 0;
+  setInterval(() => {
+    textOrange[i].classList.remove('text-orange');
+    i++;
+    if (i === textOrange.length) {
+      i = 0;
+    }
+    textOrange[i].classList.add('text-orange');
+  }, 1000);
+</script>

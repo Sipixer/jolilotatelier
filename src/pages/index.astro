@@ -5,12 +5,25 @@ import AgencyPresentation from '../components/AgencyPresentation.astro';
 import AgencyServices from '../components/AgencyServices.astro';
 import TypingTitle from '../components/TypingTitle.astro';
 import Layout from '../layouts/Layout.astro';
+
+import Photo from '../assets/Photo.webp';
+import type { Props } from '../components/AgencyPresentation.astro';
+
+const presentation: Props = {
+  photo: Photo,
+  alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
+  description: [
+    'Située à Alvignac, l’atelier jolilot est une agence de communication qui vous accompagne et vous propose des services adaptés à vos besoins.',
+    'Grâce à des supports de communication professionnels, l’agence saura vous aider à transmettre vos valeurs et mettre en avant vos produits et services.',
+    'Donnons à votre activité, la meilleure visibilité qu’il soit !',
+  ],
+};
 ---
 
 <Layout>
   <main>
     <TypingTitle />
-    <AgencyPresentation />
+    <AgencyPresentation {...presentation} />
     <AgencyServices />
     <AgencyClientsNumber />
     <AgencyLastProjects />

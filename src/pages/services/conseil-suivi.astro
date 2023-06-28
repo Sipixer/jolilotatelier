@@ -1,0 +1,54 @@
+---
+import AgencyPresentation, { PresentationProps } from '../../components/AgencyPresentation.astro';
+
+import TypingTitle from '../../components/TypingTitle.astro';
+import Layout from '../../layouts/Layout.astro';
+import Photo from '../../assets/Photo.webp';
+import AgencySteps from '../../components/AgencySteps.astro';
+import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
+import AgencyContactForm from '../../components/AgencyContactForm.astro';
+
+const color = '#dcbf7e';
+const presentation: PresentationProps = {
+    photo: Photo,
+    color: color,
+    title: 'CONSEIL & SUIVI',
+    alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
+    description: [
+        'Un accompagnement exclusif passe avant tout par le conseil. Lors de nos premiers échanges, nous aborderons les démarches à suivre pour votre futur projet de communication. l’Agence vous aiguillera vers la stratégie la plus adpatée pour atteindre vos objectifs.',
+        'Lorsqu’un projet de communication est lancé, l’importance du suivi sera primordiale pour sa durabilité.',
+    ],
+};
+
+const oneService: OneService = {
+    color: color,
+    number: '05',
+    title: 'CONSEIL & SUIVI',
+    subtitle: 'une stratégie efficace...',
+    description: ['gestion de projet | suivi personnalisé | formation'],
+    benefits: [
+        {
+            title: 'CONSEILS ADAPTÉS',
+            description: [
+                'Lors de nos échanges, l’Agence vous accompagnera pour définir un plan pertinent afin de donner de la visibilité à votre activité. Elle vous guidera dans des choix adaptés pour atteindre vos objectifs.',
+            ],
+        },
+        {
+            title: 'SUIVI PERSONNALISÉ',
+            description: [
+                'Un projet de communication construit se doit d’être suivi. C’est pourquoi Jolilot se rendra disponible pour réaliser le suivi de votre projet vous permettant de garder une communication des plus efficaces.',
+            ],
+        },
+    ],
+};
+---
+
+<Layout>
+    <main>
+        <TypingTitle />
+        <AgencyPresentation {...presentation} />
+        <AgencyOneService oneService={oneService} />
+        <AgencySteps bgColor={color} textColor="#4a4a49" lastItemColor="#fff" />
+        <AgencyContactForm />
+    </main>
+</Layout>

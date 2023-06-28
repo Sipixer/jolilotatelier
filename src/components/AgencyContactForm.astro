@@ -1,0 +1,192 @@
+---
+import Input from './subcomponents/Input.astro';
+---
+
+<div id="contact-form" class="grid grid-cols-1 gap-y-20 md:grid-cols-12 py-56">
+    <div class="col-span-5 w-full flex justify-end">
+        <div class="flex gap-10 md:max-w-xl md:pl-20 px-10">
+            <div class="progress-vertical-contact relative mt-4 bg-black/90">
+                <div
+                    class="absolute bottom-0 left-1/2 h-4 w-4 -translate-x-1/2 translate-y-full overflow-hidden rounded-full border border-black"
+                >
+                </div>
+            </div>
+            <div class="flex flex-col gap-24">
+                <div class="flex flex-col gap-10 text-justify">
+                    <p class="font-larken text-3xl">DEMANDE D’INFORMATIONS</p>
+                    <div class="flex flex-col gap-5">
+                        <p>
+                            Vous souhaitez établir un devis, prendre un rendez-vous ou simplement échanger sur un projet
+                            ?N’hésitez pas à remplir le formulaire de contact ci-dessous. <br /> L’Agence vous recontactera
+                            sous moins de 48h.
+                        </p>
+                        <p>Au plaisir d’échanger avec vous !</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-10">
+                    <p class="font-larken text-3xl">HORAIRES & ADRESSE</p>
+                    <div class="flex flex-col gap-5 text-justify">
+                        <p>Du lundi au vendredi <br /> 9:00 - 12:00 | 14:00 - 18:30</p>
+                        <p>148 Grand Rue<br />46500 ALVIGNAC, LOT (46)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-7 flex w-full flex-col gap-12 px-10 md:pl-32">
+        <form class="w-full max-w-lg flex flex-col gap-12 select-none" id="form">
+            <div class="flex flex-col gap-6">
+                <Input label="Nom" required placeholder="Nom (obligatoire)" type="text" />
+                <Input
+                    label="Adresse e-mail de contact"
+                    required
+                    placeholder="Adresse mail (obligatoire)"
+                    type="email"
+                />
+                <Input
+                    label="Nom de votre entreprise / marque / projet"
+                    required
+                    placeholder="Nom entreprise / marque / projet (obligatoire)"
+                    type="text"
+                />
+                <Input label="Motif de votre demande" required placeholder="Motif (obligatoire)" type="text" />
+                <div class="flex flex-col gap-2">
+                    <p class="font-medium">Souhaitez-vous organiser un rencontre ?</p>
+                    <div class="flex gap-6">
+                        <div class="square-radio">
+                            <input type="radio" id="phone" name="rencontre" value="phone" />
+                            <label for="phone"></label>
+                            <span>Oui, par téléphone</span>
+                        </div>
+
+                        <div class="square-radio">
+                            <input type="radio" id="agency" name="rencontre" value="agency" class="bg-inherit" />
+                            <label for="agency"></label>
+                            <span>Oui, à l’agence</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="square-checkbox">
+                    <input type="checkbox" id="data_privacy" name="data_privacy" value="data_privacy" />
+                    <label for="data_privacy"></label>
+                    <span>J’accepte que mes données soient enregistrées.</span>
+                </div>
+            </div>
+
+            <div class="self-end">
+                <button
+                    class="mt-2 w-fit border border-black/20 px-8 py-2 font-poppins text-sm text-black/60 transition ease-in-out bg-marron_fonce hover:bg-orange text-white"
+                >
+                    ENVOYER
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .square-radio input[type='radio'] {
+        display: none;
+    }
+
+    .square-radio {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .square-radio label {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        border: 1px solid #9c8d7a;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+
+    .square-radio input[type='radio']:checked + label {
+        background-color: #cc9f5c;
+        border: 1px solid #cc9f5c;
+    }
+
+    .square-checkbox input[type='checkbox'] {
+        display: none;
+    }
+
+    .square-checkbox label {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-color: inherit;
+        border: 1px solid #9c8d7a;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    .square-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .square-checkbox input[type='checkbox']:checked + label {
+        background-color: #cc9f5c;
+        border: 1px solid #cc9f5c;
+    }
+</style>
+
+<script>
+    document.getElementById('form')?.addEventListener('submit', handelSubmit);
+    function handelSubmit(e: SubmitEvent) {
+        e.preventDefault();
+        const data = new FormData(e.target as HTMLFormElement);
+        //check if data_privacy is checked
+        if (!data.get('data_privacy')) {
+            alert("Merci d'accepter que vos données soient enregistrées.");
+            return;
+        }
+        alert('Systeme de mail en cours de développement, merci de votre compréhension.');
+    }
+</script>
+
+<style>
+    .progress-vertical-contact {
+        width: 1px;
+        height: 0px;
+    }
+    .progress-vertical-contact {
+        animation: progress-vertical-contact 2s ease-in-out forwards;
+    }
+    @keyframes progress-vertical-contact {
+        0% {
+            height: 0px;
+        }
+        100% {
+            height: 120px;
+        }
+    }
+</style>
+<script>
+    // Fonction de rappel pour l'intersection
+    function handleIntersection(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }
+
+    // Créer l'instance de l'observateur
+    const observer = new IntersectionObserver(handleIntersection);
+
+    // Sélectionner l'élément cible
+    const element = document.querySelectorAll('.progress-vertical-contact');
+
+    // Observer l'élément cible
+    if (element) {
+        element.forEach((el) => {
+            observer.observe(el);
+        });
+    }
+</script>
