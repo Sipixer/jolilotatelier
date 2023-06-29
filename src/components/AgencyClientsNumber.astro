@@ -1,10 +1,15 @@
 ---
 import { Image } from '@astrojs/image/components';
-import Photo from '../assets/Photo.webp';
+
+export type Props = {
+  photo: ImageMetadata;
+};
+
+const { photo } = Astro.props;
 ---
 
 <div class="relative flex h-[500px] items-center justify-center overflow-x-hidden text-background">
-  <Image src={Photo} alt="Photo de fond(un pot de fleur avec de la decoration)" class="h-full w-full object-cover" />
+  <Image src={photo} alt="Photo de fond(un pot de fleur avec de la decoration)" class="h-full w-full object-cover" />
   <div class="absolute h-full w-full bg-black/70" id="progress-number-trigger"></div>
   <div class="absolute top-1/2 w-full translate-y-1/2 md:left-[15%]">
     <div class="flex items-end gap-14">

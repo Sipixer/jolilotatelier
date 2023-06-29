@@ -9,6 +9,7 @@ export type Props = PresentationProps;
 export type PresentationProps = {
   photo: ImageMetadata;
   alt: string;
+  credit?: string;
   description: string[];
   title?: string;
   color?: string;
@@ -22,7 +23,10 @@ const presentation = Astro.props;
 ---
 
 <div class="grid grid-cols-1 gap-y-20 md:grid-cols-12">
-  <Image src={presentation.photo} alt={presentation.alt} class="col-span-5 h-[500px] object-cover" />
+  <div class="col-span-5 flex gap-1">
+    <Image src={presentation.photo} alt={presentation.alt} class="h-[500px] object-cover" />
+    <p class="self-end vertical-text text-xs">{presentation.credit}</p>
+  </div>
   <div class="col-span-7 flex w-full flex-col gap-12 self-end pl-20 md:pl-32">
     <LogoWithProgressBar color={presentation.color} />
     {presentation.title && <h1 class="font-larken text-3xl">{presentation.title}</h1>}

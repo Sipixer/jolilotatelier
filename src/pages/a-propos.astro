@@ -1,17 +1,16 @@
 ---
 import AgencyClientsNumber from '../components/AgencyClientsNumber.astro';
-import AgencyLastProjects from '../components/AgencyLastProjects.astro';
 import AgencyPresentation, { Props } from '../components/AgencyPresentation.astro';
-import AgencyServices from '../components/AgencyServices.astro';
 import TypingTitle from '../components/TypingTitle.astro';
 import Layout from '../layouts/Layout.astro';
-import Photo from '../assets/Photo.webp';
+import PhotoClientsNumber from '../assets/JOLILOT-21.jpg';
+import PhotoPresentation from '../assets/JOLILOT-58.jpg';
 import AgencyLocation from '../components/AgencyLocation.astro';
 import AgencySteps from '../components/AgencySteps.astro';
 
 const presentation: Props = {
-    photo: Photo,
-    alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
+    photo: PhotoPresentation,
+    alt: "Photo de Lucie souriante avec un mac a coté d'elle",
     description: [
         'Je suis Lucie, graphiste indépendante spécialisée dans le print et le digital. ',
         'Grâce au dynamisme et à la richesse du territoire lotois, c’est tout naturellement que j’ai souhaité installer l’agence, dans le nord du département, afin d’accompagner au mieux les acteurs qui y contribuent.',
@@ -38,6 +37,6 @@ const presentation: Props = {
         <AgencyPresentation {...presentation} />
         <AgencyLocation />
         <AgencySteps />
-        <AgencyClientsNumber />
+        <AgencyClientsNumber photo={PhotoClientsNumber} />
     </main>
 </Layout>
