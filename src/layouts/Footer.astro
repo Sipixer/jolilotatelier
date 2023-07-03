@@ -1,5 +1,25 @@
 ---
 import LogoIcon from '../components/Icons/LogoIcon.astro';
+import { Image } from '@astrojs/image/components';
+
+import Insta1 from '../assets/INSTA/1.jpg';
+import Insta2 from '../assets/INSTA/2.jpg';
+import Insta3 from '../assets/INSTA/3.jpg';
+
+const PostsInstagram = [
+  {
+    url: 'https://www.instagram.com/p/CpSPcYJMCf2/',
+    image: Insta1,
+  },
+  {
+    url: 'https://www.instagram.com/p/Cop7O1YOciK/',
+    image: Insta2,
+  },
+  {
+    url: 'https://www.instagram.com/p/CnJststMdVN/',
+    image: Insta3,
+  },
+];
 ---
 
 <div>
@@ -101,13 +121,24 @@ import LogoIcon from '../components/Icons/LogoIcon.astro';
       </div>
     </div>
   </div>
-  <div class="flex justify-center py-20">
+  <div class="flex justify-center pt-20 pb-16">
     <div class="flex w-full max-w-7xl flex-col gap-7">
-      <div class="flex flex-col items-center">
-        <p class="font-larken text-3xl">suivre toute l'actualité jolilot</p>
-        <p>@jolilot.atelier</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-10 items-center">
+        <div class="flex flex-col items-center">
+          <p class="font-larken text-3xl">suivre toute l'actualité jolilot</p>
+          <p>@jolilot.atelier</p>
+        </div>
+        <div class="md:col-span-2 sm:flex-row flex-col flex gap-3">
+          {
+            PostsInstagram.map((post) => (
+              <a rel="noreferrer" class="hover:opacity-70" href={post.url} target="_blank" referrerpolicy="no-referrer">
+                <Image src={post.image} alt="Photo 1 instagram" class="object-cover aspect-square" />
+              </a>
+            ))
+          }
+        </div>
       </div>
-      <div class="w-ful flex flex-wrap justify-evenly border-t border-black/90 pt-7">
+      <div class="w-ful flex justify-evenly border-t border-black/90 pt-7 md:flex-row flex-col items-center gap-y-5">
         <p>© 2023 Jolilot Atelier I Lucie Arcoutel I Mentions légales</p>
         <LogoIcon classes="w-[100px]" />
         <p>Cette année Jolilot soutient l’association AFTC.LOT</p>
