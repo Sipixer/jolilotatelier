@@ -9,7 +9,10 @@ export type Props = PresentationProps;
 export type PresentationProps = {
   photo: ImageMetadata;
   alt: string;
-  credit?: string;
+  credit?: {
+    name?: string;
+    url?: string;
+  };
   description: string[];
   title?: string;
   color?: string;
@@ -25,9 +28,14 @@ const presentation = Astro.props;
 <div class="grid grid-cols-1 gap-y-20 md:grid-cols-12">
   <div class="col-span-5 flex gap-1 w-full">
     <Image src={presentation.photo} alt={presentation.alt} class="h-[650px] object-cover" />
-    <p class="self-end vertical-text text-xs max-md:hidden">{presentation.credit}</p>
+    <a
+      href={presentation.credit?.url}
+      target="_blank"
+      rel="noopener"
+      class="self-end vertical-text text-[8px] max-md:hidden">{presentation.credit?.name}</a
+    >
   </div>
-  <div class="col-span-7 flex w-full flex-col gap-12 self-end pl-20 md:pl-32">
+  <div class="col-span-7 flex w-full flex-col gap-12 self-end md:pl-20">
     <LogoWithProgressBar color={presentation.color} />
     <div class="pr-16 flex w-full flex-col gap-12">
       {presentation.title && <h1 class="font-larken text-3xl">{presentation.title}</h1>}

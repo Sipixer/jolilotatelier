@@ -7,7 +7,10 @@ import AgencyContactForm from '../components/AgencyContactForm.astro';
 
 const presentation: Props = {
     photo: Photo,
-    credit: '©2023JulieAlasset',
+    credit: {
+        name: '©2023JulieAlasset',
+        url: 'https://www.thewildthings.fr/',
+    },
     alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
     description: [
         'Je suis Lucie, graphiste indépendante spécialisée dans le print et le digital. ',

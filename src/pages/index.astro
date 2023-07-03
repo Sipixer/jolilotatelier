@@ -12,7 +12,10 @@ import type { Props } from '../components/AgencyPresentation.astro';
 
 const presentation: Props = {
   photo: PhotoPresentation,
-  credit: '©2023JulieAlasset',
+  credit: {
+    name: '©2023JulieAlasset',
+    url: 'https://www.thewildthings.fr/',
+  },
   alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
   description: [
     'Située à Alvignac, l’atelier jolilot est une agence de communication qui vous accompagne et vous propose des services adaptés à vos besoins.',
