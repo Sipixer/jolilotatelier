@@ -49,10 +49,10 @@ const services: Service[] = [
 ];
 ---
 
-<div class="flex flex-col gap-10 my-28">
+<div class="flex flex-col gap-10 mt-28">
   <SubTitle title="une communication qui fait sens !" />
   <div class="relative flex w-full flex-col items-center">
-    <div class="grid w-full max-w-[1800px] grid-cols-1 gap-x-10 gap-y-24 px-20 md:grid-cols-2 xl:grid-cols-3">
+    <div class="grid mb-28 w-full max-w-[1800px] grid-cols-1 gap-x-10 gap-y-24 px-20 md:grid-cols-2 xl:grid-cols-3">
       {services.map((service) => <OneService {...service} />)}
     </div>
     <div
