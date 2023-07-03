@@ -8,13 +8,13 @@ export type Props = {
 const { photo } = Astro.props;
 ---
 
-<div class="relative flex h-[500px] items-center justify-center overflow-x-hidden text-background">
+<div class="relative flex sm:h-[700px] h-[500px] items-center justify-center overflow-x-hidden text-background">
   <Image src={photo} alt="Photo de fond(un pot de fleur avec de la decoration)" class="h-full w-full object-cover" />
   <div class="absolute h-full w-full bg-black/70" id="progress-number-trigger"></div>
   <div class="absolute top-1/2 w-full translate-y-1/2 md:left-[15%]">
-    <div class="flex items-end gap-14">
+    <div class="flex items-end sm:gap-14 gap-5 max-sm:ml-5">
       <p class="sm:whitespace-nowrap">
-        <span class="font-larken text-3xl text-orange">+30 ACTEURS</span> accompagnés depuis 2022
+        <span class="font-larken text-3xl text-orange whitespace-nowrap">+30 ACTEURS</span> accompagnés depuis 2022
       </p>
       <div class="flex w-full justify-end pb-3">
         <div class="progress-number relative bg-white">

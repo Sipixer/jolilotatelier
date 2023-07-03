@@ -12,7 +12,7 @@ const { url, text, color, variant } = Astro.props;
 {
   variant === 'dark' ? (
     <a
-      class="mt-2 w-fit border border-black/20 px-8 py-2 font-poppins text-sm text-black/60 transition ease-in-out bg-marron_fonce hover:bg-orange text-white"
+      class="mt-2 w-fit border border-black/20 px-8 py-2 font-poppins md:text-sm text-xs text-black/60 transition ease-in-out bg-marron_fonce hover:bg-orange text-white"
       href={url}
       style={`color: ${color};border-color: ${color};`}
     >
@@ -20,7 +20,7 @@ const { url, text, color, variant } = Astro.props;
     </a>
   ) : variant === 'orange' ? (
     <a
-      class="mt-2 w-fit px-8 py-2 font-poppins text-sm border hover:border-black/20 hover:text-black/60 text-white transition ease-in-out bg-orange hover:bg-background hover:text-white"
+      class="mt-2 w-fit px-8 py-2 font-poppins md:text-sm text-xs border hover:border-black/20 hover:text-black/60 text-white transition ease-in-out bg-orange hover:bg-background hover:text-white"
       href={url}
       style={`color: ${color};border-color: ${color};`}
     >
@@ -28,7 +28,7 @@ const { url, text, color, variant } = Astro.props;
     </a>
   ) : (
     <a
-      class="mt-2 w-fit border border-black/20 px-8 py-2 font-poppins text-sm text-black/60 transition ease-in-out hover:bg-marron_fonce hover:text-white"
+      class="mt-2 w-fit border border-black/20 px-8 py-2 font-poppins md:text-sm text-xs text-black/60 transition ease-in-out hover:bg-marron_fonce hover:text-white"
       href={url}
       style={`color: ${color};border-color: ${color};`}
     >
