@@ -27,11 +27,11 @@ const { oneService } = Astro.props;
         <div class="grid w-full max-w-[1800px] grid-cols-1 gap-y-24 px-10 md:px-20 md:grid-cols-2 xl:grid-cols-3">
             <div class="flex gap-6 text-black/90 md:border-r border-black md:pr-12">
                 <div class="flex flex-col gap-3 font-larken">
-                    <p class="text-6xl" style={`color: ${oneService.color};`}>{oneService.number}</p>
-                    <p class="text-xl" style={`color: ${oneService.color};`}>{oneService.title}</p>
+                    <p class="text-5xl" style={`color: ${oneService.color};`}>{oneService.number}</p>
+                    <p class="text-lg" style={`color: ${oneService.color};`}>{oneService.title}</p>
                     <p class="font-poppins text-xs font-normal italic text-subtitlecard">{oneService.subtitle}</p>
                     <div class="flex flex-col gap-0">
-                        {oneService.description.map((item) => <p class="font-poppins text-sm">{item}</p>)}
+                        {oneService.description.map((item) => <p class="font-poppins">{item}</p>)}
                     </div>
                     <Button text="réserver un projet" variant="dark" url="#contact-form" />
                 </div>
@@ -42,7 +42,7 @@ const { oneService } = Astro.props;
                         <div class="flex flex-col gap-1">
                             <h4 class="text-lg font-larken uppercase text-primary">{benefit.title}</h4>
                         </div>
-                        <div class="flex flex-col pr-5 text-sm text-text">
+                        <div class="flex flex-col pr-5 text-text">
                             {benefit.description.map((item) => (
                                 <p>{item}</p>
                             ))}

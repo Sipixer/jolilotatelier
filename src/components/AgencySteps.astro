@@ -1,4 +1,5 @@
 ---
+import FlecheIcon from './Icons/FlecheIcon.astro';
 import OneService, { Service } from './subcomponents/OneService.astro';
 import SubTitle from './subcomponents/SubTitle.astro';
 
@@ -22,8 +23,24 @@ const { bgColor, services, titleColor } = Astro.props;
 >
   <SubTitle title="jolilot c’est aussi simple que ça !" />
   <div class="relative flex w-full flex-col items-center">
-    <div class="grid w-full max-w-[1800px] grid-cols-1 gap-x-16 gap-y-24 px-10 md:px-20 md:grid-cols-2 xl:grid-cols-4">
-      {services.map((service) => <OneService {...service} />)}
+    <div class="glide w-full max-w-[1800px] px-4 md:px-10 flex items-center justify-center gap-3">
+      <div data-glide-el="controls" class={services.length > 4 ? '' : 'xl:hidden'}>
+        <button data-glide-dir="<" class="rotate-180">
+          <FlecheIcon />
+        </button>
+      </div>
+
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides px-3">
+          {services.map((service) => <OneService {...service} />)}
+        </ul>
+      </div>
+
+      <div data-glide-el="controls" class={services.length > 4 ? '' : 'xl:hidden'}>
+        <button data-glide-dir=">">
+          <FlecheIcon />
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -33,6 +50,28 @@ const { bgColor, services, titleColor } = Astro.props;
     color: #cc9f5c;
   }
 </style>
+
+<script type="module" define:vars={{ services }}>
+import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
+
+new Glide('.glide', {
+  startAt: 0,
+  perView: 4,
+  type: 'carousel',
+  gap: 30,
+  breakpoints: {
+    1280: {
+      perView: 3,
+    },
+    1024: {
+      perView: 2,
+    },
+    640: {
+      perView: 1,
+    },
+  },
+}).mount();
+</script>
 
 <script>
   const textOrange = document.querySelectorAll('#text-orange');
