@@ -19,7 +19,10 @@ console.log;
 ---
 
 <div class="flex gap-6 text-black/90">
-  <div class="progress-vertical-one-service relative mt-4 bg-black/90" style={`background-color: ${color};`}>
+  <div
+    class="progress-vertical-one-service relative mt-4 bg-black/90 border-black/90 border-l rounded-none"
+    style={`background-color: ${color};border-color: ${color};`}
+  >
     <div
       class="absolute bottom-0 left-1/2 h-4 w-4 -translate-x-1/2 translate-y-full overflow-hidden rounded-full border border-black"
       style={`border-color: ${color};`}
@@ -37,7 +40,7 @@ console.log;
       isButton &&
         (color === '#cc9f5c' ? (
           <a
-            class="mt-2 w-fit border border-[#cc9f5c] px-8 py-2 font-poppins md:text-sm text-xs text-[#cc9f5c] transition ease-in-out hover:bg-orange hover:text-white"
+            class="mt-2 w-fit bg-orange px-8 py-2 font-poppins md:text-sm text-xs transition ease-in-out hover:bg-marron_fonce text-white"
             href={buttonLink}
           >
             {buttonText ? buttonText : "c'est ce qu'il me faut"}
