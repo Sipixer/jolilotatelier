@@ -11,14 +11,16 @@ export type Service = {
   color?: string;
   textColor?: string;
   isButton?: boolean;
+  maxWidth?: string;
 };
 export type Props = Service;
-const { number, title, subtitle, description, buttonText, buttonLink, color, textColor, isButton } = Astro.props;
+const { number, title, subtitle, description, buttonText, buttonLink, color, textColor, isButton, maxWidth } =
+  Astro.props;
 
 console.log;
 ---
 
-<li class="flex gap-6 text-black/90 glide__slide pr-5 max-w-xs">
+<li class="flex gap-6 text-black/90 glide__slide pr-5" style={`max-width: ${maxWidth};`}>
   <div
     class="progress-vertical-one-service relative mt-4 bg-black/90 border-black/90 border-l rounded-none"
     style={`background-color: ${color};border-color: ${color};`}

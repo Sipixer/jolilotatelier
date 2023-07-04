@@ -8,6 +8,7 @@ import Insta2 from '../assets/INSTA/2.jpg';
 import Insta3 from '../assets/INSTA/3.jpg';
 import Insta4 from '../assets/INSTA/4.jpg';
 import AFTCIcon from '../components/Icons/AFTCIcon.astro';
+import FlecheIcon from '../components/Icons/FlecheIcon.astro';
 const PostsInstagram = [
     {
         url: 'https://www.instagram.com/p/CpSPcYJMCf2/',
@@ -30,12 +31,12 @@ const PostsInstagram = [
 
 <div class="flex justify-center pt-20 pb-16">
     <div class="flex w-full max-w-7xl flex-col gap-7">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-10 items-center">
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 px-10 items-center">
             <div class="flex flex-col items-center text-center">
                 <p class="font-larken text-3xl">suivre toute l'actualité jolilot</p>
                 <p>@jolilot.atelier</p>
             </div>
-            <div
+            <!-- <div
                 class="md:col-span-2 sm:flex-row flex-col flex gap-4 max-w-xs sm:max-w-2xl place-self-center md:place-self-end"
             >
                 {
@@ -51,13 +52,50 @@ const PostsInstagram = [
                         </a>
                     ))
                 }
+            </div> -->
+            <div
+                class="xl:col-span-2 max-w-xs sm:max-w-2xl place-self-center xl:place-self-end flex flex-col items-center glide gap-2"
+            >
+                <div class="glide">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            {
+                                PostsInstagram.map((post) => (
+                                    <li class="glide__slide">
+                                        <a
+                                            rel="noreferrer"
+                                            class="hover:opacity-70"
+                                            href={post.url}
+                                            target="_blank"
+                                            referrerpolicy="no-referrer"
+                                        >
+                                            <Image
+                                                src={post.image}
+                                                alt="Photo 1 instagram"
+                                                class="object-cover aspect-square"
+                                            />
+                                        </a>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div data-glide-el="controls" class="xl:hidden flex gap-4">
+                    <button data-glide-dir="<" class="rotate-180">
+                        <FlecheIcon />
+                    </button>
+                    <button data-glide-dir=">">
+                        <FlecheIcon />
+                    </button>
+                </div>
             </div>
         </div>
         <div
             class="text-center flex justify-evenly border-t border-black/90 pt-7 md:flex-row flex-col items-center gap-y-5"
         >
             <p>© 2023 Jolilot Atelier I Lucie Arcoutel I Mentions légales</p>
-            <LogoIcon classes="w-[100px]" />
+            <a href="/" class="max-sm:order-3"><LogoIcon classes="w-[100px]" /></a>
             <div class="flex items-center gap-4 justify-center flex-wrap">
                 <p>
                     Cette année Jolilot soutient l’association <a
@@ -71,3 +109,25 @@ const PostsInstagram = [
         </div>
     </div>
 </div>
+
+<script type="module">
+import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
+
+new Glide('.glide', {
+    startAt: 0,
+    perView: 4,
+    type: 'carousel',
+    gap: 30,
+    breakpoints: {
+        1024: {
+            perView: 3,
+        },
+        768: {
+            perView: 2,
+        },
+        640: {
+            perView: 1,
+        },
+    },
+}).mount();
+</script>
