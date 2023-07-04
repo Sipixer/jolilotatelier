@@ -6,6 +6,7 @@ import LogoIcon from '../components/Icons/LogoIcon.astro';
 import Insta1 from '../assets/INSTA/1.jpg';
 import Insta2 from '../assets/INSTA/2.jpg';
 import Insta3 from '../assets/INSTA/3.jpg';
+import Insta4 from '../assets/INSTA/4.jpg';
 import AFTCIcon from '../components/Icons/AFTCIcon.astro';
 const PostsInstagram = [
     {
@@ -20,6 +21,10 @@ const PostsInstagram = [
         url: 'https://www.instagram.com/p/CnJststMdVN/',
         image: Insta3,
     },
+    {
+        url: 'https://www.instagram.com/p/Ck-RRiXMPSg/',
+        image: Insta4,
+    },
 ];
 ---
 
@@ -31,7 +36,7 @@ const PostsInstagram = [
                 <p>@jolilot.atelier</p>
             </div>
             <div
-                class="md:col-span-2 sm:flex-row flex-col flex gap-4 max-w-xs md:max-w-lg place-self-center md:place-self-end"
+                class="md:col-span-2 sm:flex-row flex-col flex gap-4 max-w-xs sm:max-w-2xl place-self-center md:place-self-end"
             >
                 {
                     PostsInstagram.map((post) => (
