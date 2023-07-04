@@ -41,7 +41,7 @@ const presentation = Astro.props;
       {presentation.title && <h1 class="font-larken text-3xl">{presentation.title}</h1>}
       <div class="flex flex-col gap-6 md:max-w-lg">
         {presentation.description.map((paragraph) => <p>{paragraph}</p>)}
-        <div class="flex gap-x-10 flex-wrap">
+        <div class="flex gap-x-4 sm:gap-x-10 flex-wrap">
           {
             presentation.buttons?.map((button) => (
               <Button text={button.text} url={button.url} variant={button.variant} />
