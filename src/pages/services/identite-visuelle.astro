@@ -4,7 +4,7 @@ import AgencyPresentation, { PresentationProps } from '../../components/AgencyPr
 import TypingTitle from '../../components/TypingTitle.astro';
 import Layout from '../../layouts/Layout.astro';
 import Photo from '../../assets/Photo.webp';
-import AgencySteps from '../../components/AgencySteps.astro';
+import AgencySteps, { AgencyStepsProps } from '../../components/AgencySteps.astro';
 import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
 import AgencyContactForm from '../../components/AgencyContactForm.astro';
 
@@ -50,6 +50,67 @@ const oneService: OneService = {
         },
     ],
 };
+
+const textColor = '#4a4a49';
+
+const Steps: AgencyStepsProps = {
+    titleColor: textColor,
+    bgColor: color,
+    services: [
+        {
+            title: 'ÉCHANGE / DEVIS',
+            buttonLink: '/services/supports-imprimes',
+            description: [
+                `Suite à un premier échange par téléphone, 
+      à l’agence ou sur le lieu de votre activité, 
+      pour en connaître un peu plus sur vos besoins,
+       vos intentions et/ou vos idées, 
+       Jolilot s’engace à vous retourner
+        sous 48H une proposition entièrement adaptée et personnalisée.`,
+            ],
+            number: '01',
+            subtitle: 'nous nous rencontrons...',
+            textColor: textColor,
+            color: textColor,
+        },
+        {
+            title: 'AXE DE CRÉATION',
+            buttonLink: '/services/supports-imprimes',
+            description: [
+                'Nous débuterons par approfondir les objectifs de votre projet afin d’obtenir d’un axe pertinent et concret',
+                'En découlera, notre échange sur l’axe de création : sur lequel l’agence devra s’appuyer pour la suite des étapes créatives.',
+            ],
+            number: '02',
+            subtitle: 'nous analysons vos besoins...',
+            textColor: textColor,
+            color: textColor,
+        },
+        {
+            title: 'CRÉATION / PRÉSENTATION',
+            buttonLink: '/services/supports-imprimes',
+            description: [
+                'La ou les propositions retenues sur toutes les recherches effectuées par l’Agence vous sera/ont présentés(s)',
+                'En fonction de votre retour, la proposition que vous aurez choisie pourra être affinée.',
+            ],
+            number: '03',
+            subtitle: 'nous affinons les créations...',
+            textColor: textColor,
+            color: textColor,
+        },
+        {
+            title: 'LANCEMENT / SUIVI',
+            buttonLink: '/services/supports-imprimes',
+            description: [
+                'Une fois le projet de création validé et clôturé, nous procéderons à son lancement.',
+                'En fonction de votre projet, Jolilot vous propose une formation personnalisée vous permettant d’être en confiance avec vos nouveaux outils de communication',
+            ],
+            number: '04',
+            subtitle: 'et hop ! nous lançons...',
+            color: '#fff',
+            textColor: '#fff',
+        },
+    ],
+};
 ---
 
 <Layout>
@@ -57,7 +118,7 @@ const oneService: OneService = {
         <TypingTitle />
         <AgencyPresentation {...presentation} />
         <AgencyOneService oneService={oneService} />
-        <AgencySteps bgColor={color} textColor="#4a4a49" lastItemColor="#fff" />
+        <AgencySteps {...Steps} />
         <AgencyContactForm />
     </main>
 </Layout>
