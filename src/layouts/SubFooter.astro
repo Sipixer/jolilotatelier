@@ -29,32 +29,15 @@ const PostsInstagram = [
 ];
 ---
 
-<div class="flex justify-center pt-20 pb-16">
+<div class="flex justify-center pt-20 pb-10">
     <div class="flex w-full max-w-7xl flex-col gap-7">
         <div class="grid grid-cols-1 xl:grid-cols-3 gap-4 px-10 items-center">
             <div class="flex flex-col items-center text-center">
                 <p class="font-larken text-3xl">suivre toute l'actualité jolilot</p>
                 <p>@jolilot.atelier</p>
             </div>
-            <!-- <div
-                class="md:col-span-2 sm:flex-row flex-col flex gap-4 max-w-xs sm:max-w-2xl place-self-center md:place-self-end"
-            >
-                {
-                    PostsInstagram.map((post) => (
-                        <a
-                            rel="noreferrer"
-                            class="hover:opacity-70"
-                            href={post.url}
-                            target="_blank"
-                            referrerpolicy="no-referrer"
-                        >
-                            <Image src={post.image} alt="Photo 1 instagram" class="object-cover aspect-square" />
-                        </a>
-                    ))
-                }
-            </div> -->
             <div
-                class="xl:col-span-2 max-w-xs sm:max-w-2xl place-self-center xl:place-self-end flex flex-col items-center glide gap-2"
+                class="xl:col-span-2 max-w-xs sm:max-w-2xl place-self-center xl:place-self-end flex flex-col items-center glide glidef gap-y-8"
             >
                 <div class="glide">
                     <div class="glide__track" data-glide-el="track">
@@ -92,7 +75,7 @@ const PostsInstagram = [
             </div>
         </div>
         <div
-            class="text-center flex justify-evenly border-t border-black/90 pt-7 md:flex-row flex-col items-center gap-y-5"
+            class="text-center flex justify-evenly border-t border-black/90 pt-10 md:flex-row flex-col items-center gap-y-2"
         >
             <p>© 2023 Jolilot Atelier I Lucie Arcoutel I Mentions légales</p>
             <a href="/" class="max-sm:order-3"><LogoIcon classes="w-[100px]" /></a>
@@ -113,7 +96,7 @@ const PostsInstagram = [
 <script type="module">
 import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
 
-new Glide('.glide', {
+new Glide('.glidef', {
     startAt: 0,
     perView: 4,
     type: 'carousel',
