@@ -7,6 +7,7 @@ import Photo from '../../assets/Photo.webp';
 import AgencySteps, { AgencyStepsProps } from '../../components/AgencySteps.astro';
 import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
 import AgencyContactForm from '../../components/AgencyContactForm.astro';
+import PhotosCarrousel from '../../components/PhotosCarrousel.astro';
 
 const color = '#97ada0';
 const presentation: PresentationProps = {
@@ -119,6 +120,7 @@ const Steps: AgencyStepsProps = {
         <AgencyPresentation {...presentation} />
         <AgencyOneService oneService={oneService} />
         <AgencySteps {...Steps} />
+        <PhotosCarrousel />
         <AgencyContactForm />
     </main>
 </Layout>

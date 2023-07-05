@@ -1,0 +1,91 @@
+---
+import { Image } from '@astrojs/image/components';
+import Insta1 from '../assets/INSTA/1.jpg';
+import Insta2 from '../assets/INSTA/2.jpg';
+import Insta3 from '../assets/INSTA/3.jpg';
+import Insta4 from '../assets/INSTA/4.jpg';
+import FlecheIcon from './Icons/FlecheIcon.astro';
+const Photos = [
+    {
+        url: 'https://www.instagram.com/p/CpSPcYJMCf2/',
+        image: Insta1,
+        alt: 'Photo 1 instagram',
+    },
+    {
+        url: 'https://www.instagram.com/p/Cop7O1YOciK/',
+        image: Insta2,
+        alt: 'Photo 2 instagram',
+    },
+    {
+        url: 'https://www.instagram.com/p/CnJststMdVN/',
+        image: Insta3,
+        alt: 'Photo 3 instagram',
+    },
+    {
+        url: 'https://www.instagram.com/p/Ck-RRiXMPSg/',
+        image: Insta4,
+        alt: 'Photo 4 instagram',
+    },
+    {
+        url: 'https://www.instagram.com/p/CnJststMdVN/',
+        image: Insta3,
+        alt: 'Photo 3 instagram',
+    },
+    {
+        url: 'https://www.instagram.com/p/Ck-RRiXMPSg/',
+        image: Insta4,
+        alt: 'Photo 4 instagram',
+    },
+];
+---
+
+<div class="py-4 flex px-8 md:px-24 flex-col items-center glidep">
+    <div class="glide glidep max-w-[1600px]">
+        <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+                {
+                    Photos.map((post) => (
+                        <li class="glide__slide">
+                            <a
+                                rel="noreferrer"
+                                class="hover:opacity-70"
+                                href={post.url}
+                                target="_blank"
+                                referrerpolicy="no-referrer"
+                            >
+                                <Image src={post.image} alt={post.alt} class="object-cover aspect-square" />
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+    <div data-glide-el="controls" class="lg:hidden flex gap-4">
+        <button data-glide-dir="<" class="rotate-180">
+            <FlecheIcon />
+        </button>
+        <button data-glide-dir=">">
+            <FlecheIcon />
+        </button>
+    </div>
+</div>
+
+<script type="module">
+import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
+
+new Glide('.glidep', {
+    startAt: 0,
+    perView: 6,
+    type: 'carousel',
+    gap: 25,
+    breakpoints: {
+        1024: {
+            perView: 4,
+        },
+        640: {
+            perView: 2,
+        },
+    },
+}).mount();
+</script>

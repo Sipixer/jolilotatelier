@@ -7,6 +7,7 @@ import PhotoClientsNumber from '../assets/JOLILOT-21.webp';
 import PhotoPresentation from '../assets/JOLILOT-58.webp';
 import AgencyLocation from '../components/AgencyLocation.astro';
 import AgencySteps, { AgencyStepsProps } from '../components/AgencySteps.astro';
+import PhotosCarrousel from '../components/PhotosCarrousel.astro';
 
 const presentation: Props = {
     photo: PhotoPresentation,
@@ -94,6 +95,6 @@ const Steps: AgencyStepsProps = {
         <AgencyPresentation {...presentation} />
         <AgencyLocation />
         <AgencySteps {...Steps} />
-        <AgencyClientsNumber photo={PhotoClientsNumber} />
+        <PhotosCarrousel />
     </main>
 </Layout>
