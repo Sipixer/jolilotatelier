@@ -1,9 +1,9 @@
 ---
 import { Image } from '@astrojs/image/components';
-import Insta1 from '../assets/INSTA/1.jpg';
-import Insta2 from '../assets/INSTA/2.jpg';
-import Insta3 from '../assets/INSTA/3.jpg';
-import Insta4 from '../assets/INSTA/4.jpg';
+import Insta1 from '../assets/JOLILOT-47.webp';
+import Insta2 from '../assets/JOLILOT-58.webp';
+import Insta3 from '../assets/JOLILOT-69.webp';
+import Insta4 from '../assets/JOLILOT-16.webp';
 import FlecheIcon from './Icons/FlecheIcon.astro';
 const Photos = [
     {
@@ -39,7 +39,7 @@ const Photos = [
 ];
 ---
 
-<div class="py-4 flex px-8 md:px-24 flex-col items-center glidep">
+<div class="py-4 flex px-8 md:px-24 flex-col items-center">
     <div class="glide glidep max-w-[1600px]">
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
@@ -53,7 +53,7 @@ const Photos = [
                                 target="_blank"
                                 referrerpolicy="no-referrer"
                             >
-                                <Image src={post.image} alt={post.alt} class="object-cover aspect-square" />
+                                <Image src={post.image} alt={post.alt} class="object-cover" />
                             </a>
                         </li>
                     ))
@@ -61,17 +61,9 @@ const Photos = [
             </ul>
         </div>
     </div>
-    <div data-glide-el="controls" class="lg:hidden flex gap-4">
-        <button data-glide-dir="<" class="rotate-180">
-            <FlecheIcon />
-        </button>
-        <button data-glide-dir=">">
-            <FlecheIcon />
-        </button>
-    </div>
 </div>
 
-<script type="module">
+<script type="module" async defer>
 import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
 
 new Glide('.glidep', {

@@ -1,5 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components';
+import GuillemetsIcon from '../Icons/GuillemetsIcon.astro';
 export type Props = {
   image: ImageMetadata;
   title: string;
@@ -24,7 +25,12 @@ const { image, title, description } = Astro.props;
     />
     <p class="font-larken text-lg">{title}</p>
     <div class="max-h-32 overflow-y-auto">
-      <p class="pr-4 font-poppins">{description}</p>
+      <div class="float-left mr-1">
+        <GuillemetsIcon />
+      </div>
+      <p class="pr-4 font-poppins text-justify">
+        {description}
+      </p>
     </div>
   </div>
 </div>

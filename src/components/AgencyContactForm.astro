@@ -36,20 +36,32 @@ import Input from './subcomponents/Input.astro';
     <div class="col-span-7 flex w-full flex-col gap-12 px-10 md:pl-32">
         <form class="w-full max-w-lg flex flex-col gap-12 select-none" id="form">
             <div class="flex flex-col gap-6">
-                <Input label="Nom" required placeholder="Nom (obligatoire)" type="text" />
+                <Input label="Nom" required placeholder="Nom (obligatoire)" type="text" name="name" id="name" />
                 <Input
                     label="Adresse e-mail de contact"
                     required
                     placeholder="Adresse mail (obligatoire)"
                     type="email"
+                    name="email"
+                    id="email"
                 />
                 <Input
                     label="Nom de votre entreprise / marque / projet"
                     required
                     placeholder="Nom entreprise / marque / projet (obligatoire)"
                     type="text"
+                    name="company"
+                    id="company"
                 />
-                <Input label="Motif de votre demande" required placeholder="Motif (obligatoire)" type="text" />
+                <Input
+                    label="Motif de votre demande"
+                    required
+                    placeholder="Motif (obligatoire)"
+                    type="text"
+                    name="motif"
+                    id="motif"
+                />
+
                 <div class="flex flex-col gap-2">
                     <p class="font-medium">Souhaitez-vous organiser un rencontre ?</p>
                     <div class="flex gap-6">
@@ -140,14 +152,54 @@ import Input from './subcomponents/Input.astro';
     function handelSubmit(e: SubmitEvent) {
         e.preventDefault();
         const data = new FormData(e.target as HTMLFormElement);
+        if (!data.get('data_privacy')) {
+            alert("Merci d'accepter que vos données soient enregistrées.");
+            return;
+        }
+        data.delete('data_privacy');
+        data.set('rencontre', data.get('rencontre') === 'phone' ? 'par téléphone' : 'à l’agence');
+        data.set('subject', 'Formulaire Jolilot Atelier');
+        fetch('https://formspree.io/f/mwkdkppl', {
+            method: 'POST',
+            body: data,
+            headers: {
+                Accept: 'application/json',
+            },
+        })
+            .then((response) => {
+                alert('Merci pour votre message, nous vous recontacterons dans les plus brefs délais.');
+            })
+            .catch((error) => {
+                alert('Oups! Il y a eu un problème, merci de réessayer plus tard.');
+            });
+    }
+</script>
+
+<!-- <script type="text/javascript">
+    document.getElementById('form')?.addEventListener('submit', handelSubmit);
+    emailjs.init('5V88RMOMZTwuDn_0z');
+    function handelSubmit(e) {
+        e.preventDefault();
+        const data = new FormData(e.target);
         //check if data_privacy is checked
         if (!data.get('data_privacy')) {
             alert("Merci d'accepter que vos données soient enregistrées.");
             return;
         }
-        alert('Systeme de mail en cours de développement, merci de votre compréhension.');
+        // alert('Systeme de mail en cours de développement, merci de votre compréhension.');
+    
+        emailjs.sendForm('service_krled0c', 'template_civiz09', this).then(
+            function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('Votre message a bien été envoyé !');
+            },
+            function (error) {
+                console.log('FAILED...', error);
+                alert('Une erreur est survenue, merci de réessayer plus tard.');
+            },
+        );
     }
-</script>
+    </script> -->
 
 <style>
     .progress-vertical-contact {
