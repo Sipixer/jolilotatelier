@@ -32,10 +32,10 @@ const { bgColor, services, titleColor } = Astro.props;
     </div>
 
     <div data-glide-el="controls" class="flex gap-4">
-      <button data-glide-dir="<" class="rotate-180">
+      <button data-glide-dir="<" aria-label="Precedent" class="rotate-180">
         <FlecheIcon />
       </button>
-      <button data-glide-dir=">">
+      <button data-glide-dir=">" aria-label="Suivant">
         <FlecheIcon />
       </button>
     </div>

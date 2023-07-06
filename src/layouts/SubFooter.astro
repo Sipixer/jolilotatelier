@@ -65,10 +65,10 @@ const PostsInstagram = [
                     </div>
                 </div>
                 <div data-glide-el="controls" class="xl:hidden flex gap-4">
-                    <button data-glide-dir="<" class="rotate-180">
+                    <button data-glide-dir="<" class="rotate-180" aria-label="Precedent">
                         <FlecheIcon />
                     </button>
-                    <button data-glide-dir=">">
+                    <button data-glide-dir=">" aria-label="Suivant">
                         <FlecheIcon />
                     </button>
                 </div>
@@ -78,7 +78,9 @@ const PostsInstagram = [
             class="text-center flex justify-evenly border-t border-black/90 pt-10 md:flex-row flex-col items-center gap-y-2"
         >
             <p>© 2023 Jolilot Atelier I Lucie Arcoutel I Mentions légales</p>
-            <a href="/" class="max-sm:order-3"><LogoIcon classes="w-[100px]" /></a>
+            <a href="/" aria-label="Retour a la page d'accueil" class="max-sm:order-3"
+                ><LogoIcon classes="w-[100px]" /></a
+            >
             <div class="flex items-center gap-4 justify-center flex-wrap">
                 <p>
                     Cette année Jolilot soutient l’association <a
@@ -87,7 +89,12 @@ const PostsInstagram = [
                         referrerpolicy="no-referrer">AFTC.LOT</a
                     >
                 </p>
-                <a href="https://aftc-lot.fr/" target="_blank" referrerpolicy="no-referrer"><AFTCIcon /></a>
+                <a
+                    href="https://aftc-lot.fr/"
+                    target="_blank"
+                    referrerpolicy="no-referrer"
+                    aria-label="Lien vers le site de l'association AFTC.LOT"><AFTCIcon /></a
+                >
             </div>
         </div>
     </div>
@@ -112,5 +119,5 @@ new Glide('.glidef', {
             perView: 1,
         },
     },
-}).mount();
+    }).mount();
 </script>
