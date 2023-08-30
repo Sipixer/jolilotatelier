@@ -1,6 +1,7 @@
 ---
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import GuillemetsIcon from '../Icons/GuillemetsIcon.astro';
+import type { ImageMetadata } from 'astro';
 export type Props = {
   image: ImageMetadata;
   title: string;

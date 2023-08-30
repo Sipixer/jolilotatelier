@@ -1,6 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components';
-
+import { Image } from 'astro:assets';
 import LogoIcon from '../components/Icons/LogoIcon.astro';
 
 import Insta1 from '../assets/INSTA/1.jpg';
@@ -104,7 +103,6 @@ const PostsInstagram = [
 import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
 
 new Glide('.glidef', {
-    startAt: 0,
     perView: 4,
     type: 'carousel',
     gap: 30,
