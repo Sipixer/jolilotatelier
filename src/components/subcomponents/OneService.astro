@@ -7,7 +7,7 @@ export type Service = {
   subtitle: string;
   description: string[];
   buttonText?: string;
-  buttonLink: string;
+  buttonLink?: string;
   color?: string;
   textColor?: string;
   isButton?: boolean;
@@ -48,7 +48,7 @@ console.log;
             {buttonText ? buttonText : "c'est ce qu'il me faut"}
           </a>
         ) : (
-          <Button url={buttonLink} color={color} text={buttonText ? buttonText : "c'est ce qu'il me faut"} />
+          <Button url={buttonLink || '#'} color={color} text={buttonText ? buttonText : "c'est ce qu'il me faut"} />
         ))
     }
   </div>

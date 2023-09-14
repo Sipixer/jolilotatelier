@@ -1,41 +1,27 @@
 ---
-import AgencyPresentation, { Props } from '../components/AgencyPresentation.astro';
+import AgencyPresentation, { type Props } from '../components/AgencyPresentation.astro';
 import TypingTitle from '../components/TypingTitle.astro';
 import Layout from '../layouts/Layout.astro';
-import Photo from '../assets/JOLILOT-47.webp';
+import Photo from '../assets/P.CONTACT/Illustration-min.jpg';
 import AgencyContactForm from '../components/AgencyContactForm.astro';
+import AgencyClientsNumber from '@components/AgencyClientsNumber.astro';
 
 const presentation: Props = {
-    photo: Photo,
-    credit: {
-        name: '©2023JulieAlasset',
-        url: 'https://www.thewildthings.fr/',
-    },
-    alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
-    description: [
-        'Je suis Lucie, graphiste indépendante spécialisée dans le print et le digital. ',
-        'Grâce au dynamisme et à la richesse du territoire lotois, c’est tout naturellement que j’ai souhaité installer l’agence, dans le nord du département, afin d’accompagner au mieux les acteurs qui y contribuent.',
-        'Ma passion pour ce métier me permet de donner vie à leurs idées à travers des outils de communication adaptés et entièrement personnalisés.',
-    ],
-    buttons: [
-        {
-            text: 'Graphiste',
-            url: '/contact#contact-form',
-            variant: 'orange',
-        },
-        {
-            text: 'Designer Web',
-            url: '/contact#contact-form',
-            variant: 'light',
-        },
-    ],
+  photo: Photo,
+  alt: 'Photo avec 2 brebis devant une cabane en pierre',
+  description: [
+    'Vous désirez obtenir un devis, fixer un rendez-vous ou tout simplement discuter d’un projet ?',
+    'N’hésitez pas à compléter le formulaire de contact affiché cidessous. L’Agence vous répondra en moins de 72 heures.',
+    'Au plaisir d’échanger avec vous !',
+  ],
 };
 ---
 
 <Layout>
-    <main>
-        <TypingTitle />
-        <AgencyPresentation {...presentation} />
-        <AgencyContactForm />
-    </main>
+  <main>
+    <TypingTitle />
+    <AgencyPresentation {...presentation} />
+    <AgencyContactForm />
+    <AgencyClientsNumber variant="dark" zone="bottom" />
+  </main>
 </Layout>

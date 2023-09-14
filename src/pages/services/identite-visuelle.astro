@@ -1,126 +1,159 @@
 ---
-import AgencyPresentation, { PresentationProps } from '../../components/AgencyPresentation.astro';
+import AgencyPresentation, { type PresentationProps } from '../../components/AgencyPresentation.astro';
 
 import TypingTitle from '../../components/TypingTitle.astro';
 import Layout from '../../layouts/Layout.astro';
-import Photo from '../../assets/Photo.webp';
-import AgencySteps, { AgencyStepsProps } from '../../components/AgencySteps.astro';
-import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
+import Photo from '@assets/P.IDENTITÉ/Graphisme-min.jpg';
+import AgencySteps, { type AgencyStepsProps } from '../../components/AgencySteps.astro';
+import AgencyOneService, { type OneService } from '../../components/AgencyOneService.astro';
 import AgencyContactForm from '../../components/AgencyContactForm.astro';
 import PhotosCarrousel from '../../components/PhotosCarrousel.astro';
 
 const color = '#97ada0';
 const presentation: PresentationProps = {
-    photo: Photo,
-    color: color,
-    title: 'IDENTITÉ DE MARQUE',
-    alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
-    description: [
-        'L’identité de marque sera l’assise de votre stratégie de communication.',
-        'Elle aura pour objectif de transmettre à travers l’esthetisme et la cohérence des éléments créés, vos valeurs et votre identité.',
-        'Une identité visuelle alignée vous permettra de de créer un impact auprès de votre cible.',
-    ],
+  photo: Photo,
+  color: color,
+  title: 'IDENTITÉ DE MARQUE',
+  alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
+  description: [
+    'L’identité de marque servira de fondement à votre stratégie de communication.',
+    'Son rôle principal sera de véhiculer vos valeurs et votre identité au travers de la cohérence et de l’esthétisme des éléments visuels créés.',
+    'Une identité visuelle cohérente vous offrira la capacité de générer un impact significatif auprès de votre public cible.',
+  ],
 };
 
 const oneService: OneService = {
-    color: color,
-    number: '03',
-    title: 'IDENTITÉ DE MARQUE',
-    subtitle: 'une idéntité qui vous ressemble...',
-    description: ['logo vectoriel | charte graphique refonte identité visuelle'],
-    benefits: [
-        {
-            title: 'CRÉATION IDENTITÉ VISUELLE',
-            description: [
-                'Étant l’assise de votre communication, une identité visuelle se doit d’étre construire et rechercher. Pour refléter votre savoir-faire et vos valeurs, il est important que cet outil soit créatif, et unique. C’est par cette démarche que la différenciation se fera.',
-            ],
-        },
-        {
-            title: 'REFONTE IDENTITÉ VISUELLE',
-            description: [
-                'Vous possédez déjà une identité visuelle, mais vous souhiatez vous démarquer par de la nouveauté pour atteindre vos nouveaux objectifs ?',
-                'Jolilot réalisé la refonte de votre identité visuelle dans un axe créatif et statégique.',
-            ],
-        },
-        {
-            title: 'CRÉATION & REFONTE LOGOTYPE',
-            description: [
-                'Vous souhaitez réaliser un logotype pour représenter votre domaine d’activité et l’utiliser sur des outils de communication bien précis.',
-                'L’Agence vous accompagne dans la création de celui-ci ou la refonte si vous en possédez dejà un.',
-            ],
-        },
-    ],
+  color: color,
+  number: '03',
+  title: 'IDENTITÉ DE MARQUE',
+  subtitle: 'une idéntité qui vous ressemble...',
+  description: ['logo vectoriel | charte graphique refonte identité visuelle'],
+  benefits: [
+    {
+      title: 'CRÉATION IDENTITÉ VISUELLE',
+      description: [
+        'En tant que fondement de votre communication, l’élaboration et la recherche d’une identité visuelle s’imposent.',
+        'Cette démarche est essentielle pour refléter votre expertise et vos valeurs. Il est primordial que cet élément se démarque par sa créativité et son unicité. C’est à travers cette approche que vous parviendrez à vous distinguer.',
+      ],
+      time: '1 à 2 mois',
+    },
+    {
+      title: 'REFONTE IDENTITÉ VISUELLE',
+      description: [
+        'Vous possédez déjà une identité visuelle, mais aspirez à une nouvelle dynamique pour atteindre vos nouveaux objectifs ?',
+        'Jolilot propose la refonte de votre identité visuelle avec une approche créative et stratégique.',
+      ],
+      time: '4 à 6 semaines',
+    },
+    {
+      title: 'CRÉATION & REFONTE LOGOTYPE',
+      description: [
+        'Vous avez l’intention de concevoir un logo pour symboliser votre secteur d’activité et l’intégrer dans des supports de communication spécifiques ?',
+        'L’Agence est là pour vous guider dans la création de ce logo ou pour réviser le vôtre si vous en possédez déjà un.',
+      ],
+      time: '3 à 4 semaines',
+    },
+  ],
 };
 
 const textColor = '#4a4a49';
 
 const Steps: AgencyStepsProps = {
-    titleColor: textColor,
-    bgColor: color,
-    services: [
-        {
-            title: 'ÉCHANGE / DEVIS',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                `Suite à un premier échange par téléphone, 
-      à l’agence ou sur le lieu de votre activité, 
-      pour en connaître un peu plus sur vos besoins,
-       vos intentions et/ou vos idées, 
-       Jolilot s’engace à vous retourner
-        sous 48H une proposition entièrement adaptée et personnalisée.`,
-            ],
-            number: '01',
-            subtitle: 'nous nous rencontrons...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'AXE DE CRÉATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Nous débuterons par approfondir les objectifs de votre projet afin d’obtenir d’un axe pertinent et concret',
-                'En découlera, notre échange sur l’axe de création : sur lequel l’agence devra s’appuyer pour la suite des étapes créatives.',
-            ],
-            number: '02',
-            subtitle: 'nous analysons vos besoins...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'CRÉATION / PRÉSENTATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'La ou les propositions retenues sur toutes les recherches effectuées par l’Agence vous sera/ont présentés(s)',
-                'En fonction de votre retour, la proposition que vous aurez choisie pourra être affinée.',
-            ],
-            number: '03',
-            subtitle: 'nous affinons les créations...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'LANCEMENT / SUIVI',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Une fois le projet de création validé et clôturé, nous procéderons à son lancement.',
-                'En fonction de votre projet, Jolilot vous propose une formation personnalisée vous permettant d’être en confiance avec vos nouveaux outils de communication',
-            ],
-            number: '04',
-            subtitle: 'et hop ! nous lançons...',
-            color: '#fff',
-            textColor: '#fff',
-        },
-    ],
+  titleColor: textColor,
+  bgColor: color,
+  services: [
+    {
+      title: 'ÉCHANGE / DEVIS',
+      description: [
+        "Après une première consultation par téléphone, à l'agence ou sur le site de votre activité, visant à mieux appréhender vos besoins, vos objectifs et/ou vos concepts, Jolilot s'engage à vous forunir une proposition sur mesure et entièrement personnalisée dans un délai de 72 heures.",
+      ],
+      number: '01',
+      subtitle: 'nous nous rencontrons...',
+      textColor: textColor,
+      color: textColor,
+    },
+    {
+      title: 'AXE DE CRÉATION',
+      description: [
+        'Nous débuterons par une analyse approfondie des objectifs inhérents à votre projet, dans le but de définir une orientation pertinente et concrète.',
+        "En découlera, notre échange sur l'axe de création: un point de départ sur lequel l'agence se basera pour la suite des étapes créatives.",
+      ],
+      number: '02',
+      subtitle: 'nous analysons vos besoins...',
+      textColor: textColor,
+      color: textColor,
+    },
+    {
+      title: 'CRÉATION / PRÉSENTATION',
+      description: [
+        "Selon la nature de votre projet, la ou les propositions résultantes de l'ensemble des recherches menées par l'agence vous sera/ont présentée/s.",
+        'Selon vos retours, des ajustements pourront être apportés à ces créations.',
+      ],
+      number: '03',
+      subtitle: 'nous affinons les créations...',
+      textColor: textColor,
+      color: textColor,
+    },
+    {
+      title: 'LIVRAISON / GUIDE',
+      description: [
+        'Après avoir approuvé et finalisé le projet de création, Jolilot vous livrera votre guide de marque réunissant tous les conseils pour une utilisation optimale.',
+        'Vous recevrez également tous les fichiers liés à votre identité visuelle dans un dossier organisé.',
+      ],
+      number: '04',
+      subtitle: 'et hop ! nous lançons...',
+      color: '#fff',
+      textColor: '#fff',
+    },
+  ],
 };
+
+import Photo1 from '@assets/P.IDENTITÉ/Conception Graphique-min.jpg';
+import Photo2 from '@assets/P.IDENTITÉ/Création Identité Visuelle-min.jpg';
+import Photo3 from '@assets/P.IDENTITÉ/Identité Visuelle-min.jpg';
+import Photo4 from '@assets/P.IDENTITÉ/Logo-min.jpg';
+import Photo5 from '@assets/P.IDENTITÉ/Logotype-min.jpg';
+import Photo6 from '@assets/P.IDENTITÉ/Refonte Identité Visuelle-min.jpg';
+import Photo7 from '@assets/P.IDENTITÉ/Graphisme-min.jpg';
+const PhotoCarrousel = [
+  {
+    image: Photo1,
+    alt: 'Photo 1 instagram',
+  },
+  {
+    image: Photo2,
+    alt: 'Photo 2 instagram',
+  },
+  {
+    image: Photo3,
+    alt: 'Photo 3 instagram',
+  },
+  {
+    image: Photo4,
+    alt: 'Photo 4 instagram',
+  },
+  {
+    image: Photo5,
+    alt: 'Photo 5 instagram',
+  },
+  {
+    image: Photo6,
+    alt: 'Photo 6 instagram',
+  },
+  {
+    image: Photo7,
+    alt: 'Photo 7 instagram',
+  },
+];
 ---
 
 <Layout>
-    <main>
-        <TypingTitle />
-        <AgencyPresentation {...presentation} />
-        <AgencyOneService oneService={oneService} />
-        <AgencySteps {...Steps} />
-        <PhotosCarrousel />
-        <AgencyContactForm />
-    </main>
+  <main>
+    <TypingTitle text="marquons ensemble votre identité" />
+    <AgencyPresentation {...presentation} />
+    <AgencyOneService oneService={oneService} />
+    <AgencySteps {...Steps} />
+    <PhotosCarrousel photos={PhotoCarrousel} />
+    <AgencyContactForm />
+  </main>
 </Layout>

@@ -1,72 +1,68 @@
 ---
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
-
+import Submark from './Icons/Submark.astro';
 export type Props = {
-  photo: ImageMetadata;
+  variant: 'dark' | 'light';
+  zone: 'top' | 'bottom';
 };
-
-const { photo } = Astro.props;
+const { variant = 'light', zone = 'top' } = Astro.props;
 ---
 
-<div class="relative flex sm:h-[700px] h-[500px] items-center justify-center overflow-x-hidden text-background">
-  <Image src={photo} alt="Photo de fond(un pot de fleur avec de la decoration)" class="h-full w-full object-cover" />
-  <div class="absolute h-full w-full bg-black/70" id="progress-number-trigger"></div>
-  <div class="absolute top-1/2 w-full translate-y-1/2 md:left-[15%]">
-    <div class="flex items-end sm:gap-14 gap-5 max-sm:ml-5">
-      <p class="sm:whitespace-nowrap">
-        <span class="font-larken text-3xl text-orange whitespace-nowrap">+30 ACTEURS</span> accompagnés depuis 2022
-      </p>
-      <div class="flex w-full justify-end pb-3">
-        <div class="progress-number relative bg-white">
-          <div
-            class="absolute bottom-0 left-0 h-4 w-4 -translate-x-full translate-y-1/2 overflow-hidden rounded-full border border-white"
-          >
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="flex justify-center text-orange relative -my-3">
+  {zone === 'top' && <div class="absolute h-12 bg-marron_fonce top-0 inset-0" />}
+  <div class="flex justify-center items-center rounded-full bg-background z-10">
+    <Submark />
+  </div>
+  {zone === 'bottom' && <div class="absolute h-12 bg-marron_fonce top-full inset-0 -translate-y-full" />}
+</div>
+<div
+  class={`py-32 flex flex-col items-center font-larken gap-8 ${variant == 'dark' ? 'text-white bg-marron_fonce' : ''}`}
+>
+  <p class="text-4xl text-center"><span class="text-orange">+ 35 acteurs</span> accompagnés par Jolilot</p>
+  <div class="text-center text-lg flex flex-col gap-2">
+    <p>
+      <span id="text-orange">ARTISANS PEINTRES DÉCORATEURS</span> |
+      <span id="text-orange">PHOTOGRAPHES</span> |
+      <span id="text-orange">PRODUCTEURS</span> |
+    </p>
+    <p>
+      <span id="text-orange">CHAUFFAGISTE ÉCOLOGIQUE</span> |
+      <span id="text-orange">PARC ANIMALIER</span> |
+      <span id="text-orange">MAISONS DE VACANCES</span>
+    </p>
+    <p>
+      <span id="text-orange">RÉFLEXOLOGUES</span> |
+      <span id="text-orange">ARTISTES PEINTRES</span> |
+      <span id="text-orange">INFIRMIÈRES LIBÉRALES</span> |
+      <span id="text-orange">ASSOCIATIONS</span>
+    </p>
+    <p>
+      <span id="text-orange">MÉDICALES</span> |
+      <span id="text-orange">COMMUNNES</span> |
+      <span id="text-orange">ASSOCIATIONS DE LOISIRS</span> |
+      <span id="text-orange">COMPAGNIES DE THÉÂTRE</span>
+    </p>
+    <p>
+      <span id="text-orange">HÔTELS</span> |
+      <span id="text-orange">RESTAURANTS</span> |
+      <span id="text-orange">ESTHÉTICIENNES</span> |
+      <span id="text-orange">BIEN-ÊTRE</span> |
+      <span id="text-orange">COMMERÇANTS</span>
+    </p>
+    <p>...</p>
   </div>
 </div>
 
-<style>
-  .progress-number {
-    width: 0%;
-    height: 1px;
-  }
-  .progress-number.animate {
-    animation: progress-number 2s ease-in-out forwards;
-  }
-  @keyframes progress-number {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 100%;
-    }
-  }
-</style>
-
 <script>
-  // Fonction de rappel pour l'intersection
-  function handleIntersection(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const progressNumber = document.querySelector('.progress-number');
-        if (progressNumber) progressNumber.classList.add('animate');
-        observer.unobserve(entry.target);
-      }
-    });
-  }
+  const textOrange = document.querySelectorAll('#text-orange');
 
-  // Créer l'instance de l'observateur
-  const observer = new IntersectionObserver(handleIntersection);
-
-  // Sélectionner l'élément cible
-  const element = document.querySelector('#progress-number-trigger');
-
-  // Observer l'élément cible
-  if (element) {
-    observer.observe(element);
-  }
+  //color first text in orange and then the others in white then after 1s, color the first in white and the second in orange and so on
+  let i = 0;
+  setInterval(() => {
+    textOrange[i].classList.remove('text-orange');
+    i++;
+    if (i === textOrange.length) {
+      i = 0;
+    }
+    textOrange[i].classList.add('text-orange');
+  }, 750);
 </script>

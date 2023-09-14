@@ -8,65 +8,57 @@ import Button from './subcomponents/Button.astro';
 ---
 
 <div class="flex justify-center items-center py-32">
-    <div class="flex justify-evenly items-center max-lg:flex-col gap-y-24">
-        <div class="px-10 flex flex-col gap-5 max-w-[650px]">
-            <div class="flex flex-col gap-2">
-                <p class="font-larken text-3xl">où se trouve l’agence ?</p>
-                <p>JOLILOT ATELIER | AGENCE DE COMMUNICATION</p>
-            </div>
-            <div class="flex flex-col gap-6">
-                <p>L’agence Jolilot se situe dans un petit village <br /> au coeur des Causses du Quercy.</p>
-                <div class="flex flex-col gap-2">
-                    <p>Village : Alvignac-Les-Eaux</p>
-                    <p>Département : Lot (46)</p>
-                    <p>Région : Occitanie</p>
-                </div>
-            </div>
-            <div class="flex w-full pt-20">
-                <div class="sm:-mr-10 max-sm:w-[110px]">
-                    <FranceIcon />
-                </div>
-                <div class="max-sm:w-[160px] flex gap-1">
-                    <Image src={PhotoAgence} alt="Photo prise de l'agence" class="object-cover w-full h-full" />
-                    <a
-                        target="_blank"
-                        rel="noopener"
-                        href="https://www.thewildthings.fr/"
-                        class="self-end vertical-text text-[8px]">©2023JulieAlasset</a
-                    >
-                </div>
-            </div>
+  <div class="flex justify-evenly items-center max-lg:flex-col gap-y-24">
+    <div class="px-10 flex flex-col gap-5 max-w-[650px]">
+      <div class="flex flex-col gap-2">
+        <p class="font-larken text-3xl">où se trouve l’agence ?</p>
+        <p>JOLILOT I AGENCE CRÉATIVE LOTOISE</p>
+      </div>
+      <div class="flex flex-col gap-6">
+        <p>L’agence Jolilot est implantée dans un charmant <br /> village niché au cœur des Causses du Quercy.</p>
+        <div class="flex flex-col gap-2">
+          <p>Village : Alvignac-Les-Eaux</p>
+          <p>Département : Lot (46)</p>
+          <p>Région : Occitanie</p>
         </div>
-        <div class="h-[300px] max-lg:hidden"></div>
-        <div class="px-14 flex flex-col gap-6 max-w-[650px]">
-            <div class="mb-9 flex gap-1">
-                <Image
-                    src={PhotoTelephone}
-                    alt="Photo prise de Lucie au téléphone"
-                    class="object-cover w-[150px] h-[250px]"
-                />
-                <a
-                    target="_blank"
-                    rel="noopener"
-                    href="https://www.thewildthings.fr/"
-                    class="self-end vertical-text text-[8px]">©2023JulieAlasset</a
-                >
-            </div>
-            <div class="flex flex-col gap-2">
-                <p class="font-larken text-3xl">travaillons ensemble, même à distance !</p>
-                <p>JOLILOT ATELIER | AGENCE DE COMMUNICATION</p>
-            </div>
-            <div class="flex flex-col gap-6">
-                <p>
-                    Certains projets de communication peuvent <br />
-                    être envisagés à distance chez Jolilot.
-                </p>
-                <p>
-                    Si vous souhaitez connaître toutes les <br /> possibilités, n’hésitez pas à me joindre via le <br />
-                    formulaire de contact
-                </p>
-            </div>
-            <Button text="CONTACT" url="/contact#contact-form" variant="dark" />
+      </div>
+      <div class="flex w-full pt-20">
+        <div class="sm:-mr-10 max-sm:w-[110px]">
+          <FranceIcon />
         </div>
+        <div class="max-sm:w-[160px] flex gap-1">
+          <Image src={PhotoAgence} alt="Photo prise de l'agence" class="object-cover w-full h-full" />
+          <a
+            target="_blank"
+            rel="noopener"
+            href="https://www.thewildthings.fr/"
+            class="self-end vertical-text text-[8px]">©2023JulieAlasset</a
+          >
+        </div>
+      </div>
     </div>
+    <div class="h-[300px] max-lg:hidden"></div>
+    <div class="px-14 flex flex-col gap-6 max-w-[650px]">
+      <div class="mb-9 flex gap-1">
+        <Image src={PhotoTelephone} alt="Photo prise de Lucie au téléphone" class="object-cover w-[150px] h-[250px]" />
+        <a target="_blank" rel="noopener" href="https://www.thewildthings.fr/" class="self-end vertical-text text-[8px]"
+          >©2023JulieAlasset</a
+        >
+      </div>
+      <div class="flex flex-col gap-2">
+        <p class="font-larken text-3xl">travaillons ensemble, même à distance !</p>
+        <p>JOLILOT I AGENCE CRÉATIVE LOTOISE</p>
+      </div>
+      <div class="flex flex-col gap-6">
+        <p class="max-w-xs">
+          Chez Jolilot, la réalisation de certains projets de communication peut être envisagée à distance.
+        </p>
+        <p class="max-w-xs">
+          Si vous désirez explorer l’ensemble des options qui s’offrent à vous, je vous invite à me contacter via le
+          formulaire dédié.
+        </p>
+      </div>
+      <Button text="CONTACT" url="/contact#contact-form" variant="dark" />
+    </div>
+  </div>
 </div>

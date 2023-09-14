@@ -1,134 +1,164 @@
 ---
-import AgencyPresentation, { PresentationProps } from '../../components/AgencyPresentation.astro';
+import AgencyPresentation, { type PresentationProps } from '../../components/AgencyPresentation.astro';
 
 import TypingTitle from '../../components/TypingTitle.astro';
 import Layout from '../../layouts/Layout.astro';
-import Photo from '../../assets/Photo.webp';
-import AgencySteps, { AgencyStepsProps } from '../../components/AgencySteps.astro';
-import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
+import Photo from '@assets/P.WEB/Site Web Responsive-min.jpg';
+import AgencySteps, { type AgencyStepsProps } from '../../components/AgencySteps.astro';
+import AgencyOneService, { type OneService } from '../../components/AgencyOneService.astro';
 import AgencyContactForm from '../../components/AgencyContactForm.astro';
 import PhotosCarrousel from '../../components/PhotosCarrousel.astro';
 
 const color = '#b4b585';
 const presentation: PresentationProps = {
-    photo: Photo,
-    color: color,
-    title: 'SUPPORT WEB',
-    alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
-    description: [
-        'Besoin de donner de la visibilité à votre activité, maintenir le lien avec vos clients, mais égelement vous faire connaître auprès d’un public plus large ?',
-        'La digitalisation de votre communication sera essentielle pour atteindre ces différents objectifs.',
-        'Un site internet vitrine permettra à vos clients ou futurs propects d’en découvrir un peu plus sur vos produits et services à travers un outil dynamique et ergonomique.',
-    ],
+  photo: Photo,
+  color: color,
+  title: 'SUPPORT WEB',
+  alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
+  description: [
+    'Cherchez-vous à augmenter la visibilité de votre activité, maintenir le lien avec vos clients, ou bien accroître votre notoriété auprès d’un public plus large ?',
+    'L’intégration du numérique dans votre stratégie de communication revêt une importance capitale pour accomplir ces multiples objectifs.',
+    'La création d’un site web vitrine offrira à vos clients existants ainsi qu’à vos futurs prospects l’opportunité de découvrir plus en détail vos produits et services grâce à une interface dynamique et ergonomique.',
+  ],
 };
 
 const oneService: OneService = {
-    color: color,
-    number: '02',
-    title: 'SUPPORT WEB',
-    subtitle: 'des sites internets vitrine...',
-    description: ['site internet vitrine | refonte site internet | mise à jour | maintenance'],
-    benefits: [
-        {
-            title: 'CRÉATION DE SITE VITRINE',
-            description: [
-                'L’agence vous accompagne dans la création de votre site internet vitrine.',
-                'Tous les sites réalisés chez Jolilot sont entièrement responsive, ergonomiques et sauront répondre au meilleur référencement naturel SEO.',
-            ],
-        },
-        {
-            title: 'REFONTE DE SITE VITRINE',
-            description: [
-                'Vous possédez déjà un site internet et vous souhaitez le faire évoluer pour le rendre plus attractif ?',
-                'Jolilot vous accompagne dans sa refonte.',
-                'Les meilleurs solutions pour rendre votre site le plus efficace, performant et sécurisé, vous seront proposées',
-            ],
-        },
-        {
-            title: 'MAINTENANCE SITE VITRINE',
-            description: [
-                'La maintenance d’un site internet n’est pas à négliger',
-                'Une fois votre site réalisé, L’Agence vous proposera une maintenance de plusieurs mois pour maintenir votre site à jour.',
-            ],
-        },
-        {
-            title: 'MISE À JOUR DE SITE VITRINE',
-            description: [
-                'En fonction de vos besoins , l’Agence réalise les mises à jours de site internet vitrine, graphiquement et/ou techniquement.',
-            ],
-        },
-    ],
+  color: color,
+  number: '02',
+  title: 'SUPPORT WEB',
+  subtitle: 'des sites internets vitrine...',
+  description: ['site internet vitrine | refonte site internet | mise à jour | maintenance'],
+  benefits: [
+    {
+      title: 'CRÉATION DE SITE VITRINE',
+      description: [
+        'L’Agence vous accompagne dans l’élaboration de votre site web vitrine.',
+        'Chaque site conçu au sein de Jolilot est entièrement adaptable, conçu pour une navigation fluide et optimisée pour obtenir un référencement naturel SEO optimal.',
+      ],
+      time: '1 à 3 mois',
+    },
+    {
+      title: 'REFONTE DE SITE VITRINE',
+      description: [
+        'Si vous êtes déjà en possession d’un site internet et que vous aspirez à le dynamiser afin d’en renforcer l’attrait, Jolilot se tient à vos côtés pour orchestrer sa refonte complète.',
+        'Des solutions plus avantageuses pour accroître l’efficacité, les performances et la sécurité de votre site vous seront proposés.',
+      ],
+      time: '1 à 2 mois',
+    },
+    {
+      title: 'MAINTENANCE SITE VITRINE',
+      description: [
+        'L’entretien d’un site web est une démarche essentielle à considérer attentivement.',
+        'Une fois la conception de votre site achevée, l’Agence vous propose un service de maintenance sur plusieurs mois, garantissant ainsi la pérennité et la mise à jour continue de votre site.',
+      ],
+    },
+    {
+      title: 'MISE À JOUR DE SITE VITRINE',
+      description: [
+        'Selon vos besoins, l’Atelier Jolilot effectue les mises à jour de votre site internet vitrine, tant sur le plan graphique que technique.',
+      ],
+    },
+  ],
 };
 
 const textColor = '#4a4a49';
 
 const Steps: AgencyStepsProps = {
-    titleColor: textColor,
-    bgColor: color,
-    services: [
-        {
-            title: 'ÉCHANGE / DEVIS',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                `Suite à un premier échange par téléphone, 
-      à l’agence ou sur le lieu de votre activité, 
-      pour en connaître un peu plus sur vos besoins,
-       vos intentions et/ou vos idées, 
-       Jolilot s’engace à vous retourner
-        sous 48H une proposition entièrement adaptée et personnalisée.`,
-            ],
-            number: '01',
-            subtitle: 'nous nous rencontrons...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'AXE DE CRÉATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Nous débuterons par approfondir les objectifs de votre projet afin d’obtenir d’un axe pertinent et concret',
-                'En découlera, notre échange sur l’axe de création : sur lequel l’agence devra s’appuyer pour la suite des étapes créatives.',
-            ],
-            number: '02',
-            subtitle: 'nous analysons vos besoins...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'CRÉATION / PRÉSENTATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'La ou les propositions retenues sur toutes les recherches effectuées par l’Agence vous sera/ont présentés(s)',
-                'En fonction de votre retour, la proposition que vous aurez choisie pourra être affinée.',
-            ],
-            number: '03',
-            subtitle: 'nous affinons les créations...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'LANCEMENT / SUIVI',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Une fois le projet de création validé et clôturé, nous procéderons à son lancement.',
-                'En fonction de votre projet, Jolilot vous propose une formation personnalisée vous permettant d’être en confiance avec vos nouveaux outils de communication',
-            ],
-            number: '04',
-            subtitle: 'et hop ! nous lançons...',
-            color: '#fff',
-            textColor: '#fff',
-        },
-    ],
+  titleColor: textColor,
+  bgColor: color,
+  services: [
+    {
+      title: 'ÉCHANGE / DEVIS',
+      description: [
+        "Après une première consultation par téléphone, à l'agence ou sur le site de votre activité, visant à mieux appréhender vos besoins, vos objectifs et/ou vos concepts, Jolilot s'engage à vous forunir une proposition sur mesure et entièrement personnalisée dans un délai de 72 heures.",
+      ],
+      number: '01',
+      subtitle: 'nous nous rencontrons...',
+      textColor: textColor,
+      color: textColor,
+    },
+    {
+      title: 'AXE DE CRÉATION',
+      description: [
+        'Nous débuterons par une analyse approfondie des objectifs inhérents à votre projet, dans le but de définir une orientation pertinente et concrète.',
+        "En découlera, notre échange sur l'axe de création: un point de départ sur lequel l'agence se basera pour la suite des étapes créatives.",
+      ],
+      number: '02',
+      subtitle: 'nous analysons vos besoins...',
+      textColor: textColor,
+      color: textColor,
+    },
+    {
+      title: 'CRÉATION / PRÉSENTATION',
+      description: [
+        "Selon la nature de votre projet, la ou les propositions résultantes de l'ensemble des recherches menées par l'agence vous sera/ont présentée/s.",
+        'Selon vos retours, des ajustements pourront être apportés à ces créations.',
+      ],
+      number: '03',
+      subtitle: 'nous affinons les créations...',
+      textColor: textColor,
+      color: textColor,
+    },
+    {
+      title: 'LANCEMENT / SUIVI',
+      description: [
+        'Après avoir approuvé et finalisé le projet de création, nous passerons à sa phase de lancement.',
+        'Jolilot vous offrira la possibilité de bénéficier d’une formation personnalisée afin que vous puissiez utiliser ce nouvel outil de communication en toute confiance.',
+      ],
+      number: '04',
+      subtitle: 'et hop ! nous lançons...',
+      color: '#fff',
+      textColor: '#fff',
+    },
+  ],
 };
+
+import Photo1 from '@assets/P.WEB/Création Digitale-min.jpg';
+import Photo2 from '@assets/P.WEB/Site Internet Responsive-min.jpg';
+import Photo3 from '@assets/P.WEB/Site Internet-min.jpg';
+import Photo4 from '@assets/P.WEB/Site OnePage-min.jpg';
+import Photo5 from '@assets/P.WEB/Site Vitrine-min.jpg';
+import Photo6 from '@assets/P.WEB/Site Web Responsive-min.jpg';
+import Photo7 from '@assets/P.WEB/Site Web-min.jpg';
+const PhotoCarrousel = [
+  {
+    image: Photo1,
+    alt: 'Photo 1 instagram',
+  },
+  {
+    image: Photo2,
+    alt: 'Photo 2 instagram',
+  },
+  {
+    image: Photo3,
+    alt: 'Photo 3 instagram',
+  },
+  {
+    image: Photo4,
+    alt: 'Photo 4 instagram',
+  },
+  {
+    image: Photo5,
+    alt: 'Photo 5 instagram',
+  },
+  {
+    image: Photo6,
+    alt: 'Photo 6 instagram',
+  },
+  {
+    image: Photo7,
+    alt: 'Photo 7 instagram',
+  },
+];
 ---
 
 <Layout>
-    <main>
-        <TypingTitle />
-        <AgencyPresentation {...presentation} />
-        <AgencyOneService oneService={oneService} />
-        <AgencySteps {...Steps} />
-        <PhotosCarrousel />
-        <AgencyContactForm />
-    </main>
+  <main>
+    <TypingTitle text="votre présence digitale, une vitrine captivante" />
+    <AgencyPresentation {...presentation} />
+    <AgencyOneService oneService={oneService} />
+    <AgencySteps {...Steps} />
+    <PhotosCarrousel photos={PhotoCarrousel} />
+    <AgencyContactForm />
+  </main>
 </Layout>

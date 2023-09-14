@@ -1,19 +1,39 @@
 ---
 import FlecheIcon from './Icons/FlecheIcon.astro';
-import OneService, { Service } from './subcomponents/OneService.astro';
+import Submark from './Icons/Submark.astro';
+import OneService, { type Service } from './subcomponents/OneService.astro';
 import SubTitle from './subcomponents/SubTitle.astro';
 
 export type Props = AgencyStepsProps;
 
 export type AgencyStepsProps = {
   bgColor?: string;
-  services: Service[];
+  title?: string;
+  services?: Service[];
   titleColor?: string;
 };
 
-const { bgColor, services, titleColor } = Astro.props;
+const { bgColor, services, titleColor, title = 'jolilot c’est aussi simple que ça !' } = Astro.props;
+const areServices = services && services.length > 0;
 ---
 
+<div
+  class="flex md:justify-end text-orange relative -my-3 justify-center"
+  style={{
+    color: bgColor,
+  }}
+>
+  <div class="flex justify-center items-center rounded-full bg-background z-10 md:-translate-x-1/2">
+    <Submark />
+  </div>
+  <div
+    class="absolute h-12 bg-marron_fonce top-full inset-0 -translate-y-full"
+    style={{
+      backgroundColor: bgColor,
+    }}
+  >
+  </div>
+</div>
 <div
   class="bg-marron_fonce text-white pb-8 pt-16 flex flex-col gap-y-14"
   style={{
@@ -21,25 +41,31 @@ const { bgColor, services, titleColor } = Astro.props;
     color: titleColor,
   }}
 >
-  <SubTitle title="jolilot c’est aussi simple que ça !" />
-  <div class="relative flex w-full flex-col items-center glide gap-y-8">
-    <div class="w-full max-w-[1800px] px-4 md:px-20">
-      <div class="glide__track" data-glide-el="track">
-        <ul class="glide__slides px-3">
-          {services.map((service) => <OneService {...service} />)}
-        </ul>
-      </div>
-    </div>
+  <SubTitle title={title} />
+  {
+    areServices && (
+      <div class="relative flex w-full flex-col items-center glide gap-y-8">
+        <div class="w-full max-w-[1800px] px-4 md:px-20">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides px-3">
+              {services?.map((service) => (
+                <OneService {...service} />
+              ))}
+            </ul>
+          </div>
+        </div>
 
-    <div data-glide-el="controls" class="flex gap-4">
-      <button data-glide-dir="<" aria-label="Precedent" class="rotate-180">
-        <FlecheIcon />
-      </button>
-      <button data-glide-dir=">" aria-label="Suivant">
-        <FlecheIcon />
-      </button>
-    </div>
-  </div>
+        <div data-glide-el="controls" class="flex gap-4">
+          <button data-glide-dir="<" aria-label="Precedent" class="rotate-180">
+            <FlecheIcon />
+          </button>
+          <button data-glide-dir=">" aria-label="Suivant">
+            <FlecheIcon />
+          </button>
+        </div>
+      </div>
+    )
+  }
 </div>
 
 <style>
@@ -48,40 +74,29 @@ const { bgColor, services, titleColor } = Astro.props;
   }
 </style>
 
+{
+areServices && (
 <script type="module">
-import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
+  import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
 
-new Glide('.glide', {
-  startAt: 0,
-  perView: 4,
-  type: 'carousel',
-  gap: 30,
-  breakpoints: {
-    1280: {
-      perView: 3,
+  new Glide('.glide', {
+    startAt: 0,
+    perView: 4,
+    type: 'carousel',
+    gap: 30,
+    breakpoints: {
+      1280: {
+        perView: 3,
+      },
+      1024: {
+        perView: 2,
+      },
+      640: {
+        perView: 1,
+      },
     },
-    1024: {
-      perView: 2,
-    },
-    640: {
-      perView: 1,
-    },
-  },
-}).mount();
+  }).mount();
 </script>
+)
+}
 
-<script>
-  const textOrange = document.querySelectorAll('#text-orange');
-
-  //color first text in orange and then the others in white then after 1s, color the first in white and the second in orange and so on
-  let i = 0;
-  setInterval(() => {
-    if (!textOrange[i]) return;
-    textOrange[i].classList.remove('text-orange');
-    i++;
-    if (i === textOrange.length) {
-      i = 0;
-    }
-    textOrange[i].classList.add('text-orange');
-  }, 1000);
-</script>

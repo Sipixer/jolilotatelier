@@ -1,147 +1,173 @@
 ---
-import AgencyPresentation, { PresentationProps } from '../../components/AgencyPresentation.astro';
+import AgencyPresentation, { type PresentationProps } from '../../components/AgencyPresentation.astro';
 
 import TypingTitle from '../../components/TypingTitle.astro';
 import Layout from '../../layouts/Layout.astro';
-import Photo from '../../assets/Photo.webp';
-import AgencySteps, { AgencyStepsProps } from '../../components/AgencySteps.astro';
-import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
+import Photo from '@assets/P.IMPPRIMÉS/Brochure Professionnelle-min.jpg';
+import AgencySteps, { type AgencyStepsProps } from '../../components/AgencySteps.astro';
+import AgencyOneService, { type OneService } from '../../components/AgencyOneService.astro';
 import AgencyContactForm from '../../components/AgencyContactForm.astro';
 import PhotosCarrousel from '../../components/PhotosCarrousel.astro';
 
 const color = '#9cb6be';
 const presentation: PresentationProps = {
-    photo: Photo,
-    color: color,
-    title: 'SUPPORTS IMPRIMÉS',
-    alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
-    description: [
-        'Les supports imprimés ont pour rôle d’attirer l’attention des personnes ciblées.',
-        'En fonction de votre activité, de vos besoins, et de vos objectifs, les supports print sont à choisir avec intéret et stratégie.',
-        'En passant par l’univers de la papeterie, de la signalétique, du packaging mais aussi tout type de marquage, Jolilot vous accompagnera dans le choix et la conception de ces outils.',
-    ],
+  photo: Photo,
+  color: color,
+  title: 'SUPPORTS IMPRIMÉS',
+  alt: 'Photo de presentation des supports imprimés avec un livret de recette fruisec',
+  description: [
+    'Les supports imprimés jouent un rôle primordial dans la captation de l’attention de votre audience ciblée.',
+    'En alignant vos besoins, activité et objectifs, le choix des supports print doit être mûrement réfléchi et stratégique.',
+    'Englobant l’univers de la papeterie, la signalétique, les emballages ainsi que diverses méthodes de marquage, Jolilot vous orientera et élaborera ces outils de manière optimale.',
+  ],
 };
 
 const oneService: OneService = {
-    color: color,
-    number: '01',
-    title: 'SUPPORTS IMPRIMÉS',
-    subtitle: 'des supports imprimés...',
-    description: [
-        'papeterie | étiquettes | packaging | enseigne | signalétique | marquage vehicule & vitrine | documents professionnels | goodies',
-    ],
-    benefits: [
-        {
-            title: 'UNIVERS PAPETERIE',
-            description: [
-                'En passant par les cartes de visite, les dépliants, les brochures, les affiches, les cartes de vœux ou autre, l’Agence vous accompagnera pour donner vie à vos idées, vos produits et services, à travers ces différents outils de communication.',
-            ],
-        },
-        {
-            title: 'SIGNALÉTIQUE / ENSEIGNE',
-            description: [
-                'En fonction de vos besoins, Jolilot vous aidera à donner de la nouveauté à votre signalétique ou votre enseigne.',
-            ],
-        },
-        {
-            title: 'MARQUAGE VITRINE / VEHICULE',
-            description: [
-                'Suivant la nature de votre activité, le marquage de votre vitrine ou celui de votre véhicule peutêtre indispensable dans votre communication.',
-                'C’est pourquoi Jolilot vous propose ce service afin d’adapté au mieux votre projet',
-            ],
-        },
-        {
-            title: 'ETIQUETTE / PACKAGING',
-            description: [
-                'Un bon packaging se doit d’être travaillé et attrayant.',
-
-                'Il doit refléter votre identité, vos valeurs, et vous aider à mettre en avant vos produits.',
-            ],
-        },
-    ],
+  color: color,
+  number: '01',
+  title: 'SUPPORTS IMPRIMÉS',
+  subtitle: 'des supports imprimés...',
+  description: [
+    'papeterie | étiquettes | packaging | enseigne | signalétique | marquage vehicule & vitrine | documents professionnels | goodies',
+  ],
+  benefits: [
+    {
+      title: 'UNIVERS PAPETERIE',
+      description: [
+        'Des cartes de visite aux dépliants, en passant par les brochures, les affiches, les cartes de vœux et bien d’autres encore, Jolilot sera à vos côtés pour concrétiser vos concepts, promouvoir vos produits et services à travers ces différents outils de communication.',
+      ],
+      time: '1 à 4 semaines',
+    },
+    {
+      title: 'SIGNALÉTIQUE / ENSEIGNE',
+      description: [
+        'En harmonie avec vos exigences, Jolilot vous assistera pour insuffler de la fraîcheur à votre signalétique ou à votre enseigne.',
+      ],
+      time: '2 à 5 semaines',
+    },
+    {
+      title: 'MARQUAGE VITRINE / VEHICULE',
+      description: [
+        'Suivant la nature de votre activité, l’identification visuelle de votre vitrine ou de votre véhicule peut s’avérer essentielle dans votre stratégie de communication.',
+        'C’est précisément pour cette raison que Jolilot met à votre disposition ce service, visant à personnaliser au mieux votre projet.',
+      ],
+      time: '1 à 3 semaines',
+    },
+    {
+      title: 'ETIQUETTE / PACKAGING',
+      description: [
+        'Un packaging de qualité requiert une conception soignée et attrayante',
+        'Il doit être le reflet fidèle de votre identité et de vos valeurs, tout en jouant un rôle crucial pour mettre en évidence vos produits.',
+      ],
+      time: '1 à 2 mois',
+    },
+    {
+      title: 'GESTION D’IMPRESSION',
+      description: [
+        'Dans une démarche axée sur le circuit court, l’Agence Jolilot a opté pour une approche collaborative directe avec des imprimeurs locaux qui garantissent des impressions de haute qualité et ayant une attention minutieuse aux finitions.',
+      ],
+    },
+  ],
 };
 
 const textColor = '#4a4a49';
 
 const Steps: AgencyStepsProps = {
-    titleColor: textColor,
-    bgColor: color,
-    services: [
-        {
-            title: 'ÉCHANGE / DEVIS',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                `Suite à un premier échange par téléphone, 
-      à l’agence ou sur le lieu de votre activité, 
-      pour en connaître un peu plus sur vos besoins,
-       vos intentions et/ou vos idées, 
-       Jolilot s’engace à vous retourner
-        sous 48H une proposition entièrement adaptée et personnalisée.`,
-            ],
-            number: '01',
-            subtitle: 'nous nous rencontrons...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'AXE DE CRÉATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Nous débuterons par approfondir les objectifs de votre projet afin d’obtenir d’un axe pertinent et concret',
-                'En découlera, notre échange sur l’axe de création : sur lequel l’agence devra s’appuyer pour la suite des étapes créatives.',
-            ],
-            number: '02',
-            subtitle: 'nous analysons vos besoins...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'CRÉATION / PRÉSENTATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'La ou les propositions retenues sur toutes les recherches effectuées par l’Agence vous sera/ont présentés(s)',
-                'En fonction de votre retour, la proposition que vous aurez choisie pourra être affinée.',
-            ],
-            number: '03',
-            subtitle: 'nous affinons les créations...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'LANCEMENT / SUIVI',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Une fois le projet de création validé et clôturé, nous procéderons à son lancement.',
-                'En fonction de votre projet, Jolilot vous propose une formation personnalisée vous permettant d’être en confiance avec vos nouveaux outils de communication',
-            ],
-            number: '04',
-            subtitle: 'et hop ! nous lançons...',
-            color: '#fff',
-            textColor: '#fff',
-        },
-        {
-            title: 'ENFIN !',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Une fois le projet de création validé et clôturé, nous procéderons à son lancement.',
-                'En fonction de votre projet, Jolilot vous propose une formation personnalisée vous permettant d’être en confiance avec vos nouveaux outils de communication',
-            ],
-            number: '05',
-            subtitle: 'et hop ! nous lançons...',
-            color: '#fff',
-            textColor: '#fff',
-        },
-    ],
+  titleColor: textColor,
+  bgColor: color,
+  services: [
+    {
+      title: 'ÉCHANGE / DEVIS',
+      description: [
+        "Après une première consultation par téléphone, à l'agence ou sur le site de votre activité, visant à mieux appréhender vos besoins, vos objectifs et/ou vos concepts, Jolilot s'engage à vous forunir une proposition sur mesure et entièrement personnalisée dans un délai de 72 heures.",
+      ],
+      number: '01',
+      subtitle: 'nous nous rencontrons...',
+      textColor: textColor,
+      color: textColor,
+    },
+    {
+      title: 'AXE DE CRÉATION',
+      description: [
+        'Nous débuterons par une analyse approfondie des objectifs inhérents à votre projet, dans le but de définir une orientation pertinente et concrète.',
+        "En découlera, notre échange sur l'axe de création: un point de départ sur lequel l'agence se basera pour la suite des étapes créatives.",
+      ],
+      number: '02',
+      subtitle: 'nous analysons vos besoins...',
+      textColor: textColor,
+      color: textColor,
+    },
+    {
+      title: 'CRÉATION / PRÉSENTATION',
+      description: [
+        "Selon la nature de votre projet, la ou les propositions résultantes de l'ensemble des recherches menées par l'agence vous sera/ont présentée/s.",
+        'Selon vos retours, des ajustements pourront être apportés à ces créations.',
+      ],
+      number: '03',
+      subtitle: 'nous affinons les créations...',
+      textColor: textColor,
+      color: textColor,
+    },
+    {
+      title: 'IMPRESSION / LIVRAISON',
+      description: [
+        'Après avoir approuvé et finalisé le projet de création, nous passerons à sa phase de lancement.',
+        'Pour tout projet d’impression, l’Agence vous accompagnera jusqu’à la livraison des supports.',
+      ],
+      number: '04',
+      subtitle: 'et hop ! nous lançons...',
+      color: '#fff',
+      textColor: '#fff',
+    },
+  ],
 };
+
+import Photo1 from '@assets/P.IMPPRIMÉS/Affiche-min.jpg';
+import Photo2 from '@assets/P.IMPPRIMÉS/Carte de Visite-min.jpg';
+import Photo3 from '@assets/P.IMPPRIMÉS/Dépliant-min.jpg';
+import Photo4 from '@assets/P.IMPPRIMÉS/Livre Recettes-min.jpg';
+import Photo5 from '@assets/P.IMPPRIMÉS/Mise en Page-min.jpg';
+import Photo6 from '@assets/P.IMPPRIMÉS/Signalétique-min.jpg';
+import Photo7 from '@assets/P.IMPPRIMÉS/Brochure Professionnelle-min.jpg';
+const PhotoCarrousel = [
+  {
+    image: Photo1,
+    alt: 'Photo 1 instagram',
+  },
+  {
+    image: Photo2,
+    alt: 'Photo 2 instagram',
+  },
+  {
+    image: Photo3,
+    alt: 'Photo 3 instagram',
+  },
+  {
+    image: Photo4,
+    alt: 'Photo 4 instagram',
+  },
+  {
+    image: Photo5,
+    alt: 'Photo 5 instagram',
+  },
+  {
+    image: Photo6,
+    alt: 'Photo 6 instagram',
+  },
+  {
+    image: Photo7,
+    alt: 'Photo 7 instagram',
+  },
+];
 ---
 
 <Layout>
-    <main>
-        <TypingTitle />
-        <AgencyPresentation {...presentation} />
-        <AgencyOneService oneService={oneService} />
-        <AgencySteps {...Steps} />
-        <PhotosCarrousel />
-        <AgencyContactForm />
-    </main>
+  <main>
+    <TypingTitle text="des solutions visuelles pour tous vos objectifs" />
+    <AgencyPresentation {...presentation} />
+    <AgencyOneService oneService={oneService} />
+    <AgencySteps {...Steps} />
+    <PhotosCarrousel photos={PhotoCarrousel} />
+    <AgencyContactForm />
+  </main>
 </Layout>

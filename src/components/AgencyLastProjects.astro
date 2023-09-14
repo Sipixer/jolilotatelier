@@ -1,45 +1,41 @@
 ---
 import SubTitle from './subcomponents/SubTitle.astro';
 
-import Photo from '../assets/Photo.webp';
+import RefonteSiteInternet from '../assets/P.ACCUEIL/Refonte Site Internet-min.jpg';
+import JAAK from '../assets/P.ACCUEIL/Création Logotype-min.jpg';
+import LivreRecette from '../assets/P.ACCUEIL/Création Livre Recettes Professionnel-min.jpg';
 import LastProject from './subcomponents/LastProject.astro';
 import Button from './subcomponents/Button.astro';
 
 const projects = [
   {
-    title: 'Une nouvelle identité pour JAAK photographie',
-    description:
-      'JAAK photographie est un photographe professionnel qui a fait appel à mes services pour la création de son identité visuelle. Il souhaitait un logo qui lui ressemble et qui soit en accord avec son univers. Il souhaitait également un site internet pour présenter son travail et ses services.',
-    image: Photo,
+    title: 'Une refonte pour le site vitrine d’AQUAROC',
+    image: RefonteSiteInternet,
   },
   {
-    title: 'L’ accompagnement sur-mesure du Parc Animalier de Gramat',
-    description:
-      'Le Parc Animalier de Gramat est un parc zoologique situé dans le Lot. Il a fait appel à mes services pour la création de son identité visuelle. Il souhaitait un logo qui lui ressemble et qui soit en accord avec son univers. Il souhaitait également un site internet pour présenter son travail et ses services.',
-    image: Photo,
+    title: 'Une nouvelle identité pour JAAK Photographe',
+    image: JAAK,
   },
   {
-    title: 'Un tout nouveau site pour l’artiste Walter Dolphyn',
-    description:
-      'Walter Dolphyn est un artiste peintre qui a fait appel à mes services pour la création de son identité visuelle. Il souhaitait un logo qui lui ressemble et qui soit en accord avec son univers. Il souhaitait également un site internet pour présenter son travail et ses services.',
-    image: Photo,
+    title: 'Un livre de recettes professionnel pour FRUISEC',
+    image: LivreRecette,
   },
 ];
 ---
 
 <div class="my-28 flex flex-col gap-10">
-  <SubTitle title="les dernières réalisations chez jolilot" />
+  <SubTitle title="signature graphique et visuelle" />
   <div class="relative flex w-full flex-col items-center">
     <div class="grid w-full max-w-[1800px] grid-cols-1 gap-x-20 gap-y-24 px-10 md:px-20 min-[900px]:grid-cols-3">
       <div class="min-[900px]:mt-12">
-        <LastProject title={projects[0].title} description={projects[0].description} image={projects[0].image} />
+        <LastProject title={projects[0].title} image={projects[0].image} />
       </div>
       <div class="min-[900px]:mt-24">
-        <LastProject title={projects[1].title} description={projects[1].description} image={projects[1].image} />
+        <LastProject title={projects[1].title} image={projects[1].image} />
       </div>
 
       <div>
-        <LastProject title={projects[2].title} description={projects[2].description} image={projects[2].image} />
+        <LastProject title={projects[2].title} image={projects[2].image} />
       </div>
     </div>
   </div>

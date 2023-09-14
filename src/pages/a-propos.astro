@@ -1,100 +1,93 @@
 ---
-import AgencyClientsNumber from '../components/AgencyClientsNumber.astro';
-import AgencyPresentation, { Props } from '../components/AgencyPresentation.astro';
+import AgencyPresentation, { type Props } from '../components/AgencyPresentation.astro';
 import TypingTitle from '../components/TypingTitle.astro';
 import Layout from '../layouts/Layout.astro';
-import PhotoClientsNumber from '../assets/JOLILOT-21.webp';
 import PhotoPresentation from '../assets/JOLILOT-58.webp';
 import AgencyLocation from '../components/AgencyLocation.astro';
-import AgencySteps, { AgencyStepsProps } from '../components/AgencySteps.astro';
+import AgencySteps, { type AgencyStepsProps } from '../components/AgencySteps.astro';
 import PhotosCarrousel from '../components/PhotosCarrousel.astro';
+import AgencyClientsNumber from '@components/AgencyClientsNumber.astro';
 
 const presentation: Props = {
-    photo: PhotoPresentation,
-    alt: "Photo de Lucie souriante avec un mac a coté d'elle",
-    description: [
-        'Je suis Lucie, graphiste indépendante spécialisée dans le print et le digital. ',
-        'Grâce au dynamisme et à la richesse du territoire lotois, c’est tout naturellement que j’ai souhaité installer l’agence, dans le nord du département, afin d’accompagner au mieux les acteurs qui y contribuent.',
-        'Ma passion pour ce métier me permet de donner vie à leurs idées à travers des outils de communication adaptés et entièrement personnalisés.',
-    ],
-    buttons: [
-        {
-            text: 'Graphiste',
-            url: '/contact#contact-form',
-            variant: 'orange',
-        },
-        {
-            text: 'Designer Web',
-            url: '/contact#contact-form',
-            variant: 'light',
-        },
-    ],
+  photo: PhotoPresentation,
+  alt: "Photo de Lucie souriante avec un mac a coté d'elle",
+  description: [
+    'Je me présente, je suis Lucie, graphiste indépendante spécialisée dans les domaines de l’imprimé et du numérique.',
+    'Portée par la vitalité et la diversité de ma région, j’ai fait le choix d’établir mon agence dans le nord du département du Lot (46).',
+    'Cette localisation me permet de fournir un accompagnement optimal aux acteurs contribuant au dynamisme de ce département.',
+    'Mon métier est ma passion, et cette passion se traduit par la concrétisation de vos idées au moyen d’outils de communication adaptés et totalement personnalisés.',
+  ],
+  buttons: [
+    {
+      text: 'Graphiste',
+      url: '/contact#contact-form',
+      variant: 'orange',
+    },
+    {
+      text: 'Designer Web',
+      url: '/contact#contact-form',
+      variant: 'light',
+    },
+  ],
 };
 
 const Steps: AgencyStepsProps = {
-    services: [
-        {
-            title: 'ÉCHANGE / DEVIS',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                `Suite à un premier échange par téléphone, 
-      à l’agence ou sur le lieu de votre activité, 
-      pour en connaître un peu plus sur vos besoins,
-       vos intentions et/ou vos idées, 
-       Jolilot s’engace à vous retourner
-        sous 48H une proposition entièrement adaptée et personnalisée.`,
-            ],
-            number: '01',
-            subtitle: 'nous nous rencontrons...',
-            textColor: '#fff',
-            color: '#fff',
-        },
-        {
-            title: 'AXE DE CRÉATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Nous débuterons par approfondir les objectifs de votre projet afin d’obtenir d’un axe pertinent et concret',
-                'En découlera, notre échange sur l’axe de création : sur lequel l’agence devra s’appuyer pour la suite des étapes créatives.',
-            ],
-            number: '02',
-            subtitle: 'nous analysons vos besoins...',
-            textColor: '#fff',
-            color: '#fff',
-        },
-        {
-            title: 'CRÉATION / PRÉSENTATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'La ou les propositions retenues sur toutes les recherches effectuées par l’Agence vous sera/ont présentés(s)',
-                'En fonction de votre retour, la proposition que vous aurez choisie pourra être affinée.',
-            ],
-            number: '03',
-            subtitle: 'nous affinons les créations...',
-            textColor: '#fff',
-            color: '#fff',
-        },
-        {
-            title: 'LANCEMENT / SUIVI',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Une fois le projet de création validé et clôturé, nous procéderons à son lancement.',
-                'En fonction de votre projet, Jolilot vous propose une formation personnalisée vous permettant d’être en confiance avec vos nouveaux outils de communication',
-            ],
-            number: '04',
-            subtitle: 'et hop ! nous lançons...',
-            color: '#cc9f5c',
-            textColor: '#cc9f5c',
-        },
-    ],
+  services: [
+    {
+      title: 'ÉCHANGE / DEVIS',
+      description: [
+        `Après une première consultation par téléphone, à l’agence ou sur le site de votre activité, visant à mieux appréhender vos besoins, vos objectifs et/ou vos concepts, Jolilot s’engage à vous fournir une proposition sur mesure et entièrement personnalisée dans un délai de 72 heures.`,
+      ],
+      number: '01',
+      subtitle: 'nous nous rencontrons...',
+      textColor: '#fff',
+      color: '#fff',
+    },
+    {
+      title: 'AXE DE CRÉATION',
+
+      description: [
+        'Nous débuterons par une analyse approfondie des objectifs inhérents à votre projet, dans le but de définir une orientation pertinente et concrète.',
+        'En découlera, notre échange sur l’axe de création : un point de départ sur lequel l’agence se basera pour la suite des étapes créatives.',
+      ],
+      number: '02',
+      subtitle: 'nous analysons vos besoins...',
+      textColor: '#fff',
+      color: '#fff',
+    },
+    {
+      title: 'CRÉATION / PRÉSENTATION',
+      description: [
+        'Selon la nature de votre projet, la ou les propositions résultantes de l’ensemble des recherches menées par l’Agence vous sera/ont présentée/s.',
+        'Selon vos retours, des ajustements pourront être apportés à ces créations.',
+      ],
+      number: '03',
+      subtitle: 'nous affinons les créations...',
+      textColor: '#fff',
+      color: '#fff',
+    },
+    {
+      title: 'LANCEMENT / SUIVI',
+      description: [
+        'Après avoir approuvé et finalisé le projet de création, nous passerons à sa phase de lancement.',
+        'Selon les spécificités de votre projet, Jolilot vous offrira un guide (projet marque) ou la possibilité de bénéficier d’une formation personnalisée (projet web) afin que vous puissiez utiliser vos nouveaux outils de communication en toute confiance.',
+        'Pour tout projet d’impression, l’Agence vous accompagnera jusqu’à la livraison des supports.',
+      ],
+      number: '04',
+      subtitle: 'et hop ! nous lançons...',
+      color: '#cc9f5c',
+      textColor: '#cc9f5c',
+    },
+  ],
 };
 ---
 
 <Layout>
-    <main>
-        <TypingTitle />
-        <AgencyPresentation {...presentation} />
-        <AgencyLocation />
-        <AgencySteps {...Steps} />
-        <PhotosCarrousel />
-    </main>
+  <main>
+    <TypingTitle />
+    <AgencyPresentation {...presentation} />
+    <AgencyLocation />
+    <AgencySteps {...Steps} />
+    <AgencyClientsNumber variant="light" zone="top" />
+  </main>
 </Layout>

@@ -1,28 +1,76 @@
 ---
-import AgencyClientsNumber from '../components/AgencyClientsNumber.astro';
 import AgencyLastProjects from '../components/AgencyLastProjects.astro';
 import AgencyPresentation from '../components/AgencyPresentation.astro';
 import AgencyServices from '../components/AgencyServices.astro';
 import TypingTitle from '../components/TypingTitle.astro';
 import Layout from '../layouts/Layout.astro';
 
-import PhotoPresentation from '../assets/JOLILOT-16.webp';
-import PhotoClientsNumber from '../assets/JOLILOT-12.webp';
+import PhotoPresentation from '../assets/P.ACCUEIL/Atelier Jolilot-min.jpg';
 import type { Props } from '../components/AgencyPresentation.astro';
+import PhotosCarrousel from '@components/PhotosCarrousel.astro';
 
 const presentation: Props = {
   photo: PhotoPresentation,
-  credit: {
-    name: '©2023JulieAlasset',
-    url: 'https://www.thewildthings.fr/',
-  },
-  alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
+  alt: 'Photo de presentation du site (une tablette avec un site web ouvert)',
   description: [
-    'Située à Alvignac, l’atelier jolilot est une agence de communication qui vous accompagne et vous propose des services adaptés à vos besoins.',
-    'Grâce à des supports de communication professionnels, l’agence saura vous aider à transmettre vos valeurs et mettre en avant vos produits et services.',
-    'Donnons à votre activité, la meilleure visibilité qu’il soit !',
+    'Implanté à Alvignac, dans le Lot (46), l’Atelier Jolilot est une agence de communication dédiée à vous accompagner dans vos projets, en vous offrant des services adaptés à vos besoins',
+    'Grâce à des outils de communication professionnels, l’agence saura vous aider à véhiculer vos valeurs et à mettre en avant vos produits et services.',
+    'Offrons à votre structure, la visibilité qu’elle mérite ! ',
   ],
 };
+
+import Photo1 from '@assets/P.ACCUEIL/Accompagnement Créatif-min.jpg';
+import Photo2 from '@assets/P.ACCUEIL/Atelier Jolilot-min.jpg';
+import Photo3 from '@assets/P.ACCUEIL/Création Livre Recettes Professionnel-min.jpg';
+import Photo4 from '@assets/P.ACCUEIL/Création Logotype-min.jpg';
+import Photo5 from '@assets/P.ACCUEIL/Identité Visuelle-min.jpg';
+import Photo6 from '@assets/P.ACCUEIL/Mise en Page Papeterie-min.jpg';
+import Photo7 from '@assets/P.ACCUEIL/Refonte Site Internet-min.jpg';
+import Photo8 from '@assets/P.ACCUEIL/Site Internet Vitrine-min.jpg';
+import Photo9 from '@assets/P.ACCUEIL/Site Responsive-min.jpg';
+import Photo10 from '@assets/P.ACCUEIL/Site Web-min.jpg';
+const PhotoCarrousel = [
+  {
+    image: Photo1,
+    alt: 'Photo 1 instagram',
+  },
+  {
+    image: Photo2,
+    alt: 'Photo 2 instagram',
+  },
+  {
+    image: Photo3,
+    alt: 'Photo 3 instagram',
+  },
+  {
+    image: Photo4,
+    alt: 'Photo 4 instagram',
+  },
+  {
+    image: Photo5,
+    alt: 'Photo 5 instagram',
+  },
+  {
+    image: Photo6,
+    alt: 'Photo 6 instagram',
+  },
+  {
+    image: Photo7,
+    alt: 'Photo 7 instagram',
+  },
+  {
+    image: Photo8,
+    alt: 'Photo 8 instagram',
+  },
+  {
+    image: Photo9,
+    alt: 'Photo 9 instagram',
+  },
+  {
+    image: Photo10,
+    alt: 'Photo 10 instagram',
+  },
+];
 ---
 
 <Layout>
@@ -30,7 +78,7 @@ const presentation: Props = {
     <TypingTitle />
     <AgencyPresentation {...presentation} />
     <AgencyServices />
-    <AgencyClientsNumber photo={PhotoClientsNumber} />
+    <PhotosCarrousel photos={PhotoCarrousel} />
     <AgencyLastProjects />
   </main>
 </Layout>

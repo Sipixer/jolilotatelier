@@ -1,82 +1,48 @@
 ---
 import { Image } from 'astro:assets';
-import Insta1 from '@assets/JOLILOT-47.webp';
-import Insta2 from '@assets/JOLILOT-58.webp';
-import Insta3 from '@assets/JOLILOT-69.webp';
-import Insta4 from '@assets/JOLILOT-16.webp';
-const Photos = [
-    {
-        url: 'https://www.instagram.com/p/CpSPcYJMCf2/',
-        image: Insta1,
-        alt: 'Photo 1 instagram',
-    },
-    {
-        url: 'https://www.instagram.com/p/Cop7O1YOciK/',
-        image: Insta2,
-        alt: 'Photo 2 instagram',
-    },
-    {
-        url: 'https://www.instagram.com/p/CnJststMdVN/',
-        image: Insta3,
-        alt: 'Photo 3 instagram',
-    },
-    {
-        url: 'https://www.instagram.com/p/Ck-RRiXMPSg/',
-        image: Insta4,
-        alt: 'Photo 4 instagram',
-    },
-    {
-        url: 'https://www.instagram.com/p/CnJststMdVN/',
-        image: Insta3,
-        alt: 'Photo 3 instagram',
-    },
-    {
-        url: 'https://www.instagram.com/p/Ck-RRiXMPSg/',
-        image: Insta4,
-        alt: 'Photo 4 instagram',
-    },
-];
+export type Props = {
+  photos: {
+    url?: string;
+    image: ImageMetadata;
+    alt: string;
+  }[];
+};
+const { photos = [] } = Astro.props;
 ---
 
 <div class="py-4 flex px-4 md:px-4 flex-col items-center">
-    <div class="glide glidep ">
-        <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-                {
-                    Photos.map((post) => (
-                        <li class="glide__slide">
-                            <a
-                                rel="noreferrer"
-                                class="hover:opacity-70"
-                                href={post.url}
-                                target="_blank"
-                                referrerpolicy="no-referrer"
-                            >
-                                <Image src={post.image} alt={post.alt} class="object-cover" />
-                            </a>
-                        </li>
-                    ))
-                }
-            </ul>
-        </div>
+  <div class="glide glidep">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        {
+          photos.map((post) => (
+            <li class="glide__slide">
+              <a rel="noreferrer" class="hover:opacity-70" href={post.url} target="_blank" referrerpolicy="no-referrer">
+                <Image src={post.image} alt={post.alt} class="object-cover" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
+  </div>
 </div>
 
 <script type="module" async defer>
-import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
+  import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
 
-new Glide('.glidep', {
+  new Glide('.glidep', {
     startAt: 0,
     perView: 6,
     type: 'carousel',
     gap: 17,
     breakpoints: {
-        1024: {
-            perView: 4,
-        },
-        640: {
-            perView: 2,
-        },
+      1024: {
+        perView: 4,
+      },
+      640: {
+        perView: 2,
+      },
     },
-}).mount();
+  }).mount();
 </script>

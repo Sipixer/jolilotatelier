@@ -1,120 +1,107 @@
 ---
-import AgencyPresentation, { PresentationProps } from '../../components/AgencyPresentation.astro';
+import AgencyPresentation, { type PresentationProps } from '../../components/AgencyPresentation.astro';
 
 import TypingTitle from '../../components/TypingTitle.astro';
 import Layout from '../../layouts/Layout.astro';
-import Photo from '../../assets/Photo.webp';
-import AgencySteps, { AgencyStepsProps } from '../../components/AgencySteps.astro';
-import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
+import Photo from '@assets/P.CONTENU/Contenu-min.jpg';
+import AgencySteps, { type AgencyStepsProps } from '../../components/AgencySteps.astro';
+import AgencyOneService, { type OneService } from '../../components/AgencyOneService.astro';
 import AgencyContactForm from '../../components/AgencyContactForm.astro';
 import PhotosCarrousel from '../../components/PhotosCarrousel.astro';
 
 const color = '#9b97a9';
 const presentation: PresentationProps = {
-    photo: Photo,
-    color: color,
-    title: 'CONTENU DIGITAL',
-    alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
-    description: [
-        'En fonction de vos besoins et de votre projet, l’Agence adaptera au mieux son accompagnement.',
-        'Il est très important de posséder des élements qualitatifs pour ces outils de communication.',
-        'C’est pourquoi Jolilot vous propose la réalisation de photos ou vidéos afin de dynamiser au mieux vos supports imprimés et/ou numériques.',
-    ],
+  photo: Photo,
+  color: color,
+  title: 'CONTENU DIGITAL',
+  alt: 'Photo de presentation du site (un pot de fleur avec de la decoration)',
+  description: [
+    'En accord avec vos exigences et la nature de votre projet, l’Atelier Jolilot personnalisera son soutien de manière optimale.',
+    'La qualité des éléments utilisés dans vos supports de communication revêt une importance considérable. C’est pourquoi Jolilot met à votre disposition l’élaboration de photographies dans le but d’insuffler une dynamique optimale à vos supports, qu’ils soient imprimés ou numériques.',
+  ],
 };
 
 const oneService: OneService = {
-    color: color,
-    number: '04',
-    title: 'CONTENU DIGITAL',
-    subtitle: 'des photos, vidéos, visuels...',
-    description: ['shooting photos | montage vidéo création de visuels réseaux sociaux'],
-    benefits: [
-        {
-            title: 'SHOOTING PHOTO',
-            description: [
-                'Afin d’optimiser au mieux les contenus de vos outils de communication, Jolilot vous propose d’intervenir sur place pour la réalisation de shooting photo de vos produits et/ou services.',
-                'Une sélection de photos sera réalisée et sera préparée en cohérence avec votre projet.',
-            ],
-        },
-        {
-            title: 'MONTAGE VIDEO',
-            description: [
-                'La vidéo est aujourd’hui un outil exigé et reconnu dans une stratégie de communication pour dynamiser vos supports.',
-                'L’Agence réalise également vos montages vidéo.',
-            ],
-        },
-    ],
+  color: color,
+  number: '04',
+  title: 'CONTENU DIGITAL',
+  subtitle: 'des photos, vidéos, visuels...',
+  description: ['shooting photos | montage vidéo création de visuels réseaux sociaux'],
+  benefits: [
+    {
+      title: 'SHOOTING PHOTO',
+      description: [
+        'Pour optimiser la qualité de vos supports de communication, Jolilot vous permet de réaliser des séances de prise de vue sur place, mettant en avant vos produits et/ ou services.',
+        'En fonction de vos besoins, les séances seront assurées soit par l’Agence, soit par un photographe professionnel partenaire.',
+        'Une série de photographies sera capturée puis préparée en accord avec les spécificités de votre projet.',
+      ],
+      time: '1 à 2 semaines',
+    },
+    {
+      title: 'VISUELS RÉSEAUX SOCIAUX',
+      description: [
+        'Pour embellir et dynamiser votre présence sur les réseaux sociaux, l’Atelier vous propose la création de visuels en cohérence avec votre identité visuelle.',
+        'Optez pour un pack de démarrage comprenant 10 visuels.',
+      ],
+      time: '2 à 3 semaines',
+    },
+  ],
 };
 
 const textColor = '#4a4a49';
 
 const Steps: AgencyStepsProps = {
-    titleColor: textColor,
-    bgColor: color,
-    services: [
-        {
-            title: 'ÉCHANGE / DEVIS',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                `Suite à un premier échange par téléphone, 
-      à l’agence ou sur le lieu de votre activité, 
-      pour en connaître un peu plus sur vos besoins,
-       vos intentions et/ou vos idées, 
-       Jolilot s’engace à vous retourner
-        sous 48H une proposition entièrement adaptée et personnalisée.`,
-            ],
-            number: '01',
-            subtitle: 'nous nous rencontrons...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'AXE DE CRÉATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Nous débuterons par approfondir les objectifs de votre projet afin d’obtenir d’un axe pertinent et concret',
-                'En découlera, notre échange sur l’axe de création : sur lequel l’agence devra s’appuyer pour la suite des étapes créatives.',
-            ],
-            number: '02',
-            subtitle: 'nous analysons vos besoins...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'CRÉATION / PRÉSENTATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'La ou les propositions retenues sur toutes les recherches effectuées par l’Agence vous sera/ont présentés(s)',
-                'En fonction de votre retour, la proposition que vous aurez choisie pourra être affinée.',
-            ],
-            number: '03',
-            subtitle: 'nous affinons les créations...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'LANCEMENT / SUIVI',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Une fois le projet de création validé et clôturé, nous procéderons à son lancement.',
-                'En fonction de votre projet, Jolilot vous propose une formation personnalisée vous permettant d’être en confiance avec vos nouveaux outils de communication',
-            ],
-            number: '04',
-            subtitle: 'et hop ! nous lançons...',
-            color: '#fff',
-            textColor: '#fff',
-        },
-    ],
+  titleColor: textColor,
+  bgColor: color,
+  title: 'Un contenu de qualité fera vibrer votre message !',
 };
+
+import Photo1 from '@assets/P.CONTENU/Contenu Attrayant-min.jpg';
+import Photo2 from '@assets/P.CONTENU/Contenu Professionnel-min.jpg';
+import Photo3 from '@assets/P.CONTENU/Contenu de Qualité-min.jpg';
+import Photo4 from '@assets/P.CONTENU/Photographie Professionnelle-min.jpg';
+import Photo5 from '@assets/P.CONTENU/Photographie-min.jpg';
+import Photo6 from '@assets/P.CONTENU/Séance Photo Professionnelle-min.jpg';
+import Photo7 from '@assets/P.CONTENU/Contenu-min.jpg';
+const PhotoCarrousel = [
+  {
+    image: Photo1,
+    alt: 'Photo 1 instagram',
+  },
+  {
+    image: Photo2,
+    alt: 'Photo 2 instagram',
+  },
+  {
+    image: Photo3,
+    alt: 'Photo 3 instagram',
+  },
+  {
+    image: Photo4,
+    alt: 'Photo 4 instagram',
+  },
+  {
+    image: Photo5,
+    alt: 'Photo 5 instagram',
+  },
+  {
+    image: Photo6,
+    alt: 'Photo 6 instagram',
+  },
+  {
+    image: Photo7,
+    alt: 'Photo 7 instagram',
+  },
+];
 ---
 
 <Layout>
-    <main>
-        <TypingTitle />
-        <AgencyPresentation {...presentation} />
-        <AgencyOneService oneService={oneService} />
-        <AgencySteps {...Steps} />
-        <PhotosCarrousel />
-        <AgencyContactForm />
-    </main>
+  <main>
+    <TypingTitle text="créons un contenu percutant" />
+    <AgencyPresentation {...presentation} />
+    <AgencyOneService oneService={oneService} />
+    <AgencySteps {...Steps} />
+    <PhotosCarrousel photos={PhotoCarrousel} />
+    <AgencyContactForm />
+  </main>
 </Layout>

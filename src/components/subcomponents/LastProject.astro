@@ -5,7 +5,7 @@ import type { ImageMetadata } from 'astro';
 export type Props = {
   image: ImageMetadata;
   title: string;
-  description: string;
+  description?: string;
 };
 
 const { image, title, description } = Astro.props;
@@ -22,17 +22,19 @@ const { image, title, description } = Astro.props;
     <Image
       src={image}
       alt="Photo de fond(un pot de fleur avec de la decoration)"
-      class="h-full max-h-52 w-full object-cover"
+      class="h-full max-h-80 w-full object-cover"
     />
     <p class="font-larken text-lg">{title}</p>
-    <div class="max-h-32 overflow-y-auto">
-      <div class="float-left mr-1">
-        <GuillemetsIcon />
-      </div>
-      <p class="pr-4 font-poppins text-justify">
-        {description}
-      </p>
-    </div>
+    {
+      description && description.length > 0 && (
+        <div class="max-h-32 overflow-y-auto">
+          <div class="float-left mr-1">
+            <GuillemetsIcon />
+          </div>
+          <p class="pr-4 font-poppins text-justify">{description}</p>
+        </div>
+      )
+    }
   </div>
 </div>
 

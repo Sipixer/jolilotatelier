@@ -1,121 +1,108 @@
 ---
-import AgencyPresentation, { PresentationProps } from '../../components/AgencyPresentation.astro';
+import AgencyPresentation, { type PresentationProps } from '../../components/AgencyPresentation.astro';
 
 import TypingTitle from '../../components/TypingTitle.astro';
 import Layout from '../../layouts/Layout.astro';
-import Photo from '../../assets/1743-Joey-Joe-Ann-Knoester-1.webp';
-import AgencySteps, { AgencyStepsProps } from '../../components/AgencySteps.astro';
-import AgencyOneService, { OneService } from '../../components/AgencyOneService.astro';
+import Photo from '@assets/P.CONSEIL/Conseils en Communication-min.jpg';
+import AgencySteps, { type AgencyStepsProps } from '../../components/AgencySteps.astro';
+import AgencyOneService, { type OneService } from '../../components/AgencyOneService.astro';
 import AgencyContactForm from '../../components/AgencyContactForm.astro';
 import PhotosCarrousel from '../../components/PhotosCarrousel.astro';
 
 const color = '#dcbf7e';
 const presentation: PresentationProps = {
-    photo: Photo,
-    color: color,
-    credit: {
-        name: '©JJAKPHOTOGRAPHIE',
-        url: 'https://joeyjoe-annknoester.com/',
-    },
-    title: 'CONSEIL & SUIVI',
-    alt: 'Photo de Lucie avec une tablette',
-    description: [
-        'Un accompagnement exclusif passe avant tout par le conseil. Lors de nos premiers échanges, nous aborderons les démarches à suivre pour votre futur projet de communication. l’Agence vous aiguillera vers la stratégie la plus adpatée pour atteindre vos objectifs.',
-        'Lorsqu’un projet de communication est lancé, l’importance du suivi sera primordiale pour sa durabilité.',
-    ],
+  photo: Photo,
+  color: color,
+  credit: {
+    name: '©JJAKPHOTOGRAPHIE',
+    url: 'https://joeyjoe-annknoester.com/',
+  },
+  title: 'CONSEIL & SUIVI',
+  alt: 'Photo de Lucie avec une tablette',
+  description: [
+    'La prestation d’un accompagnement exclusif repose en grande partie sur un conseil approfondi.',
+    'Dès nos premières discussions, nous examinerons ensemble les étapes clés de votre projet de communication à venir. L’Agence vous orientera vers les services les mieux adaptés pour la réalisation de vos objectifs.',
+    'Une fois un projet de communication initié, la vigilance dans son suivi joue un rôle central pour garantir sa pérennité.',
+  ],
 };
 
 const oneService: OneService = {
-    color: color,
-    number: '05',
-    title: 'CONSEIL & SUIVI',
-    subtitle: 'une stratégie efficace...',
-    description: ['gestion de projet | suivi personnalisé | formation'],
-    benefits: [
-        {
-            title: 'CONSEILS ADAPTÉS',
-            description: [
-                'Lors de nos échanges, l’Agence vous accompagnera pour définir un plan pertinent afin de donner de la visibilité à votre activité. Elle vous guidera dans des choix adaptés pour atteindre vos objectifs.',
-            ],
-        },
-        {
-            title: 'SUIVI PERSONNALISÉ',
-            description: [
-                'Un projet de communication construit se doit d’être suivi. C’est pourquoi Jolilot se rendra disponible pour réaliser le suivi de votre projet vous permettant de garder une communication des plus efficaces.',
-            ],
-        },
-    ],
+  color: color,
+  number: '05',
+  title: 'CONSEIL & SUIVI',
+  subtitle: 'une stratégie efficace...',
+  description: ['gestion de projet | suivi personnalisé | formation'],
+  benefits: [
+    {
+      title: 'CONSEILS ADAPTÉS',
+      description: [
+        'Dans le cadre de nos échanges, Jolilot vous accompagnera dans la conception d’une stratégie qui renforcera votre visibilité et vous permettra d’atteindre vos objectifs de manière tangible.',
+      ],
+    },
+    {
+      title: 'SUIVI PERSONNALISÉ',
+      description: [
+        'Le suivi attentif est essentiel pour la concrétisation d’un projet de communication abouti.',
+        'C’est la raison pour laquelle Jolilot s’engage à être disponible pour assurer le suivi de votre projet, favorisant ainsi une communication optimale et performante.',
+      ],
+    },
+  ],
 };
 
 const textColor = '#4a4a49';
 
 const Steps: AgencyStepsProps = {
-    titleColor: textColor,
-    bgColor: color,
-    services: [
-        {
-            title: 'ÉCHANGE / DEVIS',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                `Suite à un premier échange par téléphone, 
-      à l’agence ou sur le lieu de votre activité, 
-      pour en connaître un peu plus sur vos besoins,
-       vos intentions et/ou vos idées, 
-       Jolilot s’engace à vous retourner
-        sous 48H une proposition entièrement adaptée et personnalisée.`,
-            ],
-            number: '01',
-            subtitle: 'nous nous rencontrons...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'AXE DE CRÉATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Nous débuterons par approfondir les objectifs de votre projet afin d’obtenir d’un axe pertinent et concret',
-                'En découlera, notre échange sur l’axe de création : sur lequel l’agence devra s’appuyer pour la suite des étapes créatives.',
-            ],
-            number: '02',
-            subtitle: 'nous analysons vos besoins...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'CRÉATION / PRÉSENTATION',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'La ou les propositions retenues sur toutes les recherches effectuées par l’Agence vous sera/ont présentés(s)',
-                'En fonction de votre retour, la proposition que vous aurez choisie pourra être affinée.',
-            ],
-            number: '03',
-            subtitle: 'nous affinons les créations...',
-            textColor: textColor,
-            color: textColor,
-        },
-        {
-            title: 'LANCEMENT / SUIVI',
-            buttonLink: '/services/supports-imprimes',
-            description: [
-                'Une fois le projet de création validé et clôturé, nous procéderons à son lancement.',
-                'En fonction de votre projet, Jolilot vous propose une formation personnalisée vous permettant d’être en confiance avec vos nouveaux outils de communication',
-            ],
-            number: '04',
-            subtitle: 'et hop ! nous lançons...',
-            color: '#fff',
-            textColor: '#fff',
-        },
-    ],
+  titleColor: textColor,
+  bgColor: color,
+  title: 'Le conseil en communication sculpte votre image avec précision.',
 };
+
+import Photo1 from '@assets/P.CONSEIL/Brochure-min.jpg';
+import Photo2 from '@assets/P.CONSEIL/Conception Site Internet-min.jpg';
+import Photo3 from '@assets/P.CONSEIL/Mise en Page Menus-min.jpg';
+import Photo4 from '@assets/P.CONSEIL/Site Internet Responsive-min.jpg';
+import Photo5 from '@assets/P.CONSEIL/Papeterie-min.jpg';
+import Photo6 from '@assets/P.CONSEIL/Site Web-min.jpg';
+import Photo7 from '@assets/P.CONSEIL/Conseils en Communication-min.jpg';
+const PhotoCarrousel = [
+  {
+    image: Photo1,
+    alt: 'Photo 1 instagram',
+  },
+  {
+    image: Photo2,
+    alt: 'Photo 2 instagram',
+  },
+  {
+    image: Photo3,
+    alt: 'Photo 3 instagram',
+  },
+  {
+    image: Photo4,
+    alt: 'Photo 4 instagram',
+  },
+  {
+    image: Photo5,
+    alt: 'Photo 5 instagram',
+  },
+  {
+    image: Photo6,
+    alt: 'Photo 6 instagram',
+  },
+  {
+    image: Photo7,
+    alt: 'Photo 7 instagram',
+  },
+];
 ---
 
 <Layout>
-    <main>
-        <TypingTitle />
-        <AgencyPresentation {...presentation} />
-        <AgencyOneService oneService={oneService} />
-        <AgencySteps {...Steps} />
-        <PhotosCarrousel />
-        <AgencyContactForm />
-    </main>
+  <main>
+    <TypingTitle />
+    <AgencyPresentation {...presentation} />
+    <AgencyOneService oneService={oneService} />
+    <AgencySteps {...Steps} />
+    <PhotosCarrousel photos={PhotoCarrousel} />
+    <AgencyContactForm />
+  </main>
 </Layout>
