@@ -37,8 +37,7 @@ import LogoIcon from '../components/Icons/LogoIcon.astro';
     <button
       id="open-close-mobile"
       class="cursor-pointer hover:text-orange md:hidden z-[51] menu"
-      onclick="toggleMobileMenu()"
-            aria-label="Main Menu"
+      aria-label="Main Menu"
     >
       <svg width="30" height="30" viewBox="0 0 100 100">
         <path
@@ -115,6 +114,7 @@ function setup() {
   let openMobile = false;
   const openCloseMobile = document.getElementById('open-close-mobile');
   const mobileMenuContainer = document.getElementById('mobile-menu-container');
+  openCloseMobile.addEventListener('click', toggleMobileMenu);
   function toggleMobileMenu() {
     openMobile = !openMobile;
     if (openMobile) {
