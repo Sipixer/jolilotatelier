@@ -11,13 +11,13 @@ const { photos = [] } = Astro.props;
 ---
 
 <div class="py-4 flex px-4 md:px-4 flex-col items-center">
-  <div class="glide glidep">
+  <div class="glide glidephotolist">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
         {
           photos.map((post) => (
             <li class="glide__slide">
-              <a rel="noreferrer" class="hover:opacity-70" href={post.url} target="_blank" referrerpolicy="no-referrer">
+              <a rel="noreferrer" class="hover:opacity-70" href={post.url || '#'} referrerpolicy="no-referrer">
                 <Image src={post.image} alt={post.alt} class="object-cover" />
               </a>
             </li>
@@ -28,21 +28,19 @@ const { photos = [] } = Astro.props;
   </div>
 </div>
 
-<script type="module" async defer>
-  import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
-
-  new Glide('.glidep', {
-    startAt: 0,
-    perView: 6,
-    type: 'carousel',
-    gap: 17,
-    breakpoints: {
-      1024: {
-        perView: 4,
-      },
-      640: {
-        perView: 2,
-      },
+<script is:inline>
+new Glide('.glidephotolist', {
+  startAt: 0,
+  perView: 6,
+  type: 'carousel',
+  gap: 17,
+  breakpoints: {
+    1024: {
+      perView: 4,
     },
-  }).mount();
+    640: {
+      perView: 2,
+    },
+  },
+}).mount();
 </script>

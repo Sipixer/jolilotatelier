@@ -200,9 +200,11 @@ import Input from './subcomponents/Input.astro';
     }
   }
 </style>
-<script>
+<script is:inline>
+setup();
+function setup() {
   // Fonction de rappel pour l'intersection
-  function handleIntersection(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+  function handleIntersection(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
@@ -223,4 +225,5 @@ import Input from './subcomponents/Input.astro';
       observer.observe(el);
     });
   }
+}
 </script>

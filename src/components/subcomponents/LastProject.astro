@@ -11,7 +11,7 @@ export type Props = {
 const { image, title, description } = Astro.props;
 ---
 
-<div class="flex gap-6 text-black/90">
+<div class="flex gap-6 text-black/90 max-lg:justify-center">
   <div class="progress-vertical-one-service relative mt-[100px] bg-black/90 border-black/90 border-l rounded-none">
     <div
       class="absolute bottom-0 left-1/2 h-4 w-4 -translate-x-1/2 translate-y-full overflow-hidden rounded-full border border-black"
@@ -22,7 +22,7 @@ const { image, title, description } = Astro.props;
     <Image
       src={image}
       alt="Photo de fond(un pot de fleur avec de la decoration)"
-      class="h-full max-h-80 w-full object-cover"
+      class="h-full max-lg:max-h-96 w-full object-cover"
     />
     <p class="font-larken text-lg">{title}</p>
     {
@@ -56,9 +56,11 @@ const { image, title, description } = Astro.props;
   }
 </style>
 
-<script>
+<script is:inline>
+setup();
+function setup() {
   // Fonction de rappel pour l'intersection
-  function handleIntersection(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+  function handleIntersection(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
@@ -79,4 +81,5 @@ const { image, title, description } = Astro.props;
       observer.observe(el);
     });
   }
+}
 </script>

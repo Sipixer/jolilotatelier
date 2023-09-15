@@ -129,6 +129,7 @@ import Photo4 from '@assets/P.IMPPRIMÉS/Livre Recettes-min.jpg';
 import Photo5 from '@assets/P.IMPPRIMÉS/Mise en Page-min.jpg';
 import Photo6 from '@assets/P.IMPPRIMÉS/Signalétique-min.jpg';
 import Photo7 from '@assets/P.IMPPRIMÉS/Brochure Professionnelle-min.jpg';
+import AgencyContactUs from '@components/AgencyContactUs.astro';
 const PhotoCarrousel = [
   {
     image: Photo1,
@@ -168,6 +169,6 @@ const PhotoCarrousel = [
     <AgencyOneService oneService={oneService} />
     <AgencySteps {...Steps} />
     <PhotosCarrousel photos={PhotoCarrousel} />
-    <AgencyContactForm />
+    <AgencyContactUs />
   </main>
 </Layout>

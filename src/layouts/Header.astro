@@ -82,57 +82,61 @@ import LogoIcon from '../components/Icons/LogoIcon.astro';
 </div>
 
 <script is:inline>
-let openServices = false;
-const dropdown = document.getElementById('services-dropdown');
-const headerContainer = document.getElementById('header-container');
-document.addEventListener('click', function (e) {
-  if (e.target.id === 'open-close-services') {
-    openServices = !openServices;
-    if (openServices && e.target.id === 'open-close-services') {
-      openDropdown();
+setup();
+function setup() {
+  let openServices = false;
+  let dropdown = document.getElementById('services-dropdown');
+  let headerContainer = document.getElementById('header-container');
+  dropdown = document.getElementById('services-dropdown');
+  headerContainer = document.getElementById('header-container');
+  document.addEventListener('click', function (e) {
+    if (e.target.id === 'open-close-services') {
+      openServices = !openServices;
+      if (openServices && e.target.id === 'open-close-services') {
+        openDropdown();
+        return;
+      }
+    }
+    closeDropdown();
+  });
+
+  function closeDropdown() {
+    openServices = false;
+    dropdown.style.display = 'none';
+    headerContainer.classList.remove('border-orange');
+  }
+
+  function openDropdown() {
+    openServices = true;
+    dropdown.style.display = 'block';
+    headerContainer.classList.add('border-orange');
+  }
+
+  let openMobile = false;
+  const openCloseMobile = document.getElementById('open-close-mobile');
+  const mobileMenuContainer = document.getElementById('mobile-menu-container');
+  function toggleMobileMenu() {
+    openMobile = !openMobile;
+    if (openMobile) {
+      openMobileMenu();
       return;
     }
+    closeMobileMenu();
   }
-  closeDropdown();
-});
 
-function closeDropdown() {
-  openServices = false;
-  dropdown.style.display = 'none';
-  headerContainer.classList.remove('border-orange');
-}
-
-function openDropdown() {
-  openServices = true;
-  dropdown.style.display = 'block';
-  headerContainer.classList.add('border-orange');
-}
-
-let openMobile = false;
-const openCloseMobile = document.getElementById('open-close-mobile');
-const mobileMenuContainer = document.getElementById('mobile-menu-container');
-
-function toggleMobileMenu() {
-  openMobile = !openMobile;
-  if (openMobile) {
-    openMobileMenu();
-    return;
+  function openMobileMenu() {
+    openMobile = true;
+    openCloseMobile.classList.add('opened');
+    openCloseMobile.setAttribute('aria-expanded', openCloseMobile.classList.contains('opened'));
+    mobileMenuContainer.style.display = 'block';
   }
-  closeMobileMenu();
-}
 
-function openMobileMenu() {
-  openMobile = true;
-  openCloseMobile.classList.add('opened');
-  openCloseMobile.setAttribute('aria-expanded', openCloseMobile.classList.contains('opened'));
-  mobileMenuContainer.style.display = 'block';
-}
-
-function closeMobileMenu() {
-  openMobile = false;
-  openCloseMobile.classList.remove('opened');
-  openCloseMobile.setAttribute('aria-expanded', openCloseMobile.classList.contains('opened'));
-  mobileMenuContainer.style.display = 'none';
+  function closeMobileMenu() {
+    openMobile = false;
+    openCloseMobile.classList.remove('opened');
+    openCloseMobile.setAttribute('aria-expanded', openCloseMobile.classList.contains('opened'));
+    mobileMenuContainer.style.display = 'none';
+  }
 }
 </script>
 

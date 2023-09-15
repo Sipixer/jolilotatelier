@@ -6,7 +6,6 @@ import Layout from '../../layouts/Layout.astro';
 import Photo from '@assets/P.CONTENU/Contenu-min.jpg';
 import AgencySteps, { type AgencyStepsProps } from '../../components/AgencySteps.astro';
 import AgencyOneService, { type OneService } from '../../components/AgencyOneService.astro';
-import AgencyContactForm from '../../components/AgencyContactForm.astro';
 import PhotosCarrousel from '../../components/PhotosCarrousel.astro';
 
 const color = '#9b97a9';
@@ -63,6 +62,7 @@ import Photo4 from '@assets/P.CONTENU/Photographie Professionnelle-min.jpg';
 import Photo5 from '@assets/P.CONTENU/Photographie-min.jpg';
 import Photo6 from '@assets/P.CONTENU/Séance Photo Professionnelle-min.jpg';
 import Photo7 from '@assets/P.CONTENU/Contenu-min.jpg';
+import AgencyContactUs from '@components/AgencyContactUs.astro';
 const PhotoCarrousel = [
   {
     image: Photo1,
@@ -102,6 +102,6 @@ const PhotoCarrousel = [
     <AgencyOneService oneService={oneService} />
     <AgencySteps {...Steps} />
     <PhotosCarrousel photos={PhotoCarrousel} />
-    <AgencyContactForm />
+    <AgencyContactUs />
   </main>
 </Layout>

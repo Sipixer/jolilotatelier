@@ -9,7 +9,10 @@ const { title } = Astro.props;
 <div>
   <div class="flex h-full w-full items-center justify-center">
     <div class="grid w-full max-w-[1800px] grid-cols-1 gap-y-5 px-10 md:px-20">
-      <p class="max-w-[470px] font-larken text-4xl">{title}</p>
+      <div class="font-larken text-4xl">
+        {title.split('\n').map((line, index) => <p>{line}</p>)}
+      </div>
+
       <p class="text-xs">JOLILOT | AGENCE CRÉATIVE LOTOISE</p>
     </div>
   </div>

@@ -72,9 +72,11 @@ import SubFooter from './SubFooter.astro';
   }
 </style>
 
-<script>
+<script is:inline>
+setup();
+function setup() {
   // Fonction de rappel pour l'intersection
-  function handleIntersection(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+  function handleIntersection(entries, observer) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
@@ -93,4 +95,5 @@ import SubFooter from './SubFooter.astro';
   if (element) {
     observer.observe(element);
   }
+}
 </script>

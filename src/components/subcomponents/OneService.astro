@@ -16,8 +16,6 @@ export type Service = {
 export type Props = Service;
 const { number, title, subtitle, description, buttonText, buttonLink, color, textColor, isButton, maxWidth } =
   Astro.props;
-
-console.log;
 ---
 
 <li class="flex gap-6 text-black/90 glide__slide pr-5" style={`max-width: ${maxWidth};`}>
@@ -71,28 +69,30 @@ console.log;
     }
   }
 </style>
-
 <script>
-  // Fonction de rappel pour l'intersection
-  function handleIntersection(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        observer.unobserve(entry.target);
-      }
-    });
-  }
+  setup();
+  document.addEventListener('astro:after-swap', setup);
+  function setup() {
+    function handleIntersection(entries: any, observer: any) {
+      entries.forEach((entry: any) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      });
+    }
 
-  // Créer l'instance de l'observateur
-  const observer = new IntersectionObserver(handleIntersection);
+    // Créer l'instance de l'observateur
+    const observer = new IntersectionObserver(handleIntersection);
 
-  // Sélectionner l'élément cible
-  const element = document.querySelectorAll('.progress-vertical-one-service');
+    // Sélectionner l'élément cible
+    const element = document.querySelectorAll('.progress-vertical-one-service');
 
-  // Observer l'élément cible
-  if (element) {
-    element.forEach((el) => {
-      observer.observe(el);
-    });
+    // Observer l'élément cible
+    if (element) {
+      element.forEach((el) => {
+        observer.observe(el);
+      });
+    }
   }
 </script>

@@ -76,7 +76,9 @@ const services: Service[] = [
   }
 </style>
 
-<script>
+<script is:inline>
+setup();
+function setup() {
   const textOrange = document.querySelectorAll('#text-orange');
 
   //color first text in orange and then the others in white then after 1s, color the first in white and the second in orange and so on
@@ -89,4 +91,5 @@ const services: Service[] = [
     }
     textOrange[i].classList.add('text-orange');
   }, 1000);
+}
 </script>

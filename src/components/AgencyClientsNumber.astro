@@ -17,8 +17,8 @@ const { variant = 'light', zone = 'top' } = Astro.props;
 <div
   class={`py-32 flex flex-col items-center font-larken gap-8 ${variant == 'dark' ? 'text-white bg-marron_fonce' : ''}`}
 >
-  <p class="text-4xl text-center"><span class="text-orange">+ 35 acteurs</span> accompagnés par Jolilot</p>
-  <div class="text-center text-lg flex flex-col gap-2">
+  <p class="text-3xl text-center"><span class="text-orange">+ 35 acteurs</span> accompagnés par Jolilot</p>
+  <div class="text-center text-base flex flex-col gap-2">
     <p>
       <span id="text-orange">ARTISANS PEINTRES DÉCORATEURS</span> |
       <span id="text-orange">PHOTOGRAPHES</span> |
@@ -52,7 +52,9 @@ const { variant = 'light', zone = 'top' } = Astro.props;
   </div>
 </div>
 
-<script>
+<script is:inline>
+setup();
+function setup() {
   const textOrange = document.querySelectorAll('#text-orange');
 
   //color first text in orange and then the others in white then after 1s, color the first in white and the second in orange and so on
@@ -65,4 +67,5 @@ const { variant = 'light', zone = 'top' } = Astro.props;
     }
     textOrange[i].classList.add('text-orange');
   }, 750);
+}
 </script>

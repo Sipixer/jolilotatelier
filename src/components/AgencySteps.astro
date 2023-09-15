@@ -11,29 +11,33 @@ export type AgencyStepsProps = {
   title?: string;
   services?: Service[];
   titleColor?: string;
+  submark?: boolean;
 };
 
-const { bgColor, services, titleColor, title = 'jolilot c’est aussi simple que ça !' } = Astro.props;
+const { bgColor, services, titleColor, title = 'jolilot c’est aussi \n simple que ça !', submark = true } = Astro.props;
 const areServices = services && services.length > 0;
 ---
 
-<div
-  class="flex md:justify-end text-orange relative -my-3 justify-center"
-  style={{
-    color: bgColor,
-  }}
->
-  <div class="flex justify-center items-center rounded-full bg-background z-10 md:-translate-x-1/2">
-    <Submark />
-  </div>
-  <div
-    class="absolute h-12 bg-marron_fonce top-full inset-0 -translate-y-full"
-    style={{
-      backgroundColor: bgColor,
-    }}
-  >
-  </div>
-</div>
+{
+  submark && (
+    <div
+      class="flex md:justify-end text-orange relative -my-3 justify-center"
+      style={{
+        color: bgColor,
+      }}
+    >
+      <div class="flex justify-center items-center rounded-full bg-background z-10 md:-translate-x-1/2">
+        <Submark />
+      </div>
+      <div
+        class="absolute h-12 bg-marron_fonce top-full inset-0 -translate-y-full"
+        style={{
+          backgroundColor: bgColor,
+        }}
+      />
+    </div>
+  )
+}
 <div
   class="bg-marron_fonce text-white pb-8 pt-16 flex flex-col gap-y-14"
   style={{
@@ -44,7 +48,7 @@ const areServices = services && services.length > 0;
   <SubTitle title={title} />
   {
     areServices && (
-      <div class="relative flex w-full flex-col items-center glide gap-y-8">
+      <div class="relative flex w-full flex-col items-center glide glidesteps gap-y-8">
         <div class="w-full max-w-[1800px] px-4 md:px-20">
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides px-3">
@@ -74,29 +78,22 @@ const areServices = services && services.length > 0;
   }
 </style>
 
-{
-areServices && (
-<script type="module">
-  import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
-
-  new Glide('.glide', {
-    startAt: 0,
-    perView: 4,
-    type: 'carousel',
-    gap: 30,
-    breakpoints: {
-      1280: {
-        perView: 3,
-      },
-      1024: {
-        perView: 2,
-      },
-      640: {
-        perView: 1,
-      },
+<script is:inline>
+new Glide('.glidesteps', {
+  startAt: 0,
+  perView: 4,
+  type: 'carousel',
+  gap: 30,
+  breakpoints: {
+    1280: {
+      perView: 3,
     },
-  }).mount();
+    1024: {
+      perView: 2,
+    },
+    640: {
+      perView: 1,
+    },
+  },
+}).mount();
 </script>
-)
-}
-

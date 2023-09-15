@@ -2,28 +2,21 @@
 import { Image } from 'astro:assets';
 import LogoIcon from '../components/Icons/LogoIcon.astro';
 
-import Insta1 from '../assets/INSTA/1.jpg';
-import Insta2 from '../assets/INSTA/2.jpg';
-import Insta3 from '../assets/INSTA/3.jpg';
-import Insta4 from '../assets/INSTA/4.jpg';
+import Insta1 from '@assets/P.FOOTER/Instagram Agence Jolilot-min.jpg';
+import Insta2 from '@assets/P.FOOTER/Instagram Jolilot Atelier-min.jpg';
+import Insta3 from '@assets/P.FOOTER/Instagram Jolilot-min.jpg';
 import AFTCIcon from '../components/Icons/AFTCIcon.astro';
 import FlecheIcon from '../components/Icons/FlecheIcon.astro';
 const PostsInstagram = [
   {
-    url: 'https://www.instagram.com/p/CpSPcYJMCf2/',
     image: Insta1,
+    url: '',
   },
   {
-    url: 'https://www.instagram.com/p/Cop7O1YOciK/',
     image: Insta2,
   },
   {
-    url: 'https://www.instagram.com/p/CnJststMdVN/',
     image: Insta3,
-  },
-  {
-    url: 'https://www.instagram.com/p/Ck-RRiXMPSg/',
-    image: Insta4,
   },
 ];
 ---
@@ -47,7 +40,7 @@ const PostsInstagram = [
                     <a
                       rel="noreferrer"
                       class="hover:opacity-70"
-                      href={post.url}
+                      href={post.url || ''}
                       target="_blank"
                       referrerpolicy="no-referrer"
                     >
@@ -74,7 +67,8 @@ const PostsInstagram = [
     >
       <p>
         © 2023 Jolilot Atelier | Lucie Arcoutel | <a href="/mentions-legales">Mentions légales</a> | <a
-          href="/confidentialité">Politique de Confidentialité</a>
+          href="/confidentialité">Politique de Confidentialité</a
+        >
       </p>
       <a href="/" aria-label="Retour a la page d'accueil" class="max-sm:order-3"><LogoIcon classes="w-[100px]" /></a>
       <div class="flex items-center gap-4 justify-center flex-wrap">
@@ -96,23 +90,18 @@ const PostsInstagram = [
   </div>
 </div>
 
-<script type="module" async defer>
-  import Glide from 'https://unpkg.com/@glidejs/glide@3.6.0/dist/glide.esm.js';
-
-  new Glide('.glidef', {
-    perView: 4,
-    type: 'carousel',
-    gap: 30,
-    breakpoints: {
-      1024: {
-        perView: 3,
-      },
-      768: {
-        perView: 2,
-      },
-      640: {
-        perView: 1,
-      },
+<script is:inline>
+new Glide('.glidef', {
+  perView: 3,
+  type: 'carousel',
+  gap: 30,
+  breakpoints: {
+    768: {
+      perView: 2,
     },
-  }).mount();
+    640: {
+      perView: 1,
+    },
+  },
+}).mount();
 </script>

@@ -64,6 +64,7 @@ import Photo4 from '@assets/P.CONSEIL/Site Internet Responsive-min.jpg';
 import Photo5 from '@assets/P.CONSEIL/Papeterie-min.jpg';
 import Photo6 from '@assets/P.CONSEIL/Site Web-min.jpg';
 import Photo7 from '@assets/P.CONSEIL/Conseils en Communication-min.jpg';
+import AgencyContactUs from '@components/AgencyContactUs.astro';
 const PhotoCarrousel = [
   {
     image: Photo1,
@@ -103,6 +104,6 @@ const PhotoCarrousel = [
     <AgencyOneService oneService={oneService} />
     <AgencySteps {...Steps} />
     <PhotosCarrousel photos={PhotoCarrousel} />
-    <AgencyContactForm />
+    <AgencyContactUs />
   </main>
 </Layout>
