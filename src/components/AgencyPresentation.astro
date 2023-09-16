@@ -27,8 +27,8 @@ const presentation = Astro.props;
 ---
 
 <div class="grid grid-cols-1 gap-y-20 md:grid-cols-12">
-  <div class="col-span-5 flex gap-1 w-full">
-    <Image src={presentation.photo} alt={presentation.alt} class="h-[650px] object-cover" />
+  <div class="col-span-5 flex gap-1 w-ful max-md:justify-center">
+    <Image src={presentation.photo} alt={presentation.alt} class="object-cover max-w-xl w-full" />
     <a
       href={presentation.credit?.url}
       target="_blank"

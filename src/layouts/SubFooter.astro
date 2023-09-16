@@ -10,13 +10,15 @@ import FlecheIcon from '../components/Icons/FlecheIcon.astro';
 const PostsInstagram = [
   {
     image: Insta1,
-    url: '',
+    url: 'https://www.instagram.com/p/Cw7Ty36s8wZ/',
   },
   {
     image: Insta2,
+    url: 'https://www.instagram.com/jolilot.atelier/',
   },
   {
     image: Insta3,
+    url: 'https://www.instagram.com/jolilot.atelier/',
   },
 ];
 ---
@@ -65,11 +67,15 @@ const PostsInstagram = [
     <div
       class="text-center flex justify-evenly border-t border-black/90 pt-10 md:flex-row flex-col items-center gap-y-2"
     >
-      <p>
-        © 2023 Jolilot Atelier | Lucie Arcoutel | <a href="/mentions-legales">Mentions légales</a> | <a
-          href="/confidentialité">Politique de Confidentialité</a
-        >
-      </p>
+      <div class="flex gap-6 flex-wrap justify-center">
+        <p>© 2023 Jolilot Atelier | Lucie Arcoutel</p>
+        <p>
+          <a href="/mentions-legales" class="hover:text-orange">Mentions légales</a> | <a
+            href="/confidentialité"
+            class="hover:text-orange">Politique de Confidentialité</a
+          >
+        </p>
+      </div>
       <a href="/" aria-label="Retour a la page d'accueil" class="max-sm:order-3"><LogoIcon classes="w-[100px]" /></a>
       <div class="flex items-center gap-4 justify-center flex-wrap">
         <p>

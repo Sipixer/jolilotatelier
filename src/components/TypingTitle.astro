@@ -6,8 +6,10 @@ export type Props = {
 const { text = 'une communication qui fait sens' } = Astro.props;
 ---
 
-<div class="flex h-72 w-full items-center justify-center">
-  <p class="font-larken md:text-3xl text-xl font-light text-center">{text}</p>
+<div class="flex h-72 w-full items-center justify-center px-8">
+  <div class="font-larken md:text-3xl text-xl font-light text-center flex flex-wrap gap-x-2 justify-center">
+    {text.split('\f').map((line, index) => <p>{line}</p>)}
+  </div>
 </div>
 
 <script>
