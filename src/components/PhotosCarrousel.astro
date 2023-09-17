@@ -17,9 +17,7 @@ const { photos = [] } = Astro.props;
         {
           photos.map((post) => (
             <li class="glide__slide">
-              <a rel="noreferrer" class="hover:opacity-70" href={post.url || '#'} referrerpolicy="no-referrer">
-                <Image src={post.image} alt={post.alt} class="object-cover" />
-              </a>
+              <Image src={post.image} alt={post.alt} class="object-cover hover:opacity-70" />
             </li>
           ))
         }
@@ -33,6 +31,7 @@ new Glide('.glidephotolist', {
   startAt: 0,
   perView: 6,
   type: 'carousel',
+  autoplay: 3000,
   gap: 17,
   breakpoints: {
     1024: {

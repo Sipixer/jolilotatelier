@@ -35,65 +35,22 @@ import SubFooter from './SubFooter.astro';
       <div class="flex flex-col gap-3 select-none w-[200px]">
         <p class="font-larken">EN SAVOIR PLUS</p>
         <a href="/a-propos" class="hover:text-marron_fonce">L'ATELIER</a>
-        <a
-          href="https://www.instagram.com/jolilot.atelier/"
-          aria-label="Ma page instagram @jolilot.atelier"
-          target="_blank"
-          referrerpolicy="no-referrer"
-          class="hover:text-marron_fonce">PROJETS</a
-        >
         <a href="/contact" class="hover:text-marron_fonce">CONTACT</a>
       </div>
       <div class="flex flex-col gap-3 w-[200px]">
-        <p class="font-larken">HORAIRES</p>
-        <p>Du lundi au vendredi</p>
-        <p>9:00 - 12:00 | 14:00 - 18:00</p>
+        <p class="font-larken">HORAIRES & ADRESSE</p>
+        <div class="flex gap-y-5 flex-col">
+          <div>
+            <p>Du lundi au vendredi</p>
+            <p>9:00 - 12:30 | 14:00 - 18:30</p>
+          </div>
+          <div>
+            <p>148 Grand Rue</p>
+            <p>46500 ALVIGNAC, LOT(46)</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <SubFooter />
 </div>
-
-<style>
-  .progress-footer {
-    width: 0%;
-    height: 1px;
-  }
-  .progress-footer.animate {
-    animation: progress-footer 2s ease-in-out forwards;
-  }
-  @keyframes progress-footer {
-    0% {
-      width: 0%;
-    }
-    100% {
-      width: 100%;
-    }
-  }
-</style>
-
-<script is:inline>
-setup();
-function setup() {
-  // Fonction de rappel pour l'intersection
-  function handleIntersection(entries, observer) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        observer.unobserve(entry.target);
-      }
-    });
-  }
-
-  // Créer l'instance de l'observateur
-  const observer = new IntersectionObserver(handleIntersection);
-
-  // Sélectionner l'élément cible
-  const element = document.querySelector('.progress-footer');
-
-  // Observer l'élément cible
-  if (element) {
-    observer.observe(element);
-  }
-}
-</script>

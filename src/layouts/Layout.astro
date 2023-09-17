@@ -4,6 +4,10 @@ import BookAProject from './BookAProject.astro';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
 import ScrollToTop from './ScrollToTop.astro';
+export type Props = {
+  title?: string;
+};
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,9 +25,9 @@ import ScrollToTop from './ScrollToTop.astro';
     />
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide" referrerpolicy="no-referrer"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content="Jolilot Atelier" />
-    <title>{'JOLILOT Atelier | Agence créative'}</title>
+    <title>{title ? `${title} - JOLILOT Atelier` : 'JOLILOT Atelier | Agence créative'}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.css" />
   </head>
   <body class="flex flex-col bg-background font-extralight text-xs">
