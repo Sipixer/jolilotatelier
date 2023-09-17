@@ -1,5 +1,6 @@
 ---
 layout: '@layouts/LayoutMd.astro'
+title: 'Mentions légales'
 ---
 
 # MENTIONS LÉGALES

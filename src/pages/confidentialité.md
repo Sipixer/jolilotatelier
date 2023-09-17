@@ -1,5 +1,6 @@
 ---
 layout: '@layouts/LayoutMd.astro'
+title: 'Politique de confidentialité'
 ---
 
 # POLITIQUE DE CONFIDENTIALITÉ
