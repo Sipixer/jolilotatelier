@@ -7,8 +7,8 @@ export type Props = {
 const { variant = 'light', zone = 'top' } = Astro.props;
 ---
 
-<div class="flex justify-center text-orange relative -my-3">
-  {zone === 'top' && <div class="absolute h-12 bg-marron_fonce top-0 inset-0" />}
+<div class="flex justify-center text-orange relative -my-3 pt-6">
+  {zone === 'top' && <div class="absolute h-16 bg-marron_fonce top-0 inset-0" />}
   <div class="flex justify-center items-center rounded-full bg-background z-10">
     <Submark />
   </div>
@@ -20,32 +20,40 @@ const { variant = 'light', zone = 'top' } = Astro.props;
   <p class="text-3xl text-center"><span class="text-orange">+ 35 acteurs</span> accompagnés par Jolilot</p>
   <div class="text-center text-sm flex flex-col gap-2 px-10">
     <p class="flex flex-wrap gap-1 justify-center">
-      <span id="text-orange">ARTISANS PEINTRES DÉCORATEURS</span> |
-      <span id="text-orange">PHOTOGRAPHES</span> |
+      <span id="text-orange">ARTISANS PEINTRES DÉCORATEURS</span>
+      <span class="max-[417px]:invisible">|</span>
+      <span id="text-orange">PHOTOGRAPHES</span>
+      <span class="max-[530px]:invisible">|</span>
       <span id="text-orange">PRODUCTEURS</span>
     </p>
     <p class="flex flex-wrap gap-1 justify-center">
       <span id="text-orange">CHAUFFAGISTE ÉCOLOGIQUE</span> |
-      <span id="text-orange">PARC ANIMALIER</span> |
+      <span id="text-orange">PARC ANIMALIER</span>
+      <span class="max-[540px]:invisible">|</span>
       <span id="text-orange">MAISONS DE VACANCES</span>
     </p>
     <p class="flex flex-wrap gap-1 justify-center">
       <span id="text-orange">RÉFLEXOLOGUES</span> |
-      <span id="text-orange">ARTISTES PEINTRES</span> |
-      <span id="text-orange">INFIRMIÈRES LIBÉRALES</span> |
+      <span id="text-orange">ARTISTES PEINTRES</span>
+      <span class="max-[490px]:invisible">|</span>
+      <span id="text-orange">INFIRMIÈRES LIBÉRALES</span>
+      <span class="max-[595px]:invisible max-[488px]:visible">|</span>
       <span id="text-orange">ASSOCIATIONS</span>
     </p>
     <p class="flex flex-wrap gap-1 justify-center">
       <span id="text-orange">MÉDICALES</span> |
-      <span id="text-orange">COMMUNNES</span> |
-      <span id="text-orange">ASSOCIATIONS DE LOISIRS</span> |
+      <span id="text-orange">COMMUNNES</span>
+      <span class="max-[419px]:invisible">|</span>
+      <span id="text-orange">ASSOCIATIONS DE LOISIRS</span>
+      <span class="max-[605px]:invisible max-[438px]:visible max-[417px]:invisible">|</span>
       <span id="text-orange">COMPAGNIES DE THÉÂTRE</span>
     </p>
     <p class="flex flex-wrap gap-1 justify-center">
       <span id="text-orange">HÔTELS</span> |
-      <span id="text-orange">RESTAURANTS</span> |
-      <span id="text-orange">ESTHÉTICIENNES</span> |
-      <span id="text-orange">BIEN-ÊTRE</span> |
+      <span id="text-orange">RESTAURANTS</span>
+      <span class="max-[438px]:invisible">|</span>
+      <span id="text-orange">ESTHÉTICIENNES BIEN-ÊTRE</span>
+      <span class="max-[533px]:invisible max-[438px]:visible max-[369px]:invisible">|</span>
       <span id="text-orange">COMMERÇANTS</span>
     </p>
     <p>...</p>
