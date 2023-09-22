@@ -160,14 +160,10 @@ import Input from './subcomponents/Input.astro';
   function handelSubmit(e: SubmitEvent) {
     e.preventDefault();
     const data = new FormData(e.target as HTMLFormElement);
-    if (!data.get('data_privacy')) {
-      alert("Merci d'accepter que vos données soient enregistrées.");
-      return;
-    }
     data.delete('data_privacy');
     data.set('rencontre', data.get('rencontre') === 'phone' ? 'par téléphone' : 'à l’agence');
     data.set('subject', 'Formulaire Jolilot Atelier');
-    fetch('https://formspree.io/f/mwkdkppl', {
+    fetch('https://formspree.io/f/moqoqvwg', {
       method: 'POST',
       body: data,
       headers: {

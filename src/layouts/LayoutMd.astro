@@ -4,8 +4,8 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <div class="flex justify-center pt-20 pb-10">
-    <article class="prose prose-zinc w-full max-w-6xl px-14 prose-headings:font-larken">
+  <div class="flex justify-center pt-20 pb-32 px-6">
+    <article class="prose prose-sm w-full max-w-6xl px-14 prose-headings:font-larken">
       <slot />
     </article>
   </div>

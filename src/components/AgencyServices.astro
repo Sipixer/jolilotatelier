@@ -53,10 +53,10 @@ const services: Service[] = [
   <SubTitle title="une communication qui fait sens !" />
   <div class="relative flex w-full flex-col items-center">
     <ul
-      class="grid mb-28 w-full max-w-[1800px] grid-cols-1 gap-x-40 gap-y-24 md:px-20 px-10 md:grid-cols-2 xl:grid-cols-3"
+      class="grid mb-28 w-full max-w-[1800px] grid-cols-1 gap-x-40 gap-y-24 md:px-20 px-10 md:grid-cols-2 md:grid-rows-3  xl:grid-cols-3 xl:grid-rows-2"
     >
       {services.map((service) => <OneService {...service} maxWidth="328px" />)}
-    </ul>
+  </div>
     <div
       class="bottom-0 right-0 select-none z-10 flex w-full flex-col gap-5 bg-orange p-12 text-right font-larken text-3xl text-background md:absolute md:w-fit md:translate-y-1/3"
     >
