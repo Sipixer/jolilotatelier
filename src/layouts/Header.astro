@@ -64,7 +64,8 @@ import LogoIcon from '../components/Icons/LogoIcon.astro';
       id="open-close-mobile"
       class="cursor-pointer hover:text-orange md:hidden z-[51] menu"
       aria-label="Main Menu"
-    >
+      onclick="toggleMobileMenu()"
+                                        >
       <svg width="30" height="30" viewBox="0 0 100 100">
         <path
           class="line line1"
@@ -107,62 +108,63 @@ import LogoIcon from '../components/Icons/LogoIcon.astro';
 </div>
 
 <script is:inline>
-setup();
-function setup() {
-  let openServices = false;
-  let dropdown = document.getElementById('services-dropdown');
-  let headerContainer = document.getElementById('header-container');
-  dropdown = document.getElementById('services-dropdown');
-  headerContainer = document.getElementById('header-container');
-  document.addEventListener('click', function (e) {
-    if (e.target.id === 'open-close-services') {
-      openServices = !openServices;
-      if (openServices && e.target.id === 'open-close-services') {
-        openDropdown();
-        return;
-      }
-    }
-    closeDropdown();
-  });
+let openServices = false;
 
-  function closeDropdown() {
-    openServices = false;
-    dropdown.style.display = 'none';
-    headerContainer.classList.remove('border-orange');
-  }
+function dropdown() {
+  return document.getElementById('services-dropdown')
+}
 
-  function openDropdown() {
-    openServices = true;
-    dropdown.style.display = 'block';
-    headerContainer.classList.add('border-orange');
-  }
+function headerContainer() {
+  return document.getElementById('header-container')
+};
+document.addEventListener('click', function (e) {
 
-  let openMobile = false;
-  const openCloseMobile = document.getElementById('open-close-mobile');
-  const mobileMenuContainer = document.getElementById('mobile-menu-container');
-  openCloseMobile.addEventListener('click', toggleMobileMenu);
-  function toggleMobileMenu() {
-    openMobile = !openMobile;
-    if (openMobile) {
-      openMobileMenu();
-      return;
-    }
-    closeMobileMenu();
-  }
 
-  function openMobileMenu() {
-    openMobile = true;
-    openCloseMobile.classList.add('opened');
-    openCloseMobile.setAttribute('aria-expanded', openCloseMobile.classList.contains('opened'));
-    mobileMenuContainer.style.display = 'block';
+  if (!openServices && e.target.id === 'open-close-services') {
+    openServices = !openServices;
+    openDropdown();
+    return;
   }
+  closeDropdown();
+});
 
-  function closeMobileMenu() {
-    openMobile = false;
-    openCloseMobile.classList.remove('opened');
-    openCloseMobile.setAttribute('aria-expanded', openCloseMobile.classList.contains('opened'));
-    mobileMenuContainer.style.display = 'none';
+function closeDropdown() {
+  openServices = false;
+  dropdown().style.display = 'none';
+  headerContainer().classList.remove('border-orange');
+}
+
+function openDropdown() {
+  openServices = true;
+  dropdown().style.display = 'block';
+  headerContainer().classList.add('border-orange');
+}
+function openCloseMobile() {
+  return document.getElementById('open-close-mobile')
+}
+function mobileMenuContainer() {
+  return document.getElementById('mobile-menu-container');
+}
+
+
+function toggleMobileMenu() {
+  if (!openCloseMobile().classList.contains('opened')) {
+    openMobileMenu();
+    return;
   }
+  closeMobileMenu();
+}
+
+function openMobileMenu() {
+  openCloseMobile().classList.add('opened');
+  openCloseMobile().setAttribute('aria-expanded', openCloseMobile().classList.contains('opened'));
+  mobileMenuContainer().style.display = 'block';
+}
+
+function closeMobileMenu() {
+  openCloseMobile().classList.remove('opened');
+  openCloseMobile().setAttribute('aria-expanded', openCloseMobile().classList.contains('opened'));
+  mobileMenuContainer().style.display = 'none';
 }
 </script>
 
