@@ -29,12 +29,18 @@ const presentation = Astro.props;
 <div class="grid grid-cols-1 gap-y-20 md:grid-cols-12">
   <div class="col-span-5 flex gap-1 w-ful max-md:justify-center">
     <Image src={presentation.photo} alt={presentation.alt} class="object-cover max-w-xl w-full" />
-    <a
-      href={presentation.credit?.url}
-      target="_blank"
-      rel="noopener"
-      class="self-end vertical-text text-[8px] max-md:hidden">{presentation.credit?.name}</a
-    >
+    {
+      presentation.credit?.url && (
+        <a
+          href={presentation.credit?.url}
+          target="_blank"
+          rel="noopener"
+          class="self-end vertical-text text-[8px] max-md:hidden"
+        >
+          {presentation.credit?.name}
+        </a>
+      )
+    }
   </div>
   <div class="col-span-7 flex w-full flex-col gap-12 self-end pl-10 md:pl-20">
     <LogoWithProgressBar color={presentation.color} />
