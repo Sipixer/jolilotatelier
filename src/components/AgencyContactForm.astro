@@ -95,6 +95,13 @@ import Input from './subcomponents/Input.astro';
 
       <div class="self-end">
         <button
+          type="button"
+          onclick="document.getElementById('modal').style.setProperty('display', 'block')"
+          class="mt-2 w-fit select-none px-8 py-2 font-poppins border border-orange hover:border-black/20 hover:text-black/60 text-white transition ease-in-out bg-orange hover:bg-background"
+        >
+          RÉSERVER UN APPEL DÉCOUVERTE
+        </button>
+        <button
           class="mt-2 w-fit border border-black/20 px-8 py-2 font-poppins text-xs text-black/60 transition ease-in-out bg-marron_fonce hover:border-orange hover:bg-orange text-white"
         >
           ENVOYER
@@ -104,122 +111,150 @@ import Input from './subcomponents/Input.astro';
   </div>
 </div>
 
-<style>
-  .square-radio input[type='radio'] {
-    display: none;
-  }
+<div
+  class="relative z-20"
+  style="display:none"
+  id="modal"
+  aria-labelledby="modal-title"
+  role="dialog"
+  aria-modal="true"
+  onclick="document.getElementById('modal').style.setProperty('display', 'none')"
+>
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity z-30"></div>
 
-  .square-radio {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
+  <div class="fixed inset-0 z-40 w-screen overflow-y-auto h-screen">
+    <div
+      class="calendly-inline-widget absolute top-0 right-0"
+      data-url="https://calendly.com/jolilotatelier?hide_gdpr_banner=1"
+      style="min-width:320px; height:90%; padding-top: 64px;"
+    >
+    </div>
 
-  .square-radio label {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: inherit;
-    border: 1px solid #cc9f5c;
-    cursor: pointer;
-    border-radius: 3px;
-  }
+    <button
+      class="absolute top-0 right-0 m-4 p-2 bg-white rounded-full"
+      onclick="document.getElementById('modal').style.setProperty('display', 'none')"
+    >
+      Fermer
+    </button>
+  </div>
 
-  .square-radio input[type='radio']:checked + label {
-    background-color: #cc9f5c;
-    border: 1px solid #cc9f5c;
-  }
+  <style>
+    .square-radio input[type='radio'] {
+      display: none;
+    }
 
-  .square-checkbox input[type='checkbox'] {
-    display: none;
-  }
+    .square-radio {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
 
-  .square-checkbox label {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: inherit;
-    border: 1px solid #cc9f5c;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-  .square-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
+    .square-radio label {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: inherit;
+      border: 1px solid #cc9f5c;
+      cursor: pointer;
+      border-radius: 3px;
+    }
 
-  .square-checkbox input[type='checkbox']:checked + label {
-    background-color: #cc9f5c;
-    border: 1px solid #cc9f5c;
-  }
-</style>
+    .square-radio input[type='radio']:checked + label {
+      background-color: #cc9f5c;
+      border: 1px solid #cc9f5c;
+    }
 
-<script>
-  document.getElementById('form')?.addEventListener('submit', handelSubmit);
-  function handelSubmit(e: SubmitEvent) {
-    e.preventDefault();
-    const data = new FormData(e.target as HTMLFormElement);
-    data.delete('data_privacy');
-    data.set('rencontre', data.get('rencontre') === 'phone' ? 'par téléphone' : 'à l’agence');
-    data.set('subject', 'Formulaire Jolilot Atelier');
-    fetch('https://formspree.io/f/moqoqvwg', {
-      method: 'POST',
-      body: data,
-      headers: {
-        Accept: 'application/json',
-      },
-    })
-      .then((response) => {
-        alert('Merci pour votre message, nous vous recontacterons dans les plus brefs délais.');
+    .square-checkbox input[type='checkbox'] {
+      display: none;
+    }
+
+    .square-checkbox label {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: inherit;
+      border: 1px solid #cc9f5c;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .square-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .square-checkbox input[type='checkbox']:checked + label {
+      background-color: #cc9f5c;
+      border: 1px solid #cc9f5c;
+    }
+  </style>
+
+  <script>
+    document.getElementById('form')?.addEventListener('submit', handelSubmit);
+    function handelSubmit(e: SubmitEvent) {
+      e.preventDefault();
+      const data = new FormData(e.target as HTMLFormElement);
+      data.delete('data_privacy');
+      data.set('rencontre', data.get('rencontre') === 'phone' ? 'par téléphone' : 'à l’agence');
+      data.set('subject', 'Formulaire Jolilot Atelier');
+      fetch('https://formspree.io/f/moqoqvwg', {
+        method: 'POST',
+        body: data,
+        headers: {
+          Accept: 'application/json',
+        },
       })
-      .catch((error) => {
-        alert('Oups! Il y a eu un problème, merci de réessayer plus tard.');
-      });
-  }
-</script>
+        .then((response) => {
+          alert('Merci pour votre message, nous vous recontacterons dans les plus brefs délais.');
+        })
+        .catch((error) => {
+          alert('Oups! Il y a eu un problème, merci de réessayer plus tard.');
+        });
+    }
+  </script>
 
-<style>
-  .progress-vertical-contact {
-    width: 1px;
-    height: 0px;
-  }
-  .progress-vertical-contact.animate {
-    animation: progress-vertical-contact 2s ease-in-out forwards;
-  }
-  @keyframes progress-vertical-contact {
-    0% {
+  <style>
+    .progress-vertical-contact {
+      width: 1px;
       height: 0px;
     }
-    100% {
-      height: 120px;
+    .progress-vertical-contact.animate {
+      animation: progress-vertical-contact 2s ease-in-out forwards;
     }
-  }
-</style>
-<script is:inline>
-setup();
-function setup() {
-  // Fonction de rappel pour l'intersection
-  function handleIntersection(entries, observer) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        observer.unobserve(entry.target);
+    @keyframes progress-vertical-contact {
+      0% {
+        height: 0px;
       }
-    });
-  }
+      100% {
+        height: 120px;
+      }
+    }
+  </style>
+  <script is:inline>
+    setup();
+    function setup() {
+      // Fonction de rappel pour l'intersection
+      function handleIntersection(entries, observer) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      }
 
-  // Créer l'instance de l'observateur
-  const observer = new IntersectionObserver(handleIntersection);
+      // Créer l'instance de l'observateur
+      const observer = new IntersectionObserver(handleIntersection);
 
-  // Sélectionner l'élément cible
-  const element = document.querySelectorAll('.progress-vertical-contact');
+      // Sélectionner l'élément cible
+      const element = document.querySelectorAll('.progress-vertical-contact');
 
-  // Observer l'élément cible
-  if (element) {
-    element.forEach((el) => {
-      observer.observe(el);
-    });
-  }
-}
-</script>
+      // Observer l'élément cible
+      if (element) {
+        element.forEach((el) => {
+          observer.observe(el);
+        });
+      }
+    }
+  </script>
+</div>

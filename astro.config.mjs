@@ -5,6 +5,6 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jolilotatelier.vercel.app/",
+  site: "https://www.jolilotatelier.com/",
   integrations: [tailwind(), sitemap()]
 });
