@@ -99,18 +99,18 @@ const PostsInstagram = [
   </div>
 </div>
 
-<script is:inline>
-new Glide('.glidef', {
-  perView: 3,
-  type: 'carousel',
-  gap: 30,
-  breakpoints: {
-    768: {
-      perView: 2,
+<script is:inline data-astro-rerun>
+  new Glide('.glidef', {
+    perView: 3,
+    type: 'carousel',
+    gap: 30,
+    breakpoints: {
+      768: {
+        perView: 2,
+      },
+      640: {
+        perView: 1,
+      },
     },
-    640: {
-      perView: 1,
-    },
-  },
-}).mount();
+  }).mount();
 </script>

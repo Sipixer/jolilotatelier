@@ -26,20 +26,20 @@ const { photos = [] } = Astro.props;
   </div>
 </div>
 
-<script is:inline>
-new Glide('.glidephotolist', {
-  startAt: 0,
-  perView: 6,
-  type: 'carousel',
-  autoplay: 3000,
-  gap: 17,
-  breakpoints: {
-    1024: {
-      perView: 4,
+<script is:inline data-astro-rerun>
+  new Glide('.glidephotolist', {
+    startAt: 0,
+    perView: 6,
+    type: 'carousel',
+    autoplay: 3000,
+    gap: 17,
+    breakpoints: {
+      1024: {
+        perView: 4,
+      },
+      640: {
+        perView: 2,
+      },
     },
-    640: {
-      perView: 2,
-    },
-  },
-}).mount();
+  }).mount();
 </script>

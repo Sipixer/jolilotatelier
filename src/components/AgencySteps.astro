@@ -78,22 +78,22 @@ const areServices = services && services.length > 0;
   }
 </style>
 
-<script is:inline>
-new Glide('.glidesteps', {
-  startAt: 0,
-  perView: 4,
-  type: 'carousel',
-  gap: 30,
-  breakpoints: {
-    1280: {
-      perView: 3,
+<script is:inline data-astro-rerun>
+  new Glide('.glidesteps', {
+    startAt: 0,
+    perView: 4,
+    type: 'carousel',
+    gap: 30,
+    breakpoints: {
+      1280: {
+        perView: 3,
+      },
+      1024: {
+        perView: 2,
+      },
+      640: {
+        perView: 1,
+      },
     },
-    1024: {
-      perView: 2,
-    },
-    640: {
-      perView: 1,
-    },
-  },
-}).mount();
+  }).mount();
 </script>
