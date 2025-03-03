@@ -1,16 +1,808 @@
 ---
-import '../styles/global.css';
-const { content } = Astro.props;
+import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+
+export type Props = {
+  title?: string;
+};
+const { title } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{content.title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="fr">
+  <head>
+    <ClientRouter />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta
+      name="description"
+      content="Jolilot Atelier est une agence créative basée dans le Lot(46), en Occitanie. Spécialisée dans le graphisme et la communication print & digitale."
+    />
+    <meta
+      name="keywords"
+      content="supports imprimés, sites vitrines, identités de marque, contenu digital, Jolilot, Agence, créative, Jolilot Atelier, Lot, communication"
+    />
+    <title>
+      {
+        title
+          ? `${title} | JOLILOT ATELIER`
+          : "JOLILOT ATELIER | Agence de communication digitale & print"
+      }
+    </title>
+  </head>
+  <body class="flex flex-col bg-background">
+    <Header />
+
+    <slot />
+    <Footer />
+    <style is:global>
+      @import url("https://p.typekit.net/p.css?s=1&k=kia8cjc&ht=tk&f=52628.52629.52630.52631.52632.52633&a=151819512&app=typekit&e=css");
+
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 100;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiAyp8kv8JHgFVrJJLmE0tDMPKzSQ.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 100;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiAyp8kv8JHgFVrJJLmE0tMMPKzSQ.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 100;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiAyp8kv8JHgFVrJJLmE0tCMPI.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 200;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmv1pVFteOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 200;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmv1pVGdeOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 200;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmv1pVF9eO.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm21lVFteOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm21lVGdeOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm21lVF9eO.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrJJLucXtAKPY.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrJJLufntAKPY.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrJJLucHtA.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmg1hVFteOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmg1hVGdeOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmg1hVF9eO.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 600;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmr19VFteOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 600;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmr19VGdeOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 600;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmr19VF9eO.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmy15VFteOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmy15VGdeOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLmy15VF9eO.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 800;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm111VFteOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 800;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm111VGdeOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 800;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm111VF9eO.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm81xVFteOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm81xVGdeOcEg.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: italic;
+        font-weight: 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiDyp8kv8JHgFVrJJLm81xVF9eO.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 100;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrLPTucXtAKPY.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 100;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrLPTufntAKPY.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 100;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrLPTucHtA.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 200;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLFj_Z11lFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 200;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLFj_Z1JlFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 200;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLFj_Z1xlFQ.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z11lFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1JlFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJbecmNE.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJnecmNE.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z11lFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1JlFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1xlFQ.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z11lFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1JlFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFQ.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z11lFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1JlFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDD4Z11lFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDD4Z1JlFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLDD4Z1xlFQ.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* devanagari */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLBT5Z11lFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0900-097F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9,
+          U+25CC, U+A830-A839, U+A8E0-A8FF;
+      }
+      /* latin-ext */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLBT5Z1JlFc-K.woff2)
+          format("woff2");
+        unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      /* latin */
+      @font-face {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLBT5Z1xlFQ.woff2)
+          format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC,
+          U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      /* @import url('https://use.typekit.net/oxc7dzr.css'); */
+
+      /*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * larken:
+ *   - http://typekit.com/eulas/0000000000000000774c4d90
+ *   - http://typekit.com/eulas/0000000000000000774c4d94
+ *   - http://typekit.com/eulas/0000000000000000774c4d92
+ *   - http://typekit.com/eulas/0000000000000000774c4d95
+ *   - http://typekit.com/eulas/0000000000000000774c4d8c
+ *   - http://typekit.com/eulas/0000000000000000774c4d91
+ *
+ * © 2009-2023 Adobe Systems Incorporated. All Rights Reserved.
+ */
+      /*{"last_published":"2023-06-28 22:13:06 UTC"}*/
+
+      @font-face {
+        font-family: "larken";
+        src:
+          url("https://use.typekit.net/af/e4ca2a/0000000000000000774c4d90/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+            format("woff2"),
+          url("https://use.typekit.net/af/e4ca2a/0000000000000000774c4d90/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+            format("woff"),
+          url("https://use.typekit.net/af/e4ca2a/0000000000000000774c4d90/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+            format("opentype");
+        font-display: swap;
+        font-style: italic;
+        font-weight: 400;
+        font-stretch: normal;
+      }
+
+      @font-face {
+        font-family: "larken";
+        src:
+          url("https://use.typekit.net/af/eac799/0000000000000000774c4d94/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3")
+            format("woff2"),
+          url("https://use.typekit.net/af/eac799/0000000000000000774c4d94/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3")
+            format("woff"),
+          url("https://use.typekit.net/af/eac799/0000000000000000774c4d94/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3")
+            format("opentype");
+        font-display: swap;
+        font-style: normal;
+        font-weight: 300;
+        font-stretch: normal;
+      }
+
+      @font-face {
+        font-family: "larken";
+        src:
+          url("https://use.typekit.net/af/6957de/0000000000000000774c4d92/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3")
+            format("woff2"),
+          url("https://use.typekit.net/af/6957de/0000000000000000774c4d92/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3")
+            format("woff"),
+          url("https://use.typekit.net/af/6957de/0000000000000000774c4d92/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i3&v=3")
+            format("opentype");
+        font-display: swap;
+        font-style: italic;
+        font-weight: 300;
+        font-stretch: normal;
+      }
+
+      @font-face {
+        font-family: "larken";
+        src:
+          url("https://use.typekit.net/af/af5a5b/0000000000000000774c4d95/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3")
+            format("woff2"),
+          url("https://use.typekit.net/af/af5a5b/0000000000000000774c4d95/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3")
+            format("woff"),
+          url("https://use.typekit.net/af/af5a5b/0000000000000000774c4d95/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3")
+            format("opentype");
+        font-display: swap;
+        font-style: normal;
+        font-weight: 500;
+        font-stretch: normal;
+      }
+
+      @font-face {
+        font-family: "larken";
+        src:
+          url("https://use.typekit.net/af/bcdbac/0000000000000000774c4d8c/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3")
+            format("woff2"),
+          url("https://use.typekit.net/af/bcdbac/0000000000000000774c4d8c/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3")
+            format("woff"),
+          url("https://use.typekit.net/af/bcdbac/0000000000000000774c4d8c/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i5&v=3")
+            format("opentype");
+        font-display: swap;
+        font-style: italic;
+        font-weight: 500;
+        font-stretch: normal;
+      }
+
+      @font-face {
+        font-family: "larken";
+        src:
+          url("https://use.typekit.net/af/61489c/0000000000000000774c4d91/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+            format("woff2"),
+          url("https://use.typekit.net/af/61489c/0000000000000000774c4d91/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+            format("woff"),
+          url("https://use.typekit.net/af/61489c/0000000000000000774c4d91/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+            format("opentype");
+        font-display: swap;
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: normal;
+      }
+
+      .tk-larken {
+        font-family: "larken", sans-serif;
+      }
+
+      @font-face {
+        font-family: "Larken";
+        font-display: swap;
+      }
+
+      :root {
+        font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial,
+          sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        scroll-behavior: smooth;
+      }
+    </style>
+  </body>
 </html>
