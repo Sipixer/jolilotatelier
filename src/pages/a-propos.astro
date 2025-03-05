@@ -1,12 +1,12 @@
 ---
-import AgencyPresentation, { type Props } from '../components/AgencyPresentation.astro';
-import TypingTitle from '../components/TypingTitle.astro';
-import Layout from '../layouts/Layout.astro';
+import AgencyClientsNumber from '@components/AgencyClientsNumber.astro';
 import PhotoPresentation from '../assets/JOLILOT-58.webp';
 import AgencyLocation from '../components/AgencyLocation.astro';
+import AgencyPresentation, { type Props } from '../components/AgencyPresentation.astro';
 import AgencySteps, { type AgencyStepsProps } from '../components/AgencySteps.astro';
 import PhotosCarrousel from '../components/PhotosCarrousel.astro';
-import AgencyClientsNumber from '@components/AgencyClientsNumber.astro';
+import TypingTitle from '../components/TypingTitle.astro';
+import Layout from '../layouts/Layout.astro';
 
 const presentation: Props = {
   photo: PhotoPresentation,
@@ -82,10 +82,14 @@ const Steps: AgencyStepsProps = {
 
 <Layout title="L'Atelier">
   <main>
-    <TypingTitle text="les inspirations Jolilot, c'est vous !" />
-    <AgencyPresentation {...presentation} />
-    <AgencyLocation />
-    <AgencySteps {...Steps} submark={false} />
-    <AgencyClientsNumber variant="light" zone="top" />
+    <div class="flex h-72 w-full items-center justify-center px-8">
+      <div
+        class="font-larken md:text-3xl text-xl font-light text-center flex flex-col flex-wrap gap-y-4 justify-center"
+      >
+        <p>Maintenance en cours</p>
+        <p class="text-2xl">Merci de votre compréhension</p>
+        <a href="/" class="text-blue-500 hover:underline">Retour à l'accueil</a>
+      </div>
+    </div>
   </main>
 </Layout>
