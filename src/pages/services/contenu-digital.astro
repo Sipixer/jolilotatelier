@@ -1,12 +1,12 @@
 ---
 import AgencyPresentation, { type PresentationProps } from '../../components/AgencyPresentation.astro';
 
+import Photo from '@assets/P.CONTENU/Contenu-min.jpg';
+import AgencyOneService, { type OneService } from '../../components/AgencyOneService.astro';
+import AgencySteps, { type AgencyStepsProps } from '../../components/AgencySteps.astro';
+import PhotosCarrousel from '../../components/PhotosCarrousel.astro';
 import TypingTitle from '../../components/TypingTitle.astro';
 import Layout from '../../layouts/Layout.astro';
-import Photo from '@assets/P.CONTENU/Contenu-min.jpg';
-import AgencySteps, { type AgencyStepsProps } from '../../components/AgencySteps.astro';
-import AgencyOneService, { type OneService } from '../../components/AgencyOneService.astro';
-import PhotosCarrousel from '../../components/PhotosCarrousel.astro';
 
 const color = '#9b97a9';
 const presentation: PresentationProps = {
@@ -55,13 +55,13 @@ const Steps: AgencyStepsProps = {
   title: 'Un contenu de qualité fera vibrer votre message !',
 };
 
+import Photo7 from '@assets/P.CONTENU/Contenu-min.jpg';
 import Photo1 from '@assets/P.CONTENU/Contenu Attrayant-min.jpg';
 import Photo2 from '@assets/P.CONTENU/Contenu Professionnel-min.jpg';
 import Photo3 from '@assets/P.CONTENU/Contenu de Qualité-min.jpg';
-import Photo4 from '@assets/P.CONTENU/Photographie Professionnelle-min.jpg';
 import Photo5 from '@assets/P.CONTENU/Photographie-min.jpg';
+import Photo4 from '@assets/P.CONTENU/Photographie Professionnelle-min.jpg';
 import Photo6 from '@assets/P.CONTENU/Séance Photo Professionnelle-min.jpg';
-import Photo7 from '@assets/P.CONTENU/Contenu-min.jpg';
 import AgencyContactUs from '@components/AgencyContactUs.astro';
 const PhotoCarrousel = [
   {
@@ -97,11 +97,14 @@ const PhotoCarrousel = [
 
 <Layout title="Contenu Digital">
   <main>
-    <TypingTitle text="créons un contenu percutant" />
-    <AgencyPresentation {...presentation} />
-    <AgencyOneService oneService={oneService} />
-    <AgencySteps {...Steps} />
-    <PhotosCarrousel photos={PhotoCarrousel} />
-    <AgencyContactUs />
+    <div class="flex h-72 w-full items-center justify-center px-8">
+      <div
+        class="font-larken md:text-3xl text-xl font-light text-center flex flex-col flex-wrap gap-y-4 justify-center"
+      >
+        <p>Maintenance en cours</p>
+        <p class="text-2xl">Merci de votre compréhension</p>
+        <a href="/" class="text-blue-500 hover:underline">Retour à l'accueil</a>
+      </div>
+    </div>
   </main>
 </Layout>

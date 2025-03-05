@@ -1,109 +1,17 @@
 ---
-import AgencyPresentation, { type PresentationProps } from '../../components/AgencyPresentation.astro';
-
-import TypingTitle from '../../components/TypingTitle.astro';
 import Layout from '../../layouts/Layout.astro';
-import Photo from '@assets/P.CONSEIL/Conseils en Communication-min.jpg';
-import AgencySteps, { type AgencyStepsProps } from '../../components/AgencySteps.astro';
-import AgencyOneService, { type OneService } from '../../components/AgencyOneService.astro';
-import AgencyContactForm from '../../components/AgencyContactForm.astro';
-import PhotosCarrousel from '../../components/PhotosCarrousel.astro';
-
-const color = '#dcbf7e';
-const presentation: PresentationProps = {
-  photo: Photo,
-  color: color,
-  credit: {
-    name: '©JJAKPHOTOGRAPHIE',
-    url: 'https://joeyjoe-annknoester.com/',
-  },
-  title: 'CONSEIL & SUIVI',
-  alt: 'Photo de Lucie avec une tablette',
-  description: [
-    'La prestation d’un accompagnement exclusif repose en grande partie sur un conseil approfondi.',
-    'Dès nos premières discussions, nous examinerons ensemble les étapes clés de votre projet de communication à venir. L’Agence vous orientera vers les services les mieux adaptés pour la réalisation de vos objectifs.',
-    'Une fois un projet de communication initié, la vigilance dans son suivi joue un rôle central pour garantir sa pérennité.',
-  ],
-};
-
-const oneService: OneService = {
-  color: color,
-  number: '05',
-  title: 'CONSEIL & SUIVI',
-  subtitle: 'une stratégie efficace...',
-  description: ['gestion de projet | suivi personnalisé | formation'],
-  benefits: [
-    {
-      title: 'CONSEILS ADAPTÉS',
-      description: [
-        'Dans le cadre de nos échanges, Jolilot vous accompagnera dans la conception d’une stratégie qui renforcera votre visibilité et vous permettra d’atteindre vos objectifs de manière tangible.',
-      ],
-    },
-    {
-      title: 'SUIVI PERSONNALISÉ',
-      description: [
-        'Le suivi attentif est essentiel pour la concrétisation d’un projet de communication abouti.',
-        'C’est la raison pour laquelle Jolilot s’engage à être disponible pour assurer le suivi de votre projet, favorisant ainsi une communication optimale et performante.',
-      ],
-    },
-  ],
-};
-
-const textColor = '#4a4a49';
-
-const Steps: AgencyStepsProps = {
-  titleColor: textColor,
-  bgColor: color,
-  title: 'Le conseil en communication sculpte votre image avec précision.',
-};
-
-import Photo1 from '@assets/P.CONSEIL/Brochure-min.jpg';
-import Photo2 from '@assets/P.CONSEIL/Conception Site Internet-min.jpg';
-import Photo3 from '@assets/P.CONSEIL/Mise en Page Menus-min.jpg';
-import Photo4 from '@assets/P.CONSEIL/Site Internet Responsive-min.jpg';
-import Photo5 from '@assets/P.CONSEIL/Papeterie-min.jpg';
-import Photo6 from '@assets/P.CONSEIL/Site Web-min.jpg';
-import Photo7 from '@assets/P.CONSEIL/Conseils en Communication-min.jpg';
-import AgencyContactUs from '@components/AgencyContactUs.astro';
-const PhotoCarrousel = [
-  {
-    image: Photo1,
-    alt: 'Photo 1 instagram',
-  },
-  {
-    image: Photo2,
-    alt: 'Photo 2 instagram',
-  },
-  {
-    image: Photo3,
-    alt: 'Photo 3 instagram',
-  },
-  {
-    image: Photo4,
-    alt: 'Photo 4 instagram',
-  },
-  {
-    image: Photo5,
-    alt: 'Photo 5 instagram',
-  },
-  {
-    image: Photo6,
-    alt: 'Photo 6 instagram',
-  },
-  {
-    image: Photo7,
-    alt: 'Photo 7 instagram',
-  },
-];
 ---
 
 <Layout title="Conseil & Suivi">
   <main>
-    <TypingTitle text='faisons naître vos idées' />
-    <AgencyPresentation {...presentation} />
-    <AgencyOneService oneService={oneService} />
-    <AgencySteps {...Steps} />
-    <PhotosCarrousel photos={PhotoCarrousel} />
-    <AgencyContactUs />
+    <div class="flex h-72 w-full items-center justify-center px-8">
+      <div
+        class="font-larken md:text-3xl text-xl font-light text-center flex flex-col flex-wrap gap-y-4 justify-center"
+      >
+        <p>Maintenance en cours</p>
+        <p class="text-2xl">Merci de votre compréhension</p>
+        <a href="/" class="text-blue-500 hover:underline">Retour à l'accueil</a>
+      </div>
+    </div>
   </main>
 </Layout>
