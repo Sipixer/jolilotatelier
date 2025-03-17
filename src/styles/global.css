@@ -6,15 +6,15 @@
 
 :root {
   /* Couleurs de base fournies */
-  --marron-orange: #875c39; /* MARRON ORANGÉ : #875c39 100% */
-  --beige-clair: rgba(201, 193, 174, 0.3); /* BEIGE FOND CLAIR : #c9c1ae 30% */
-  --beige-fonce: rgba(201, 193, 174, 0.6); /* BEIGE FOND FONCÉ : #c9c1ae 60% */
-  --vert-fonce: rgba(10, 42, 38, 0.9); /* VERT FONCÉ : #0a2a26 90% */
+  --marron-orange: #9c6a47; /* MARRON ORANGÉ : #875c39 100% */
+  --beige-clair: #e4dfd5; /* BEIGE FOND CLAIR : #c9c1ae 30% */
+  --beige-fonce: #dbd4c6; /* BEIGE FOND FONCÉ : #c9c1ae 60% */
+  --vert-fonce: #163934; /* VERT FONCÉ : #0a2a26 90% */
   --noir-grise: rgba(0, 0, 0, 0.9); /* Noir grisé 90% pour les écritures */
 
   /* Application aux variables shadcn */
   --background: var(--beige-clair);
-  --foreground: var(--noir-grise);
+  --foreground: var(--vert-fonce);
 
   --card: #ffffff;
   --card-foreground: var(--noir-grise);
