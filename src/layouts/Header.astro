@@ -1,56 +1,137 @@
 ---
 import HalfMoonIcon from "@/components/icons/half-moon-icon.astro";
 import LargeLogoIcon from "@/components/icons/large-logo-icon.astro";
+import Navbar from "@/components/ui/header";
 const pathname = Astro.url.pathname;
 
 // Définition des liens de navigation avec leurs pathname correspondants
 const navLinks = [
-  { href: "/test", label: "Services", match: "/test" },
-  { href: "/a-propos", label: "À propos", match: "/a-propos" },
-  { href: "/contact", label: "Contact", match: "/contact" },
+  { href: "#", label: "Services", match: "/services", hasDropdown: true },
+  {
+    href: "/a-propos",
+    label: "À propos",
+    match: "/a-propos",
+    hasDropdown: false,
+  },
+  { href: "/contact", label: "Contact", match: "/contact", hasDropdown: false },
+];
+const services = [
+  {
+    href: "/services/identite-visuelle",
+    label: "Identité visuelle",
+  },
+  {
+    href: "/services/supports-imprimes/",
+    label: "Supports print",
+  },
+  {
+    href: "/services/supports-web/",
+    label: "Supports web",
+  },
+  {
+    href: "/services/pack-medias/",
+    label: "Pack médias sociaux",
+  },
 ];
 ---
 
-<a
-  href="/contact"
-  class="flex justify-center items-center p-4 gap-2 bg-secondary text-foreground hover:underline rounded-b-lg cursor-pointer font-medium"
->
-  <HalfMoonIcon size={6} />
-  <p class="uppercase">Réserver un appel découverte avec Jolilot</p>
-</a>
+<div class="md:hidden">
+  <Navbar pathname={pathname} client:load />
+</div>
 
-<div
-  class="flex justify-center items-center py-10 bg-background container mx-auto border-b-1 border-foreground uppercase px-2"
->
-  <LargeLogoIcon />
-  <div class="flex-1 flex justify-center items-center gap-6">
-    {
-      navLinks.map((link) => (
-        <a href={link.href} class="flex items-center gap-2">
-          <div class="w-6 h-6 flex items-center justify-center">
-            {pathname.startsWith(link.match) && <HalfMoonIcon size={6} />}
-          </div>
-          <span class="relative">
-            {/* Texte invisible en semibold qui préserve l'espace */}
-            <span class="invisible font-semibold">{link.label}</span>
-            {/* Texte visible qui s'affiche par-dessus avec la graisse appropriée */}
-            <span
-              class={`absolute inset-0 ${pathname.startsWith(link.match) ? "font-semibold" : "font-normal"}`}
-            >
-              {link.label}
-            </span>
-          </span>
-        </a>
-      ))
-    }
-  </div>
+<div class="hidden md:block sticky top-0 z-50 bg-background">
   <a
-    href="https://www.instagram.com/jolilotatelier/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-    class="font-semibold text-accent hover:underline"
+    href="/contact"
+    class="flex justify-center items-center p-4 gap-2 bg-secondary text-foreground hover:underline rounded-b-lg cursor-pointer font-medium"
   >
-    Projets
+    <HalfMoonIcon size={6} />
+    <p class="uppercase">Réserver un appel découverte avec Jolilot</p>
   </a>
+
+  <div
+    class="flex justify-center items-center py-10 container mx-auto border-b-1 border-foreground uppercase px-2"
+  >
+    <a href="/" class="flex items-center gap-2">
+      <LargeLogoIcon />
+    </a>
+    <div class="flex-1 flex justify-center items-center gap-6">
+      {
+        navLinks.map((link) => (
+          <div class="relative group">
+            <a
+              href={link.hasDropdown ? "#" : link.href}
+              class="flex items-center text-foreground"
+              onclick={
+                link.hasDropdown
+                  ? "event.preventDefault(); this.nextElementSibling.classList.toggle('hidden');"
+                  : undefined
+              }
+            >
+              <div class="w-6 h-6 flex items-center justify-center">
+                {pathname.startsWith(link.match) && <HalfMoonIcon size={6} />}
+              </div>
+              <span class="relative">
+                {/* Texte invisible en semibold qui préserve l'espace */}
+                <span class="invisible font-semibold">{link.label}</span>
+                {/* Texte visible qui s'affiche par-dessus avec la graisse appropriée */}
+                <span
+                  class={`absolute inset-0 hover:underline ${
+                    pathname.startsWith(link.match)
+                      ? "font-semibold"
+                      : "font-normal"
+                  }`}
+                >
+                  {link.label}
+                </span>
+              </span>
+            </a>
+
+            {link.hasDropdown && (
+              <div class="absolute hidden mt-2 z-50 bg-primary border border-foreground  shadow-lg py-4 w-64">
+                {services.map((service) => (
+                  <a
+                    href={service.href}
+                    class={`block px-6 py-2 text-sm gap-2 hover:underline ${
+                      pathname === service.href
+                        ? "text-accent font-semibold"
+                        : "text-white"
+                    } flex items-center`}
+                  >
+                    <HalfMoonIcon size={4} />
+                    {service.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+    <a
+      href="https://www.instagram.com/jolilotatelier/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      class="font-semibold text-accent hover:underline"
+    >
+      Projets
+    </a>
+  </div>
+
+  <script>
+    // Gestion du clic à l'extérieur pour fermer le dropdown
+    document.addEventListener("click", function (event) {
+      const dropdowns = document.querySelectorAll(".absolute.mt-2");
+      dropdowns.forEach((dropdown) => {
+        const parentLink = dropdown.previousElementSibling;
+        if (
+          !dropdown.contains(event.target as Node) &&
+          parentLink &&
+          !parentLink.contains(event.target as Node)
+        ) {
+          dropdown.classList.add("hidden");
+        }
+      });
+    });
+  </script>
 </div>

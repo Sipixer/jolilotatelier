@@ -1,6 +1,13 @@
+---
+const { size = 200 } = Astro.props;
+type Props = {
+  size?: number;
+};
+---
+
 <svg
-  width="259"
-  height="95"
+  width={size}
+  height={size * 0.32}
   viewBox="0 0 259 95"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
