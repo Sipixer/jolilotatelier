@@ -1,8 +1,62 @@
 ---
+import HeroSection from "@/components/HeroSection.astro";
 import Main from "@/layouts/main.astro";
+import Recette from "@/assets/index/recette.jpg";
+import HalfMoonIcon from "@/components/icons/half-moon-icon.astro";
+import RightChevron from "@/components/icons/right-chevron.astro";
+import { Image } from "astro:assets";
+import Button from "@/components/ui/button.astro";
+import ServiceOptionsTable from "@/components/ServiceOptionsTable.astro";
+import LeftChevron from "@/components/icons/left-chevron.astro";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { BrandCarousel } from "@/components/BrandCarousel";
 ---
 
 <Main title="Hello, Astro!">
-  <h1>Hello, Astro!</h1>
-  <a href="/contact">Test</a>
+  <div class="container mx-auto mt-10">
+    <HeroSection />
+
+    <div class="flex xl:gap-x-16 flex-col xl:flex-row px-4 mt-16">
+      <div
+        class="flex justify-center xl:justify-start flex-col gap-5 px-4 pb-4 w-full"
+      >
+        <div class="gap-y-4 flex flex-col pb-6 max-w-[600px]">
+          <p class="uppercase text-xs">Jolilot | Agence créative lotoise</p>
+
+          <p class="larken font-thin text-4xl max-w-[350px]">
+            une&nbsp;communication qui fait sens pour <strong
+              >capter votre audience&nbsp;!</strong
+            >
+          </p>
+          <p>
+            L’Agence Jolilot vous propose des services sur-mesures pour répondre
+            au mieux à tous vos besoins en communication : <strong>
+              création de logo unique, identité visuelle impactante, supports
+              print professionnels, packaging percutant ou accompagnement
+              digital.</strong
+            >
+          </p>
+          <p>
+            Spécialisée dans le graphisme, Jolilot vous guide à chaque étape
+            pour renforcer votre image et laisser une empreinte mémorable auprès
+            de votre cible.
+          </p>
+          <a
+            class="flex items-center gap-2 hover:text-accent transition-all"
+            href="/services/identite-visuelle"
+          >
+            <HalfMoonIcon />
+            <p class="text-xs md:text-sm font-medium">
+              Offrons à votre projet, la visibilité qu’il mérite.
+            </p>
+          </a>
+        </div>
+      </div>
+      <BrandCarousel client:load />
+    </div>
+  </div>
 </Main>

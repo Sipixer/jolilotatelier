@@ -13,5 +13,7 @@ export default defineConfig({
 	},
 	site: "https://www.jolilotatelier.com/",
 
-	integrations: [react(), sitemap()],
+	integrations: [react({
+		experimentalReactChildren: true,
+	}), sitemap()],
 });

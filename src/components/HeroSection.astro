@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+import Recette from "@/assets/index/recette.jpg";
+import HalfMoonIcon from "@/components/icons/half-moon-icon.astro";
+import RightChevron from "@/components/icons/right-chevron.astro";
+---
+
+<div class="flex xl:gap-x-16 flex-col md:flex-row px-4">
+  <Image
+    src={Recette}
+    alt="Recette"
+    class="max-w-[700px] w-full object-cover max-h-[500px] border-destructive border-2 mb-8"
+    loading="eager"
+  />
+  <div class="flex justify-start flex-col gap-5 px-4 pb-4">
+    <div class="border-black border-b mx-4 gap-y-4 flex flex-col pb-6">
+      <p class="uppercase text-xs">Jolilot | Agence créative lotoise</p>
+
+      <p class="larken font-thin text-4xl">
+        votre&nbsp;agence <br />
+        <strong>créative lotoise</strong>
+      </p>
+      <p>
+        Jolilot Atelier, fondé en 2022, est une agence de communication
+        spécialisée dans le graphisme, basée à Alvignac dans le Lot (46) en
+        région Occitanie.
+      </p>
+      <p>
+        Elle vous accompagne dans la réflexion, le choix et la conception de vos
+        outils de communication, afin de véhiculer vos valeurs et donner vie à
+        votre image.
+      </p>
+    </div>
+    <div>
+      <div
+        class="border border-amber-500 p-4 rounded-sm"
+        style={{
+          borderStyle: "dotted",
+          borderWidth: "4px",
+          borderRadius: "4px",
+        }}
+      >
+        <div>
+          <p
+            class="text-xs md:text-sm text-stone-700 uppercase tracking-wider mb-4"
+          >
+            LES SERVICES JOLLIOT
+          </p>
+          <a
+            class="flex items-center gap-2 hover:text-accent transition-all"
+            href="/services/identite-visuelle"
+          >
+            <HalfMoonIcon />
+            <p class="text-xs md:text-sm font-medium uppercase">
+              IDENTITÉ VISUELLE · LOGO
+            </p>
+            <div class="ml-auto w-6 h-6 flex items-center justify-center">
+              <RightChevron backgroundClassName="fill-current" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

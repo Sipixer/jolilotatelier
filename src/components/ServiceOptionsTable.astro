@@ -1,0 +1,44 @@
+---
+import HalfMoonIcon from "./icons/half-moon-icon.astro";
+
+const serviceOptions = [
+  {
+    id: 1,
+    type: "CONCEPTION",
+    service: "Identité visuelle",
+    formules: 3,
+  },
+  {
+    id: 2,
+    type: "REFONTE",
+    service: "Identité visuelle",
+    formules: 2,
+  },
+  {
+    id: 3,
+    type: "CONCEPTION",
+    service: "Logotype",
+    formules: 2,
+  },
+];
+---
+
+<div class="w-full max-w-3xl mx-auto px-4">
+  <ul class="divide-y border-y border-black">
+    {
+      serviceOptions.map((option) => (
+        <li class="py-3 px-2 sm:px-6 flex items-center text-sm sm:text-base">
+          <span class="text-neutral-700 w-8 text-center">{option.id}</span>
+          <div class="flex-1 flex items-center ml-4 gap-x-1.5 flex-wrap sm:flex-nowrap">
+            <HalfMoonIcon className="text-foreground w-4 h-4" />
+            <span class="text-foreground font-medium">{option.type}</span>
+            <span>|</span>
+            <span>{option.service}</span>
+            <span>|</span>
+            <span class="italic">{option.formules} formules</span>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>
