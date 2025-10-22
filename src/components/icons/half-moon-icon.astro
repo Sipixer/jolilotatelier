@@ -1,17 +1,18 @@
 ---
 type Props = {
-  size?: number;
+  size?: number | string; // autoriser '1em', '16px', etc.
   className?: string;
 };
-const { className, size = 6 } = Astro.props;
+const { className, size = "1em" } = Astro.props;
 ---
 
 <svg
   class={className}
   width={size}
-  height={size * 2}
+  height={size}
   viewBox="0 0 65 129"
   xmlns="http://www.w3.org/2000/svg"
+  style="vertical-align: middle; display: inline-block;"
 >
   <g mask="url(#mask0_1_50)">
     <path

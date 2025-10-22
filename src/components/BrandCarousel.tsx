@@ -15,72 +15,6 @@ import RightChevron from "./icons/right-chevron";
 import { AnimatePresence, motion } from "framer-motion";
 import Autoplay from "embla-carousel-autoplay";
 
-const ServiceSlide = ({
-  data,
-}: {
-  data: {
-    title: JSX.Element;
-    subtitle: string;
-    description: string;
-    href: string;
-    services: {
-      id: number;
-      type: string;
-      service: string;
-      formules?: string;
-    }[];
-  };
-}) => (
-  <div className="gap-y-4 flex flex-col px-6 py-2">
-    <p className="uppercase text-xs">Jolilot | Agence créative lotoise</p>
-    <p className="larken font-thin text-2xl md:text-4xl max-w-[350px]">
-      {data.title}
-    </p>
-
-    <div className="flex justify-between items-center">
-      <div>
-        <p className="flex items-center gap-2 hover:text-accent transition-all">
-          <HalfMoonIcon />
-          <span className="text-xs md:text-base font-medium uppercase">
-            {data.subtitle}
-          </span>
-        </p>
-        <p className="text-xs">{data.description}</p>
-      </div>
-      <a href={data.href} className="hidden sm:block">
-        <Button variant="secondary" className="flex items-center gap-2">
-          <HalfMoonIcon size={4} />
-          découvrir
-        </Button>
-      </a>
-    </div>
-
-    <div className=" px-4">
-      <ul className="divide-y border-y border-black">
-        {data.services.map((option) => (
-          <li
-            key={option.id}
-            className="py-3 px-2 sm:px-6 flex items-center text-sm sm:text-base"
-          >
-            <span className=" w-8 text-center">{option.id}</span>
-            <div className="flex-1 flex items-center ml-4 gap-x-1.5 flex-wrap sm:flex-nowrap">
-              <HalfMoonIcon />
-              <span className="text-foreground font-medium">{option.type}</span>
-              <span>|</span>
-              <span>{option.service}</span>
-              {option.formules && (
-                <>
-                  <span>|</span>
-                  <span className="italic">{option.formules} formules</span>
-                </>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-);
 const slidesData = [
   {
     title: (
@@ -157,6 +91,73 @@ const slidesData = [
     ],
   },
 ];
+
+const ServiceSlide = ({
+  data,
+}: {
+  data: {
+    title: JSX.Element;
+    subtitle: string;
+    description: string;
+    href: string;
+    services: {
+      id: number;
+      type: string;
+      service: string;
+      formules?: string;
+    }[];
+  };
+}) => (
+  <div className="gap-y-4 flex flex-col px-6 py-2">
+    <p className="uppercase text-xs">Jolilot | Agence créative lotoise</p>
+    <p className="larken font-thin text-2xl md:text-4xl max-w-[350px]">
+      {data.title}
+    </p>
+
+    <div className="flex justify-between items-center">
+      <div>
+        <p className="flex items-center gap-2 hover:text-accent transition-all">
+          <HalfMoonIcon />
+          <span className="text-xs md:text-base font-medium uppercase">
+            {data.subtitle}
+          </span>
+        </p>
+        <p className="text-xs">{data.description}</p>
+      </div>
+      <a href={data.href} className="hidden sm:block">
+        <Button variant="secondary" className="flex items-center gap-2">
+          <HalfMoonIcon size={4} />
+          découvrir
+        </Button>
+      </a>
+    </div>
+
+    <div className=" px-4">
+      <ul className="divide-y border-y border-black">
+        {data.services.map((option) => (
+          <li
+            key={option.id}
+            className="py-3 px-2 sm:px-6 flex items-center text-sm sm:text-base"
+          >
+            <span className=" w-8 text-center">{option.id}</span>
+            <div className="flex-1 flex items-center ml-4 gap-x-1.5 flex-wrap sm:flex-nowrap">
+              <HalfMoonIcon />
+              <span className="text-foreground font-medium">{option.type}</span>
+              <span>|</span>
+              <span>{option.service}</span>
+              {option.formules && (
+                <>
+                  <span>|</span>
+                  <span className="italic">{option.formules} formules</span>
+                </>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+);
 
 export function BrandCarousel() {
   const [api, setApi] = useState<CarouselApi>();

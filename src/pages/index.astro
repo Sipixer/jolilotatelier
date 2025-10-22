@@ -14,6 +14,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { BrandCarousel } from "@/components/BrandCarousel";
+import { ImageCarousel } from "@/components/ImageCarousel";
 ---
 
 <Main title="Hello, Astro!">
@@ -57,6 +58,59 @@ import { BrandCarousel } from "@/components/BrandCarousel";
         </div>
       </div>
       <BrandCarousel client:load />
+    </div>
+    <div class="mt-16">
+      <ImageCarousel client:load />
+    </div>
+    <div class="flex xl:gap-x-16 flex-col xl:flex-row px-4 mt-16">
+      <div
+        class="flex justify-center xl:justify-start flex-col gap-5 px-4 pb-4 w-full"
+      >
+        <div class="gap-y-4 flex flex-col pb-6 max-w-[600px]">
+          <p class="uppercase text-xs">Jolilot | Agence créative lotoise</p>
+
+          <p class="larken font-thin text-4xl max-w-[350px]">
+            <strong>à qui s’adresse</strong>
+            l'accompagnement jolilot&nbsp;?
+          </p>
+          <p>
+            Depuis sa création en 2022, l’Agence a eu le plaisir d’accompagner
+            plus de 60 acteurs locaux et engagés.
+          </p>
+          <a class="flex items-start gap-2 hover:text-accent transition-all">
+            <p class="text-xs md:text-sm font-medium">
+              <HalfMoonIcon /> Entreprises établies, indépendants, associations,
+              artistes, collectivités, particuliers...
+            </p>
+          </a>
+          <div class="mt-4">
+            <Button variant="secondary" class="flex items-center gap-2">
+              <HalfMoonIcon />
+              contacter l’agence
+            </Button>
+          </div>
+        </div>
+      </div>
+      <div class="w-full my-auto text-sm">
+        <div class="border-t border-black">
+          {
+            [
+              "commercial",
+              "artisanal",
+              "touristique",
+              "artistique",
+              "associatif",
+            ].map((type, idx) => (
+              <div class="grid grid-cols-2 gap-x-8 border-b border-black ">
+                <p class="py-4 text-center">SECTEUR</p>
+                <p class="py-4 flex items-center gap-2 uppercase font-semibold">
+                  <HalfMoonIcon /> {type}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </div>
 </Main>
