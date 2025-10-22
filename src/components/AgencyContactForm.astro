@@ -177,10 +177,17 @@ import Input from './subcomponents/Input.astro';
         Accept: 'application/json',
       },
     })
-      .then((response) => {
-        alert('Merci pour votre message, nous vous recontacterons dans les plus brefs délais.');
+      .then(async (response) => {
+        const res = await response.json();
+        if (response.ok) {
+          alert('Merci pour votre message, nous vous recontacterons dans les plus brefs délais.');
+        } else {
+          console.error(res);
+          alert('Oups! Il y a eu un problème, merci de réessayer plus tard.');
+        }
       })
       .catch((error) => {
+        console.error(error);
         alert('Oups! Il y a eu un problème, merci de réessayer plus tard.');
       });
   }
